@@ -152,7 +152,13 @@
 					"name": "购物车",
 					"pathName": "pages/gouwuche/index",
 					"query": ""
-				}
+				},
+        {
+          "id": -1,
+          "name": "提交订单",
+          "pathName": "pages/submitorder/submitorder",
+          "query": ""
+        }
 			]
 		}
 	}

@@ -9,3 +9,12 @@
   width:28rpx;
   height:36rpx;
 }
+.submitorder_top_rightimg {
+  float:right;
+  width:16rpx;
+  height:36rpx;
+}
+.submitorder_top_cen {
+  float:left;
+  width:646rpx;
+}

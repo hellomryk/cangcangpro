@@ -19,6 +19,7 @@
         "pages/weidu/index",
         "pages/ps/index",
         "pages/baogao/baogao",
+        "pages/submitorder/submitorder",
         "pages/gouwuche/index"
     ],
     "window": {
