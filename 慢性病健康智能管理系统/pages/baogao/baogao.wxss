@@ -1,13 +1,13 @@
 /* pages/baogao/index.wxss */
 page{
-    overflow-y:visible!important;
+      overflow-y:visible!important;
        -webkit-overflow-scrolling: touch;
         overflow-scrolling: touch;
        margin-bottom: 25rpx;
 }
 .box_head{
     width:100%;
-    height: 430rpx;
+    height: 450rpx;
     background: #14C86C;
     font-size: 28rpx;
     color: #fff;
@@ -30,7 +30,7 @@ page{
      background: #14C86C;
      border-radius: 10rpx 10rpx 0 0;
      line-height: 90rpx;
-     font-size:34rpx;
+     font-size:32rpx;
      font-weight: 600; 
      color: #fff;
      text-indent: 15rpx;
@@ -62,14 +62,14 @@ height:auto;
     float: left;
         text-align: left;
         padding-left: 15rpx;
-        font-size: 28rpx;
-        color: #333;
+        font-size: 24rpx;
+        color: #141414;
 }
 .list_th .list_td{
     font-weight: 600; 
 }
 .list_tr .list_td{
-    color: #333;
+    color: #999;
 }
 .list_tr .list_td:nth-child(1){
     min-width: 35%;

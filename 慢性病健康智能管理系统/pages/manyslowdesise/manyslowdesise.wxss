@@ -9,12 +9,12 @@
 }
 .food_list_right_title {
   padding-top:10rpx;
-  color:#000;
-  font-size:26rpx;
+  color:#141414;
+  font-size:32rpx;
 }
 .food_list {
   padding-bottom: 20rpx;
-  border-bottom:2rpx #888 dashed;
+  border-bottom:2rpx #ddd dashed;
 }
 page {
   overflow-y: visible!important;

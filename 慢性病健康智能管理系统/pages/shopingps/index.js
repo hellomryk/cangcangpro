@@ -1,5 +1,5 @@
 // pages/shopingps/index.js
-var _this = null, url = 'http://192.168.1.107:8081';
+var _this = null, url = 'http://192.168.1.244:8081';
 Page({
 
   /**

@@ -8,8 +8,8 @@ function setOption(chart,list,data) {
         title: {
             text: '疾病排行',
             textStyle:{
-                fontSize: 15,
-                color: '#919aa4',
+                fontSize: 17,
+                color: '#141414',
             }
 
         },

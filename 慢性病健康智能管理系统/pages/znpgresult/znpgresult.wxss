@@ -16,7 +16,7 @@
   float:left;
   width:50%;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 32rpx;
   line-height:97rpx;
   color:#141414;
   border-bottom:1rpx solid #e6e6e6;
@@ -53,16 +53,16 @@
 }
 
 .pinggu_box_li_title {
-  font-size: 28rpx;
+  font-size: 32rpx;
   line-height: 66rpx;
-  color:#333333;
+  color:#141414;
   margin-top:20rpx;
   margin-left:32rpx;
 }
 .pinggu_box_li_content {
   margin-left:32rpx;
   margin-right:32rpx;
-  font-size: 27rpx;
+  font-size: 24rpx;
   line-height: 37rpx;
   color:#999999;
   display: block;
@@ -74,7 +74,7 @@
 }
 .pinggu_box_li_time {
   position: absolute;
-  font-size: 27rpx;
+  font-size: 24rpx;
   line-height: 37rpx;
   color:#999999;
   right:20rpx;

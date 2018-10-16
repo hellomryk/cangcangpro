@@ -567,8 +567,8 @@
   line-height: 30rpx;
 }
 .food_list_right_money {
-  font-size:25rpx;
-  color:#888;
+  font-size:24rpx;
+  color:#999;
   margin-top:10rpx;
 }
 .robot-sen_tip {

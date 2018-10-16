@@ -1,5 +1,5 @@
 // pages/shangcheng_list/index.js
-var _this = null, url ='http://192.168.1.107:8081';
+var _this = null, url ='http://192.168.1.244:8081';
 Page({
 
   /**
@@ -23,10 +23,10 @@ Page({
           { checked: false, id: "113", label: "按价格", value: 2 }
       ],
       listbox: [
-          { id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url:"/pics/shangpin.jpg"},
-          { id: "112", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" },
-          { id: "113", xianjia: 398, yuanjia: 408, baoyou: false, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg"},
-          { id: "114", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg"},
+          { id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url:"/pics/shangpin.jpg"},
+          { id: "112", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" },
+          { id: "113", xianjia: 398, yuanjia: 408, baoyou: false, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg"},
+          { id: "114", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg"},
          
       ],
   },

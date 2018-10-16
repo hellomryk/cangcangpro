@@ -18,7 +18,8 @@
                 <view class='clear'></view>
             </view>
             <view class='fangan_cont_list' >          
-                <view class='fangan_cont_ps'> <text class='ps_ai'>{{nametitle}}</text> {{nametext}}</view>
+                <!-- <view class='fangan_cont_ps'> <text class='ps_ai'>{{nametitle}}</text> </view> -->
+                <view class='fangan_cont_ps1'>{{nametext}}</view>
             </view>
         </view>
 
