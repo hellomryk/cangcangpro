@@ -39,7 +39,8 @@ Page({
     windowHeightChange:0,//控制聊天框的大小
     scrollTop:'',//滚动的高度
     array:[
-    ]
+    ],
+    chuanson:[]
   },
   bindChange: function (e) {
     const val = e.detail.value
@@ -177,8 +178,12 @@ siginuptab: function() {
 },
 //跳转到症状列表
 gotozhengzhuang() {
+  const selfPage = this;
+  console.log((selfPage.data.chuanson))
+  console.log(selfPage.data.username)
+  console.log(selfPage.data.openId)
   wx.navigateTo({
-    url: '/pages/xinzheng1/index',
+    url: '/pages/xinzheng1/index?sex=' + selfPage.data.chuanson[0] + '&age=' + selfPage.data.chuanson[1] + '&username=' + selfPage.data.username + '&openId=' + selfPage.data.openId,
   })
 },
 starttest() {
@@ -385,6 +390,13 @@ confirmbtn () {
                 console.log(data.data.prompt)
                 // console.log(data.data.prompt.split('['))
                 // console.log(JSON.parse("{'key':122}"))
+
+                var chuanson = selfPage.data.chuanson;
+                chuanson.push(selfPage.data.year)
+                selfPage.setData({
+                  chuanson: chuanson
+                })
+                console.log(selfPage.data.chuanson)
                 if (data.data.inputShow == 0) {
                   var arr = data.data.prompt.split('[')
                   var arr2 = arr[1].split("]")
@@ -404,7 +416,8 @@ confirmbtn () {
                     year: arr2[0].split(',')[0],
                     inputShow: data.data.inputShow,
                     windowHeightChange: 400,
-                    array: dataarray
+                    array: dataarray,
+                    chuanson: chuanson
                   })
                   console.log(arr2[0].split(','))
                 } else {

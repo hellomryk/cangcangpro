@@ -226,6 +226,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      console.log(111111111111111111111)
+      console.log(options.sex)
+      console.log(options.age)
+      console.log(options.username)
+      console.log(options.openId)
+      console.log(111111111111111111111)
         _this = this;
         wx.showLoading({
             title: '加载中',
