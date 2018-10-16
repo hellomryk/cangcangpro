@@ -1,1 +1,11 @@
 /* pages/submitorder/submitorder.wxss */
+.clearfix::after {
+  content:'';
+  clear: both;
+  display: block;
+}
+.submitorder_top_leftimg {
+  float:left;
+  width:28rpx;
+  height:36rpx;
+}

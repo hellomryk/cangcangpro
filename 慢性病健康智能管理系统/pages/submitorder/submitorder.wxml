@@ -1,3 +1,12 @@
 <!--pages/submitorder/submitorder.wxml-->
-
+<view>
+  <view class='submitorder_top clearfix'>
+      <image class='submitorder_top_leftimg' src='../../pics/dingwei.png'></image>
+      <view class='submitorder_top_cen'>
+          <view class='submitorder_top_cen_title'>华尊大厦</view>
+          <view class='submitorder_top_cen_address'>请填写您的收货信息</view>
+      </view>
+      <image src='../../pics/jiantouright.png' class='submitorder_top_rightimg'></image>
+  </view>
+</view>
 
