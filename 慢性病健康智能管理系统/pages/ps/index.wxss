@@ -1,0 +1,65 @@
+/* pages/ps/index.wxss */
+page{
+    background: #F6F6F6;
+}
+.box{
+    height: 100%;
+     overflow-x: hidden; 
+     overflow-y: auto; 
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    position: relative;
+}
+.list_ps{
+    width: 100%;
+    height: 36rpx;
+    line-height: 36rpx;
+    border-left:7rpx solid #14C86C;
+    font-size: 34rpx;
+    color: #14C86C;
+    text-indent: 15rpx;
+    margin:20rpx 30rpx;
+    box-sizing: border-box;
+}
+/* .list_ps text{
+  display: inline-block;
+  float: left;
+  width: 10rpx;
+  height: 36rpx;
+  background: #14C86C;
+  border-radius: 20%;
+} */
+.yiyuan_ps{
+    width: 92%;
+    margin: 0 auto;
+    padding: 25rpx 30rpx;
+    box-sizing: border-box;
+    background: #fff;
+    line-height: 40rpx;
+    margin-bottom:5rpx;
+
+}
+.yiyuan_ps image{
+    width:150rpx;
+    height: 150rpx;
+    border-radius: 10rpx;
+    float: left;
+    margin-right: 25rpx;
+}
+.name_ps{
+    font-size: 34rpx;
+    margin-bottom: 25rpx;
+
+}
+.ps_ps{
+     font-size: 28rpx;
+     color: #999999;
+}
+/* .text_ps{
+    color: #999999;
+    margin-left: 20rpx;
+} */
+.name_ps text:nth-child(2),.name_ps text:nth-child(3){
+    color: #999999;
+    margin-left: 20rpx;
+}
