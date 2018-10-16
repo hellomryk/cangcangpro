@@ -8,13 +8,87 @@
   float:left;
   width:28rpx;
   height:36rpx;
+  margin-top:50rpx;
+  margin-left:30rpx;
 }
 .submitorder_top_rightimg {
   float:right;
   width:16rpx;
   height:36rpx;
+  margin-top:54rpx;
+  margin-right:30rpx;
 }
 .submitorder_top_cen {
-  float:left;
+  /* float:left; */
   width:646rpx;
+  padding-top:20rpx;
+  margin-left:78rpx;
+}
+.submitorder_top_cen_title {
+  font-size:32rpx;
+  line-height: 53rpx;
+  color:#141414;
+}
+.submitorder_top_cen_address {
+  font-size:24rpx;
+  line-height: 53rpx;
+  color:#999999;
+}
+.submitorder_top {
+  width:100%;
+  height:137rpx;
+  background:#ffffff;
+  border-bottom: 1rpx dashed #1eda7a;
+}
+.submitorder_zong {
+  background:#f6f6f6;
+}
+.submitorder_cen {
+  background:#fff;
+}
+.submitorder_cen_title {
+  font-size:24rpx;
+  line-height: 82rpx;
+  color:#1eda7a;
+  margin-left:32rpx;
+}
+.submitorder_cen_listli_imgleft {
+  float: left;
+  width:168rpx;
+  height:131rpx;
+  margin-top: 34rpx;
+}
+.submitorder_cen_listli_right {
+  float:right;
+  margin:114rpx 46rpx 0 0;
+}
+.sclc_title {
+  font-size:32rpx;
+  line-height: 50rpx;
+  color:#141414;
+}
+.sclc_standard {
+  font-size:24rpx;
+  line-height: 50rpx;
+  color:#999999;
+}
+.sclc_money {
+  font-size:24rpx;
+  line-height: 60rpx;
+  color:#141414;
+}
+.submitorder_cen_listli_center {
+  margin-left:221rpx;
+}
+.submitorder_cen_listli {
+  height:190rpx;
+  border-top: 1rpx solid #e6e6e6;
+  margin-left:36rpx;
+}
+.submitorder_cen_listli_right {
+    font-size:24rpx;
+  color:#999999;
+}
+.submitorder_cen_listli:last-child {
+  border-bottom: none;
 }

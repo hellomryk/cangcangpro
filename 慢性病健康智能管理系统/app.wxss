@@ -7,3 +7,16 @@
   justify-content: center;
   box-sizing: border-box;
 } 
+.submitorder_top_cen {
+  margin-left:20rpx;
+}
+.submitorder_top_cen_title {
+  font-size:32rpx;
+  line-height: 53rpx;
+  color:#141414;
+}
+.submitorder_top_cen_address {
+  font-size:24rpx;
+  line-height: 53rpx;
+  color:#999999;
+}
