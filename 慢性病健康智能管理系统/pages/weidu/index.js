@@ -59,7 +59,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-        console.log(options.id)
+      console.log(11111)
+        console.log(options)
       _this = this;
       _this.setData({
           name: options.id
@@ -78,7 +79,6 @@ Page({
           method: "POST",
           success: function (res) {
               console.log(res.data)
-              console.log(res.data.base64)
               _this.setData({
                   ima: res.data.base64
               })
@@ -99,7 +99,6 @@ Page({
           method: "POST",
           success: function (res) {
               console.log(res.data)
-              console.log(res.data.dis_name)
               var arr = [], name = ['简介', '医保疾病', "易感人群",'患病比例', '传染方式', '常用检查', '症状表现', '并发疾病', '就诊科室', '治疗方式', '治疗周期', '治愈率', '常用药品', '治疗费用', '温馨提示', '病因', '预防', '并发症', '症状', '检查', '诊断鉴别', '治疗', '护理', '饮食保健', '宜吃食物', '忌吃食物', '推荐食谱'], ps = [ 'intro', 'medicalInsurance', 'SusceptiblePopulation', 'ProportionOfDisease', 'ModeOfInfection', 'CommonCheck', 'SymptomaticManifestation', 'ConcurrentDisease', 'Department', 'method', 'TreatmentCycle', 'cureRate', 'CommonlyUsedDrugs', 'CostOfTreatment', 'tip', 'Pathogeny', 'Prevention', 'Complication', 'Symptom', 'inspect', 'distinguish', 'Treatment', 'Nursing', 'DietaryHealthCare', 'EatFood', 'AvoidFood', 'RecommendedRecipes'];
               for (var s = 0; s < name.length;s++){
                   var o = res.data[ps[s]];

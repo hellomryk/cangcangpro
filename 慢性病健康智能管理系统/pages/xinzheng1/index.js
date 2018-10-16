@@ -112,6 +112,10 @@ Page({
         nub: 1,
         num: "主要",
         ayyr: [],
+        ayyr1: [],
+        ayyr2: [],
+        ayyr3: [],
+        ayyr4: {},
         allGoodsFilte: '',
         animation: '',//问题列表动画
         diseasename:'---',
@@ -124,7 +128,7 @@ Page({
     psname: function (e) {
         var name_bar = _this.data.diseasename;
         wx.navigateTo({
-            url: '../weidu/index?id=' + name_bar,
+            url: '../weidu/index?id=' + name_bar + '&zheng=' + _this.data.ayyr1 + '&jibing=' + _this.data.ayyr2 + '&bi=' + _this.data.ayyr3 + '&za=' + JSON.stringify(_this.data.ayyr4),
         })
     },
     serviceValChange: function (e) {
@@ -145,6 +149,7 @@ Page({
         
     },
     submit: function () {
+        console.log(1111)
         console.log(_this.data.ayyr)
         wx.showLoading({
             title: '加载中',
@@ -197,8 +202,13 @@ Page({
                 }
                 
                 console.log(ar)
+
            console.log(ay)
-            
+                _this.setData({
+                    ayyr2: ar,
+                    ayyr3: ay,
+
+                })
                 _this.ecComponent = _this.selectComponent('#mychart-dom-bar');
                 _this.ecComponent.init((canvas, width, height) => {
                     // 获取组件的 canvas、width、height 后的回调函数
@@ -226,13 +236,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      console.log(111111111111111111111)
-      console.log(options.sex)
-      console.log(options.age)
-      console.log(options.username)
-      console.log(options.openId)
-      console.log(111111111111111111111)
         _this = this;
+        _this.setData({
+            ayyr4: { 'sex': options.sex, 'age': options.age, 'username': options.username, 'openId': options.openId,}
+        })
+        console.log(options.sex)
+        console.log(options.age)
+        console.log(options.username)
+        console.log(options.openId)
         wx.showLoading({
             title: '加载中',
         })
@@ -377,13 +388,18 @@ Page({
 //取选中数组
 function ayyr() {
     var psal = [];
+    var psal1 = [];
     for (var i = 0; i < _this.data.allGoodsFilte.length; i++) {
         if (_this.data.allGoodsFilte[i].checked) {
-            psal.push(_this.data.allGoodsFilte[i].id )
+            psal.push(_this.data.allGoodsFilte[i].id );
+            psal1.push(_this.data.allGoodsFilte[i].label)
         }
     }
     _this.setData({
         ayyr: psal
+    })
+    _this.setData({
+        ayyr1: psal1
     })
     console.log(_this.data.ayyr)
     
