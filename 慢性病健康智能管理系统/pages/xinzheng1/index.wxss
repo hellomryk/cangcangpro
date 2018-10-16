@@ -13,15 +13,14 @@ page {
     overflow-scrolling: touch;
     position: relative;
 }
-.container {
-}
+
 
 .yuce_gailv {
     width: 100%;
     margin: 30rpx 0;
-    font-size: 30rpx;
+    font-size: 32rpx;
     padding: 0 30rpx;
-    color: #999;
+    color: #141414;
     box-sizing: border-box;
 }
 
@@ -54,9 +53,9 @@ page {
 }
 
 .yuce_gailv_con {
-    width: 80%;
-    font-size: 30rpx;
-    color: #919aa4;
+    width: 90%;
+    font-size: 24rpx;
+    color: #999;
     float: left;
 }
 
@@ -73,9 +72,9 @@ page {
     box-sizing: border-box;
     text-align: left;
     /* font-weight: 600; */
-    font-size: 30rpx;
+    font-size: 32rpx;
     padding-bottom: 0;
-    color: #919aa4;
+    color: #141414;
     border-top: 1px solid #ddd;
 }
 
@@ -91,9 +90,9 @@ page {
     border-radius: 8rpx;
     height: 65rpx;
     padding: 10rpx 20rpx;
-    font-size: 30rpx;
+    font-size: 24rpx;
     box-sizing: border-box;
-    color: #919aa4;
+    color: #999;
 }
 
 .service_selection .back {

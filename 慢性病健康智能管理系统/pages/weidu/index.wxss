@@ -22,7 +22,7 @@ page {
   position: relative;
   background-color: #FFFFFF;
   line-height: 1.41176471;
-  font-size: 28rpx;
+  font-size: 24rpx;
   transform: translateY(-50%);
   transition: .3s;
 }
@@ -82,8 +82,8 @@ page {
 }
 .kind-list-text{
   flex: 1;
-  color: #999;
-  font-size:34rpx;
+  color: #141414;
+  font-size:32rpx;
 
 }
 .kind-list-img {
@@ -103,7 +103,7 @@ page {
 .kind-list-item-bd {
   height: 0;
   padding: 0 20rpx;
-   color: #919aa4;
+   color: #999;
   overflow: hidden;
   text-indent: 50rpx;
 }
@@ -117,7 +117,7 @@ page {
 font-size:45rpx;
 text-align: left;
 /* margin-bottom:30rpx; */
-color:#9F8EBB;
+color:#141414;
 padding:50rpx 40rpx;
 box-sizing: border-box;
 
@@ -188,7 +188,7 @@ font-weight: 600;
      color: rgb(21, 200, 108);
      border-radius: 100rpx;
      margin-top:15rpx;
-     font-size: 34rpx;
+     font-size: 32rpx;
 }
 .anniu_box{
     width: 20%;

@@ -47,7 +47,7 @@ border-bottom:1px solid #E6E6E6;
     background: #fff;
 }
 .shoping_name{
-    font-size: 34rpx;
+    font-size: 32rpx;
     font-weight: 600;
     margin-bottom: 20rpx;
     color: #141414;
@@ -55,25 +55,25 @@ border-bottom:1px solid #E6E6E6;
 .shoping_ps{
         font-size: 24rpx;
     padding-bottom: 20rpx;
-    color: #141414;
+    color: #999;
 }
 .shoping_gg{
             font-size: 24rpx;
-        color: #666;
+        color: #999;
         padding-bottom: 20rpx;
 }
 .shoping_mn{
-    font-size: 40rpx;
+    font-size: 32rpx;
     color: #fd432a;
 }
 .shoping_mnx{
         font-size: 24rpx;
         text-decoration:line-through ;
-     color: #666;
+     color: #999;
      margin-left: 20rpx;
 }
 .shoping_xl{
-     color: #666;
+     color: #999;
      font-size: 24rpx;
      margin-left: 50%;
 }
@@ -86,8 +86,8 @@ border-bottom:1px solid #E6E6E6;
     background: #fff;
 }
 .sh_name,.sh_ps{
-    font-size: 28rpx;
-     color: #666;
+    font-size: 24rpx;
+     color: #999;
      display: inline-block;
      line-height: 40rpx;
       text-align: left;
@@ -95,7 +95,7 @@ border-bottom:1px solid #E6E6E6;
       line-height: 50rpx;
 }
 .sh_name{
-    width: 26%;
+    min-width: 20%;
     text-indent:-10rpx;
 }
 .sh_ps{
@@ -142,7 +142,7 @@ border-bottom:1px solid #E6E6E6;
     position: absolute;
     right:20rpx;
     top:15rpx;
-    font-size: 20rpx;
+    font-size: 24rpx;
 
 }
 .shoping_time{

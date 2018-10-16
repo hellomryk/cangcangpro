@@ -9,7 +9,7 @@ page {
   clear: both;
 }
 .history {
-  margin-bottom:50rpx;
+  margin-top:30rpx;
 }
 .history_left {
   width:107rpx;
@@ -18,8 +18,9 @@ page {
   color:#fff;
   /* background: green; */
   float:left;
-	background:-webkit-linear-gradient(left,#fff,#15c86c);
+ background: linear-gradient(90deg,rgb(173, 241, 199),#15c86c );
   margin-left: 28rpx;
+  margin-top: 20rpx;
 }
 .history_left_day {
   display:block;
@@ -37,21 +38,21 @@ page {
   width:545rpx;
   height:210rpx;
   border-radius: 32rpx;
-  background:#eff1ef;
+  background:#F6F6F6;
   margin-left:40rpx;
   position: relative;
 }
 .history_right_title {
-  font-size: 28rpx;
+  font-size: 32rpx;
   line-height: 66rpx;
-  color:#333333;
+  color:#141414;
   margin-top:20rpx;
   margin-left:32rpx;
 }
 .history_right_content {
   margin-left:32rpx;
   margin-right:32rpx;
-  font-size: 27rpx;
+  font-size: 24rpx;
   line-height: 37rpx;
   color:#999999;
   display: block;

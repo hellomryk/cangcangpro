@@ -40,7 +40,7 @@ overflow-y:visible!important;
     font-size: 45rpx;
     float: left;
     margin-bottom: 30rpx;
-    color: #777777;
+    color: #141414;
 }
 .fangan_cont_continer_h{
     width: 100%;
@@ -50,7 +50,7 @@ overflow-y:visible!important;
     background: #15c86c;
     border-radius: 10rpx;
     color: #fff;
-    font-size: 30rpx;
+    font-size: 32rpx;
     float: left;
 }
 .bingyin_text {
@@ -73,16 +73,24 @@ overflow-y:visible!important;
     
 }
 .fangan_cont_name{
-    font-size: 35rpx;
+    font-size: 32rpx;
     font-weight: 600;
-    color: #516B84;
+    color: #141414;
 }
 .fangan_cont_ps{
-    font-size: 28rpx;
-    margin: 20rpx 0;
-      color: #516B84;
+    font-size: 32rpx;
+    margin-top: 20rpx ;
+      color: #141414;
+}
+.fangan_cont_ps1{
+ font-size: 24rpx;
+    margin: 10rpx 0;
+      color: #999;
+      text-indent: 45rpx;
 }
 .ps_ai{
     font-weight:600;
     line-height: 60rpx;
+    font-size: 32rpx;
+
 }
