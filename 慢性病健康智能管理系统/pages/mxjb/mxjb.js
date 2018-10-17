@@ -1,32 +1,16 @@
 // pages/mxjb/mxjb.js
-const date = new Date()
-const years = []
-const months = []
-const days = []
+const date = new Date();
+const years = [];
+const months = [];
+const days = [];
+const gongyong ="http://192.168.1.111:8080";
 
-// for (let i = 1990; i <= date.getFullYear(); i++) {
-//   years.push(i)
-// }
-
-// for (let i = 1; i <= 12; i++) {
-//   months.push(i)
-// }
-
-// for (let i = 1; i <= 31; i++) {
-//   days.push(i)
-// }
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // years: years,
-    // year: date.getFullYear(),
-    // months: months,
-    // month: 2,
-    // days: days,
-    // day: 2,
     years: ["杨坤","王五","李兮兮"],
     year:'开始测评',//某一选项的内容
     siginup: "true", //登陆框消息
@@ -74,6 +58,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     const pageSelf = this;
     //计算屏幕高度
     wx.getSystemInfo({
@@ -99,7 +84,8 @@ Page({
                 username: res.userInfo.nickName
               })
               wx.request({
-                url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit',
+               
+                  url: gongyong+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorinit',
                 header: {
                   'content-type': "application/json"
                 },
@@ -206,8 +192,8 @@ starttest() {
             wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
-        // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+        // var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = gongyong +'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -229,8 +215,8 @@ starttest() {
             console.log("打印openid结束")
             wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
-            wx.request({
-              url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+            wx.request({ 
+                url: gongyong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs', 
               data: {
                 openid: obj.openid,
                 issue: encodeURI(selfPage.data.year)
@@ -355,8 +341,7 @@ confirmbtn () {
             wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
-        // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = gongyong +'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -379,7 +364,7 @@ confirmbtn () {
             wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({
-              url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+                url: gongyong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data: {
                 openid: obj.openid,
                 issue: encodeURI(selfPage.data.year)
@@ -567,16 +552,7 @@ confirmbtn () {
 function sendmessage_pub(selfPage) {
   var inputContent = selfPage.data.inputValue;
   if(inputContent != "") {
-  //   var obj = {
-  //     typeId:0,
-  //     message:inputContent
-  //   }
-  //  var dataarray = selfPage.data.array
-  //   dataarray.push(obj)
-    // selfPage.setData({
-    //   array:dataarray,
-    //   inputValue:''
-    // })
+
   }
 }
 //发送事件(带openid)封装
@@ -599,8 +575,8 @@ function sendmessage_pubId(selfPage) {
         });
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
-        // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l ='https://chronic.infobigdata.com/appletApi/getUserInfo'
+
+          var l = gongyong +'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -623,7 +599,7 @@ function sendmessage_pubId(selfPage) {
             wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({
-              url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+                url: gongyong+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data:{
                 openid: obj.openid,
                 issue: encodeURI(selfPage.data.inputValue)
