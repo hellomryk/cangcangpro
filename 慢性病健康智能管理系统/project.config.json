@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 21,
 			"list": [
 				{
 					"id": 0,
@@ -158,6 +158,12 @@
 					"name": "提交订单",
 					"pathName": "pages/submitorder/submitorder",
 					"query": ""
+				},
+				{
+					"id": 21,
+					"name": "推荐",
+					"pathName": "pages/ps/index",
+					"query": "name=支气管炎"
 				}
 			]
 		}

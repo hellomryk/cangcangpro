@@ -128,7 +128,7 @@ Page({
     psname: function (e) {
         var name_bar = _this.data.diseasename;
         wx.navigateTo({
-            url: '../weidu/index?id=' + name_bar + '&zheng=' + _this.data.ayyr1 + '&jibing=' + _this.data.ayyr2 + '&bi=' + _this.data.ayyr3 + '&za=' + JSON.stringify(_this.data.ayyr4),
+            url: '../weidu/index?id=' + name_bar + '&zheng=' + JSON.stringify(_this.data.ayyr1) + '&jibing=' + _this.data.ayyr2 + '&bi=' + _this.data.ayyr3 + '&za=' + JSON.stringify(_this.data.ayyr4),
         })
     },
     serviceValChange: function (e) {

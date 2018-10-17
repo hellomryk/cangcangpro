@@ -10,27 +10,7 @@ Page({
             data: {
                 animation: '',//问题列表动画
                 height:0,
-                list: {
-                    yiyuan: {
-                        images: '/pics/yiyuan.png',
-                        name: '北京仁和医院',
-                        page: '北京协和医院是一所位于北京市东城区，集医疗、科研、教学为一体的大型综合医院。它隶属于中国协和医科大学(2006年改为北京协和医学院/清华大学医学部)，是其的临床医学院，同时也是中国医学科学院的临床医学研究所，中华人民共和国卫生部指定的诊治疑难重症的技术指导中心之一。北京协和医院在中国乃至世界享有盛名。医院成立于1921年。现任院长赵玉沛。北京协和医院是中国最早承担外宾医疗任务的单位，医院专门设立外宾和高干门诊部，开设专门的高干、外宾、特需病区。2006年7月28日被中国奥委会定为“国家队运动员医疗服务指定医院”。'
-                    },
-                    yisheng: {
-                        images: '/pics/yisheng1.png',
-                        name: ['王振华', '呼吸内科', '主治医师', ],
-                        page: '擅长：呼吸系统疾病、糖尿病、肺癌、肿瘤、感冒、咽喉痛'
-                    },
-                    yaopin: [{
-                        images: '/pics/yaopin.png',
-                        name: '双药 麻杏止咳片 0.26g*24片',
-                        page: '麻杏止咳片，镇咳，祛痰，平喘。用于急、慢性支气管炎及喘息等。'
-                    }, {
-                        images: '/pics/yaopin.png',
-                        name: '双药 麻杏止咳片 0.26g*24片',
-                        page: '麻杏止咳片，镇咳，祛痰，平喘。用于急、慢性支气管炎及喘息等。'
-                    }]
-                }
+                list: {}
                 },
 
                 /**
@@ -47,7 +27,7 @@ Page({
                         ds = "#yaopin";
                     } 
                    
-                    console.log(options.id)
+                    console.log(options.name)
                     _this.setData({
                         ids: ds
                     })  
@@ -84,6 +64,45 @@ Page({
                         // })
                         
                           }).exec();
+
+
+
+                    wx.request({
+                        url: 'http://192.168.1.154:8080/newrobot5',
+                        data: {
+                            type: 4,
+                            dis_name: options.name
+
+                        },
+                        header: {
+                            'content-type': 'application/json' // 默认值
+                        },
+                        method: "POST",
+                        success: function (res) {
+                            console.log(res.data)
+                            var d = [];
+                            for (var s = 0; s < res.data.drug.length;s++){
+                                d.push ({
+                                    images: res.data.drug[s].pic,
+                                    name: res.data.drug[s].drugName,
+                                    page: res.data.drug[s].Indication
+                                })
+                            }
+                            var a = res.data.doctor.position.split("，") ;
+                            console.log(a)
+                            console.log(11111111)
+                            _this.setData({
+                                list: { yiyuan: { images: res.data.hospital.pic, name: res.data.hospital.hospitalName, page: res.data.hospital.intro},
+                               yisheng: {
+                                   images: res.data.doctor.photo,
+                                   name: [res.data.doctor.name, res.data.doctor.department, a[0],],
+                                   page: '擅长：'+res.data.doctor.BeGoodAt
+                                    },  
+                                    yaopin: d
+                                }
+                            })
+                        }
+                    })
                 },
 
                 /**
