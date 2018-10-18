@@ -32,7 +32,7 @@ Page({
     console.log(options)
     _this = this;
     wx.request({
-      url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report',
+      url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report',
       data: {
         recordid:encodeURI(options.bid),
         openid:encodeURI(options.bopenid)
@@ -42,6 +42,10 @@ Page({
       },
       method: "get",
       success: function (res) {
+        console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+        console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+        console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+        console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
         console.log(res.data)
         var bean = JSON.parse(res.data.data);
         console.log(bean)
