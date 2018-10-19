@@ -6,14 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      checkboxItems: [
-          { name: 'USA', value: '感冒灵颗粒(999)', ps: "哈哈哈哈啊哈哈哈", yuanjia: '13.00', xianjia: "10.00", Number:3},
-          { name: 'CHN', value: '感冒灵颗粒(999)', ps: "哈哈哈哈啊哈哈哈", yuanjia: '13.00', xianjia: "10.00", Number: 3},
-          { name: 'BRA', value: '感冒灵颗粒(999)', ps: "哈哈哈哈啊哈哈哈", yuanjia: '13.00', xianjia: "10.00", Number: 3},
-          { name: 'JPN', value: '感冒灵颗粒(999)', ps: "哈哈哈哈啊哈哈哈", yuanjia: '13.00', xianjia: "10.00", Number: 3},
-          { name: 'ENG', value: '感冒灵颗粒(999)', ps: "哈哈哈哈啊哈哈哈", yuanjia: '13.00', xianjia: "10.00", Number: 3},
-          { name: 'TUR', value: '感冒灵颗粒(999)', ps: "哈哈哈哈啊哈哈哈", yuanjia: '13.00', xianjia: "10.00", Number: 3},
-      ],
+      checkboxItems: [],
       box:false,
       money:0,//实付
       num: 0,//去结算
@@ -35,7 +28,7 @@ Page({
         for (var i = 0; i < _this.data.checkboxItems.length; i++) {        
             if (_this.data.box) {
                 changed['checkboxItems[' + i + '].checked'] = true;
-                mon = Number(_this.data.checkboxItems[i].xianjia) + mon;
+                mon = Number(_this.data.checkboxItems[i].xianjia) * Number(_this.data.checkboxItems[i].Number) + mon;
                
             } else {
                 changed['checkboxItems[' + i + '].checked'] = false;
@@ -58,18 +51,76 @@ Page({
         _this.setData(changed);
         _this.setData({money:mon})
     },
-    jian:function(){
+    jian:function(e){
+        var sv = _this.data.checkboxItems[e.currentTarget.id].Number;
+        console.log(sv)
+        if (sv>1){
+            _this.data.checkboxItems[e.currentTarget.id].Number = sv - 1;
+            _this.setData({
+                checkboxItems: _this.data.checkboxItems
+            })
+            var m = 0;
+            for (var s = 0; s < _this.data.checkboxItems.length; s++) {
+                if (_this.data.checkboxItems[s].checked) {
+                    m = Number(_this.data.checkboxItems[s].xianjia) * Number(_this.data.checkboxItems[s].Number) + m;
+                }
 
+            }
+            _this.setData({ money: m });
+        } else if (sv = 1){
+            wx.showModal({
+                title: "提示",
+                content: "亲，确认要删除这个商品吗？",
+                showCancel: true,
+                cancelText: "取消",
+                cancelColor: "#000",
+                confirmText: "确定",
+                confirmColor: "#15c86c",
+                success: function (res) {
+                    console.log(res)
+                    if (res.confirm) {
+                      var arr=[];
+                        for (var s = 0; s < _this.data.checkboxItems.length;s++){
+                            if (s != e.currentTarget.id){
+                                arr.push(_this.data.checkboxItems[s])
+                            }
+                            
+                        }
+                        console.log(arr)
+                        _this.setData({
+                            checkboxItems: arr
+                        })
+                    }
+                }
+            })
+        }
+      
     },
-    jia: function () {
+    jia: function (e) {
+        var sv = _this.data.checkboxItems[e.currentTarget.id].Number;
+        console.log(sv)
+            _this.data.checkboxItems[e.currentTarget.id].Number = sv + 1;
+            _this.setData({
+                checkboxItems: _this.data.checkboxItems
+            })
+            var m = 0;
+        for (var s = 0; s < _this.data.checkboxItems.length; s++) {
+            if (_this.data.checkboxItems[s].checked) {
+                m = Number(_this.data.checkboxItems[s].xianjia) * Number(_this.data.checkboxItems[s].Number) + m;
+            }
 
+        }
+        _this.setData({ money: m });
     },
     checkboxChange: function (e) {
         var checked = e.detail.value, changed = {},mon1=0,s=0;
+        console.log(checked )
+        
+        console.log(_this.data.checkboxItems[0].name)
         for (var i = 0; i < _this.data.checkboxItems.length; i++) {
             if (checked.indexOf(_this.data.checkboxItems[i].name) !== -1) {
                 changed['checkboxItems[' + i + '].checked'] = true;
-                mon1 = Number(_this.data.checkboxItems[i].xianjia) + mon1;
+                mon1 = Number(_this.data.checkboxItems[i].xianjia) * Number(_this.data.checkboxItems[i].Number) + mon1;
                 s++;
             } else {
                 changed['checkboxItems[' + i + '].checked'] = false
@@ -77,7 +128,7 @@ Page({
         }
         _this.setData(changed);
         _this.setData({ money: mon1 });
-        _this.setData({num: s})
+        _this.setData({num: s});
 
     },
 
@@ -86,6 +137,28 @@ Page({
    */
   onLoad: function (options) {
       _this = this;
+      wx.request({
+          url: 'http://192.168.1.243:8081/cart/myCart',
+          data: {
+              userId: options.id
+          },
+          header: {
+              'content-type': 'application/json' // 默认值
+          },
+        //   method: "POST",
+          success: function (res) {
+              console.log(res.data)
+             console.log(res.data.data)
+             var ar=[];
+              for (var s = 0; s < res.data.data.length;s++){
+                  ar.push({ name: res.data.data[s].goodId +"", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount })
+       }
+             _this.setData({ checkboxItems: ar });
+          }
+      })
+
+
+      
   },
 
   /**

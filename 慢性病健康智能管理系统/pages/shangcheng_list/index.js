@@ -10,24 +10,13 @@ Page({
       orderBy_top:'',
       topId:173,
       list: [
-          { checked: true, id: "111", label: "全部产品", value: 0 },
-          { checked: false, id: "112", label: "艾灸与热敷", value: 1 },
-          { checked: false, id: "113", label: "苗乡三七", value: 2 },
-          { checked: false, id: "114", label: "胃肠调理", value: 3 },
-          { checked: false, id: "115", label: "贵宾服务卡", value: 4 },
-          { checked: false, id: "116", label: "三高调节", value: 5 },
           ],
       list1: [
           { checked: true, id: "111", label: "综合排序", value: 0 },
           { checked: false, id: "112", label: "按销量", value: 1 },
           { checked: false, id: "113", label: "按价格", value: 2 }
       ],
-      listbox: [
-          { id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url:"/pics/shangpin.jpg"},
-          { id: "112", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" },
-          { id: "113", xianjia: 398, yuanjia: 408, baoyou: false, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg"},
-          { id: "114", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg"},
-         
+      listbox: [        
       ],
   },
     kindToggle: function (e) {

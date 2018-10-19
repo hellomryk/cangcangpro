@@ -1,12 +1,11 @@
 // pages/receiptinformation/receiptinformation.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    getRemarkVal:'',//备注输入内容
-    getPhoneVal: '',//手机号输入内容
-    getAddressVal: '',//地址输入内容
+
   },
 
   /**
@@ -15,27 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  //获取备注输入内容
-  getRemark(e) {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      getRemarkVal:value
-    }) 
-  },
-  //获取手机号输入内容
-  getPhone(e) {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      getPhoneVal:value
-    })
-  },
-  //获取详细地址输入内容
-  getAddress(e) {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      getAddressVal:value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
