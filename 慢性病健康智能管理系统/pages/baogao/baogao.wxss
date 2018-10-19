@@ -71,11 +71,11 @@ height:auto;
 .list_tr .list_td{
     color: #999;
 }
-.list_tr .list_td:nth-child(1){
+.list_tr .list_td:nth-child(odd){
     min-width: 35%;
 }
-.list_tr .list_td:nth-child(2){
-    min-width: 10%;
+.list_tr .list_td:nth-child(even){
+    min-width: 60%;
 }
 .list_th .list_td:nth-child(1){
     min-width: 35%;

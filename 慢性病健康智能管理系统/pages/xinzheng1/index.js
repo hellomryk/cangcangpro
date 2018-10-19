@@ -97,7 +97,7 @@ function setOption(chart,list,data) {
     chart.on('click', function (params) {
         var name_bar = params.name;
         wx.navigateTo({
-            url: '../weidu/index?id=' + name_bar,
+            url: '../weidu/index?id=' + name_bar + '&zheng=' + JSON.stringify(_this.data.ayyr1) + '&jibing=' + _this.data.ayyr2 + '&bi=' + _this.data.ayyr3 + '&za=' + JSON.stringify(_this.data.ayyr4),
         })
         console.log(params.name)
     })

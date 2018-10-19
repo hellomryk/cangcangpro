@@ -3,7 +3,7 @@ const date = new Date();
 const years = [];
 const months = [];
 const days = [];
-const gongyong ="http://192.168.1.111:8080";
+const gongyong ="https://chronic.infobigdata.com";
 
 Page({
 
