@@ -67,8 +67,11 @@ Page({
           _this.setData({
             userId: res.data.data
           })
+            console.log(546656664)
+            console.log(res)
+            const id = res.data.data
           wx.request({
-            url: '/pages/shopingps/index?userId=' + res.data.data,
+              url: '/pages/shopingps/index?id=' + id,
           })
         }
       }

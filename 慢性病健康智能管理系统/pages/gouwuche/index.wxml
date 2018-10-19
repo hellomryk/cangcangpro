@@ -30,7 +30,7 @@
 
 
 
-
+ 
 
 <view class='footer_gouwu'>
 <view class='footer_list' bindtap='boxchen'><image src='/pics/{{box ? "zhong.png": "buzhong.png"}}' class="footer_box"></image><text style=" font-size: 24rpx;margin-left:20rpx;margin-right:35rpx;">全选</text></view>
@@ -38,5 +38,5 @@
       <view class='footer_jia' style=" font-size: 32rpx;margin-top:14rpx;">实付：¥{{money}}</view>
        <view class='footer_jia'  style=" font-size: 24rpx;color:#999;">优惠:¥0.00</view>
 </view>
-<view class='footer_right'>去结算({{num}})</view>
+<view class='footer_right' bindtap='zhifu'>去结算({{num}})</view>
 </view>
