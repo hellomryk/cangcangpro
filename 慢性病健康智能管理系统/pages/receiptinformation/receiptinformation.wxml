@@ -20,6 +20,6 @@
     <input class='submitorder_remark_input' placeholder='例:1号楼3单元502室' type='text' bindinput="getAddress" value='{{getAddressVal}}'></input>
   </view>
   <view class='receipt_save'>
-    保存
+    保存地址
   </view>
 </view>

@@ -1,5 +1,5 @@
 // pages/shangcheng_list/index.js
-var _this = null, url ='http://192.168.1.244:8081';
+var _this = null, url ='http://192.168.1.245:8081';
 Page({
 
   /**
@@ -48,7 +48,7 @@ Page({
         });
          if(id == 211314) {
            wx.request({
-             url: url + '/freeter-api/good/getGoodSearchAll',
+             url: url + '/good/getGoodSearchAll',
              data: {
                orderBy:'sale'
              },
@@ -79,7 +79,7 @@ Page({
            })
         } else {
            wx.request({
-             url: url + '/freeter-api/good/getGoodSearchAll',
+             url: url + '/good/getGoodSearchAll',
              data: {
                categoryId: _this.data.topId
              },
@@ -141,7 +141,7 @@ Page({
       console.log(_this.data.topId)
       console.log(_this.data.orderBy_top)
       wx.request({
-        url: url + '/freeter-api/good/getGoodSearchAll',
+        url: url + '/good/getGoodSearchAll',
         data: {
           categoryId: _this.data.topId,
           orderBy: _this.data.orderBy_top
@@ -205,7 +205,7 @@ Page({
 
     // 查分类
       wx.request({
-        url: url +'/freeter-api/category/search',
+        url: url +'/category/search',
           data: {
               type:2
           },
@@ -235,7 +235,7 @@ Page({
 
      // 查商品
     wx.request({
-      url: url + '/freeter-api/good/getGoodSearchAll',
+      url: url + '/good/getGoodSearchAll',
       data: {
         orderBy: 'sale'
       },

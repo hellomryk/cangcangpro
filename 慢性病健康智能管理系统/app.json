@@ -21,7 +21,8 @@
     "pages/baogao/baogao",
     "pages/submitorder/submitorder",
     "pages/gouwuche/index",
-    "pages/receiptinformation/receiptinformation"
+    "pages/receiptinformation/receiptinformation",
+    "pages/signup/signup"
   ],
   "window": {
     "backgroundTextStyle": "black",
