@@ -8,19 +8,20 @@
       <view class="label-1__icon">
         <image src='/pics/{{item.checked ? "zhong.png": "buzhong.png"}}' class="label-1__icon-checked"></image>
       </view>
-      <image src="/pics/litu.png" class='ima_sp'></image>
+        </label>
+      <image src="{{item.image}}" class='ima_sp'></image>
       <view class="label-1__text">{{item.value}}</view>
       <view class="label-2__text">{{item.ps}}</view>
       <view class="label-3__text"> 
                  <text class='xianjia'>¥{{item.xianjia}}</text>
                  <text class='yuanjia'>¥{{item.yuanjia}}</text>
                  <view class='jiajian'>
-                        <image src='/pics/jian.png' bindtap='jian'></image>
+                        <image src='/pics/jian.png' bindtap='jian' id="{{index}}"></image>
                         <text>{{item.Number}}</text>
-                        <image src='/pics/jia.png' bindtap='jia'></image>  
+                        <image src='/pics/jia.png' bindtap='jia' id="{{index}}"></image>  
                  </view>
         </view>
-    </label>
+  
   </view>
 
 

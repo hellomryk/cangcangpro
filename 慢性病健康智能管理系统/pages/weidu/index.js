@@ -71,7 +71,7 @@ Page({
       bean1=bean1.join("、")
       console.log(bean1)
       wx.request({
-          url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+          url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
           data: {
               issue: encodeURI("保存问诊"),
               openid: encodeURI(bean.openId),

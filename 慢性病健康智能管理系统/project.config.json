@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx84cae8ce6e9453d4",
-	"projectname": "%E6%85%A2%E6%80%A7%E7%97%85%E5%81%A5%E5%BA%B7%E6%99%BA%E8%83%BD%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9Fbox",
+	"projectname": "%E6%85%A2%E6%80%A7%E7%97%85%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 19,
 			"list": [
 				{
 					"id": 0,
@@ -136,7 +136,7 @@
 					"query": ""
 				},
 				{
-					"id": 17,
+					"id": -1,
 					"name": "商品详情",
 					"pathName": "pages/shopingps/index",
 					"query": ""
@@ -148,10 +148,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 19,
 					"name": "购物车",
 					"pathName": "pages/gouwuche/index",
-					"query": ""
+					"query": "id=1"
 				},
 				{
 					"id": -1,
@@ -167,20 +167,8 @@
 				},
 				{
 					"id": -1,
-					"name": "填写收货信息",
-					"pathName": "pages/receiptinformation/receiptinformation",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "商品详情",
-					"pathName": "pages/signup/signup",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "登录页面",
-					"pathName": "pages/signup/signup",
+					"name": "添加地址",
+					"pathName": "pages/tianjiadizhi/index",
 					"query": ""
 				}
 			]

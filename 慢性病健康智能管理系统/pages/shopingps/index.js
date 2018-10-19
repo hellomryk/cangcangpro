@@ -1,5 +1,5 @@
 // pages/shopingps/index.js
-var _this = null, url = 'http://192.168.1.245:8081';
+var _this = null, url = 'http://192.168.1.243:8081';
 Page({
 
   /**
@@ -131,6 +131,7 @@ Page({
               })
           }
       })
+
   },
 
   /**
@@ -151,7 +152,9 @@ Page({
               console.log(res)
           }
       })
+
   },
+
   /**
    * 生命周期函数--监听页面显示
    */
