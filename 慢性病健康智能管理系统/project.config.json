@@ -167,9 +167,8 @@
 				},
 				{
 					"id": -1,
-					"name": "添加地址",
-					"pathName": "pages/tianjiadizhi/index",
-					"query": ""
+					"name": "填写收货信息",
+					"pathName": "pages/receiptinformation/receiptinformation"
 				}
 			]
 		}
