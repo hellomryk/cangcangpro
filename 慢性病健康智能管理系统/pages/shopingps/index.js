@@ -1,5 +1,5 @@
 // pages/shopingps/index.js
-var _this = null, url = 'http://192.168.1.244:8081';
+var _this = null, url = 'http://192.168.1.245:8081';
 Page({
 
   /**
@@ -71,7 +71,7 @@ Page({
       })
       // 查详情
       wx.request({
-          url: url + '/freeter-api/good/getGoodDetailAll',
+          url: url + '/good/getGoodDetailAll',
           data: {
               goodId: options.id
           },
@@ -95,7 +95,7 @@ Page({
 
       // 查规格
       wx.request({
-          url: url + '/freeter-api/goodspecvalue/getSpecNameValueListByGoodId',
+          url: url + '/goodspecvalue/getSpecNameValueListByGoodId',
           data: {
               goodId: options.id
           },
@@ -116,7 +116,7 @@ Page({
 
       // 查说明书
       wx.request({
-          url: url + '/freeter-api/goodparameter/Model',
+          url: url + '/goodparameter/Model',
           data: {
               goodId: options.id
           },
@@ -131,7 +131,6 @@ Page({
               })
           }
       })
-
   },
 
   /**
@@ -152,9 +151,7 @@ Page({
               console.log(res)
           }
       })
-
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
