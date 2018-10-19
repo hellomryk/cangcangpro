@@ -1,5 +1,7 @@
 // pages/shopingps/index.js
-var _this = null, url = 'http://192.168.1.245:8081';
+var _this = null, url = 'http://192.168.1.243:8081';
+const secret = "fbcbe7d366db91e06e5ca38b923dd495";
+const appid = "wx84cae8ce6e9453d4";
 Page({
 
   /**
@@ -29,7 +31,8 @@ Page({
       specValue1: '',//规格数量
       count: 0,//购物车数量
       cont: 0,//销售量
-
+      openId: '',//小程序openid
+      userId:'',//登陆后的id
   },
     swiperChange: function (e) {
         // console.log(123);
@@ -39,6 +42,39 @@ Page({
         })
     },
     touchOnGoods:function(){
+      const _this = this;
+      console.log(_this.data.openId)
+      //判断是后登陆开始
+        wx.request({
+          url: url+'/login/validation',
+          data: {
+            weixinId: _this.data.openId,
+          },
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          success(res) {
+              console.log(res)
+              if(res.data.code == 500) {
+                console.log("没有注册过")
+                wx.navigateTo({
+                  url:'/pages/signup/signup'
+                })
+              } else {
+                _this.setData({
+                    userId:res.data.data
+                })
+                wx.navigateTo({
+                  url:'/pages/gouwuche/index?userId='+_this.userId
+                })
+                console.log("注册过了")
+              }
+          }
+        })
+
+      //判断是后登陆开始
+
         _this.setData({
             count: _this.data.count+1
         })
@@ -47,6 +83,7 @@ Page({
             icon: 'none',
             duration: 600
         })
+        
         // _this.setData({
         //     hide_good_box: false
         // })
@@ -67,8 +104,9 @@ Page({
   onLoad: function (options) {
       _this=this;
       _this.setData({
-          id: options.id
+          id: options.id,
       })
+
       // 查详情
       wx.request({
           url: url + '/good/getGoodDetailAll',
@@ -156,7 +194,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const _this = this;
+    getOpenId(_this)
   },
 
   /**
@@ -194,3 +233,45 @@ Page({
 
   }
 })
+
+function getOpenId(_this) {
+  // 获取小程序id开始
+  var user = wx.getStorageSync('user') || {};
+  var userInfo = wx.getStorageSync('userInfo') || {};
+  wx.login({
+    success: function (res) {
+      if (res.code) {
+        wx.getUserInfo({
+          success: function (res) {
+            var objz = {};
+            objz.avatarUrl = res.userInfo.avatarUrl;
+            objz.nickName = res.userInfo.nickName;
+            wx.setStorageSync('userInfo', objz); //存储userInfo
+          }
+        });
+        var l = url + '/weixin/getWeixinInfo'
+        wx.request({
+          url: l,
+          data: {
+            code: res.code,
+            appid: appid,
+            secret: secret
+          },
+          method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+          success: function (res) {
+            console.log(JSON.parse(res.data.data).openid)
+            _this.setData({
+              openId: JSON.parse(res.data.data).openid
+            })
+            console.log("打印openid结束")
+            // wx.setStorageSync('user', obj); 
+            //存储openid 
+          }
+        });
+      } else {
+        console.log('获取用户登录态失败！' + res.errMsg)
+      }
+    }
+  });
+  //获取小程序id结束
+}

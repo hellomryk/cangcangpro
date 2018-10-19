@@ -1,5 +1,5 @@
 // pages/signup/signup.js
-const url = "http://192.168.1.245:8081";
+const url = "http://192.168.1.243:8081";
 const secret = "fbcbe7d366db91e06e5ca38b923dd495";
 const appid = "wx84cae8ce6e9453d4";
 
@@ -12,6 +12,8 @@ Page({
     getSignPhoneVal:'',//手机号码
     getSignIdentifyVal:'',//获取验证码
     openId:'',//小程序openid
+    signUpStatus:'0',//登陆状态0未登录1登陆后
+    userId:'',//登陆id
   },
 
   /**
@@ -38,17 +40,37 @@ Page({
 
   signup() {
     const _this = this;
+    console.log(_this.data.getSignPhoneVal)
+    console.log(_this.data.openId)
     wx.request({
       url:url+'/register3',
       data: {
         phone: _this.data.getSignPhoneVal,
         // password:,
-        weixinId: _this.data.openId,
+        weixinId: _this.data.openId
       },
-      method:'get',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
       success(res) {
         console.log("成功")
         console.log(res)
+        // 把登陆状态存储起来-start
+        var Num= this.data.signUpStatus;
+        wx.setStorage({ //存储到本地
+          key: 'signUpStatus',
+          data: Num,
+        })
+        // 把登陆状态存储起来-end
+        if(res.data.code == 0) {
+          _this.setData({
+            userId: res.data.data
+          })
+          wx.request({
+            url: '/pages/shopingps/index?userId=' + res.data.data,
+          })
+        }
       }
     })
   },

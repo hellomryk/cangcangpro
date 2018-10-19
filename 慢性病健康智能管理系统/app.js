@@ -14,7 +14,6 @@ App({
     UTIL.log('App Launch')
     this.updateUserLocation()
   },
-
   updateUserLocation: function() {
     var that = this
     wx.getLocation({

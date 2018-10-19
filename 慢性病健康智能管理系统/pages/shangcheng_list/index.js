@@ -1,5 +1,5 @@
 // pages/shangcheng_list/index.js
-var _this = null, url ='http://192.168.1.245:8081';
+var _this = null, url ='http://192.168.1.243:8081';
 Page({
 
   /**
