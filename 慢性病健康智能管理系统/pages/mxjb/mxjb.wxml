@@ -2,7 +2,7 @@
 <!-- 外窗结束 -->
 <view class="y-talk-box-content clearfix">
   <view class="y-talk-box-content-left">
-    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" class="y-talk-box-content-left-top" id="y-talk-box-content-left-top" style='height:{{windowHeight-windowHeightChange-85}}rpx;'>
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" class="y-talk-box-content-left-top" id="y-talk-box-content-left-top" style='height:{{windowHeight-windowHeightChange}}rpx;'>
       <view class="container_innerHeight">
         <!-- 中间对话区域对话遍历开始 -->
         <view wx:for-items="{{array}}">
@@ -29,7 +29,7 @@
             <view class='mxjb_robot_starttest'>
               <text class='mxjb_robot_starttest_text'>{{item.welcomeuser}}</text>
               <view class='starttest startborder' bindtap="starttest">→{{item.starttest}}</view>
-              <view class='starttest'>→{{item.lookhistory}}</view>
+              <!-- <view class='starttest'>→{{item.lookhistory}}</view> -->
             </view>
           </view>
           <view style="clear:both;"></view>
@@ -105,8 +105,8 @@
   </picker-view>
   <view class='slide_select_confim' bindtap="confirmbtn">确认</view>
 </view>
-<view class='mxjb_text_write' wx:if="{{inputShow == 1}}">
+<!-- <view class='mxjb_text_write' wx:if="{{inputShow == 1}}">
   <input type='text' placeholder="请输入您的症状,譬如头晕,恶心,发热..." class='mxjb_text_write_input' value="{{inputValue}}" name="shuru" bindinput='catchMessage' bindconfirm="submitMessage" cursor-spacing='20'></input>
-</view>
+</view> -->
 <!-- <input value='发送' bindtap="sendmsg" type="button"></input> -->
 <button  bindtap="sendmsg" style='display:none;'>发送</button>
