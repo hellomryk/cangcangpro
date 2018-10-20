@@ -31,7 +31,7 @@
         </view>
 
         <view class='sp_submit'>
-        <view class='sp_go'>
+        <view class='sp_go' bindtap="gotogoodlist">
         <image src='/pics/gwc.png'></image>
         <view class='dou_num' wx:if="{{count > 0}}">{{count}}</view>
         </view>

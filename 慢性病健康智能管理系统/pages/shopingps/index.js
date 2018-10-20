@@ -33,6 +33,7 @@ Page({
       cont: 0,//销售量
       openId: '',//小程序openid
       userId:'',//登陆后的id
+      specStr:'',//商品类别id
   },
     swiperChange: function (e) {
         // console.log(123);
@@ -41,48 +42,70 @@ Page({
             index: e.detail.current   //获取当前轮播图片的下标
         })
     },
+    // 跳转到购物列表页面开始
+  gotogoodlist() {
+    const _this = this;
+    console.log(_this.data.openId)
+    //判断是后登陆开始
+    wx.request({
+      url: url + '/login/validation',
+      data: {
+        weixinId: _this.data.openId,
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      success(res) {
+        console.log(res)
+        if (res.data.code == 500) {
+          console.log("没有注册过")
+          wx.navigateTo({
+            url: '/pages/signup/signup'
+          })
+        } else {
+          _this.setData({
+            userId: res.data.data
+          })
+          wx.navigateTo({
+            url: '/pages/gouwuche/index?userId=' + _this.userId
+          })
+          console.log("注册过了")
+        }
+      }
+    })
+    //判断是后登陆结束
+  },
     touchOnGoods:function(){
       const _this = this;
-      console.log(_this.data.openId)
-      //判断是后登陆开始
-        wx.request({
-          url: url+'/login/validation',
-          data: {
-            weixinId: _this.data.openId,
-          },
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          method: "POST",
-          success(res) {
-              console.log(res)
-              if(res.data.code == 500) {
-                console.log("没有注册过")
-                wx.navigateTo({
-                  url:'/pages/signup/signup'
-                })
-              } else {
-                _this.setData({
-                    userId:res.data.data
-                })
-                wx.navigateTo({
-                  url:'/pages/gouwuche/index?userId='+_this.userId
-                })
-                console.log("注册过了")
-              }
-          }
-        })
-
-      //判断是后登陆开始
-
-        _this.setData({
-            count: _this.data.count+1
-        })
-        wx.showToast({
+      wx.request({
+        url: url +'/cart/add',
+        data:{
+          userId:_this.data.userId,
+          goodId: _this.data.id,
+          buyNumber:1,
+          specStr: _this.data.specStr
+        },
+        method:"POST",
+        // header:{
+        //   'Content-Type': 'application/x-www-form-urlencoded'
+        // },
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success(res) {
+          console.log(res)
+          _this.setData({
+            count: _this.data.count + 1
+          })
+          wx.showToast({
             title: '添加成功！',
             icon: 'none',
             duration: 600
-        })
+          })
+        }
+      })
+
         
         // _this.setData({
         //     hide_good_box: false
@@ -143,6 +166,8 @@ Page({
           //   method: "POST",
           success: function (res) {
             //   console.log(res.data.data)
+            console.log("查规格")
+            console.log(res)
               _this.setData({
                   specName: res.data.data[0].specName,
                   specValue: res.data.data[0].mapList[0].specValue,
@@ -150,6 +175,26 @@ Page({
                   specValue1: res.data.data[1].mapList[0].specValue
               })
           }
+      })
+      // 查规格的id
+      wx.request({
+        url: url+'/goodspecvalue/getSpecByGoodId',
+        data: {
+          goodId:options.id
+        },
+        method: "GET",
+        success(res) {
+          console.log("查商品id")
+          console.log(res)
+          console.log(res.data.goodSpecValueList)
+          var arr = [];
+          for (var i = 0; i < res.data.goodSpecValueList.length; i ++) {
+            arr.push(res.data.goodSpecValueList[i].id)
+          }
+          _this.setData({
+            specStr: arr.join(",")
+          })
+        }
       })
 
       // 查说明书
