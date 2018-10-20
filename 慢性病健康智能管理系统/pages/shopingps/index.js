@@ -95,31 +95,41 @@ Page({
         },
         success(res) {
           console.log(res)
-          _this.setData({
-            count: _this.data.count + 1
+          //判断是后登陆开始
+          wx.request({
+            url: url + '/login/validation',
+            data: {
+              weixinId: _this.data.openId,
+            },
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method: "POST",
+            success(res) {
+              console.log(res)
+              if (res.data.code == 500) {
+                console.log("没有注册过")
+                wx.navigateTo({
+                  url: '/pages/signup/signup'//(没有登录跳到注册页面)
+                })
+              } else {
+                _this.setData({
+                  userId: res.data.data,
+                  count: _this.data.count + 1
+                })
+                wx.showToast({
+                  title: '添加成功！',
+                  icon: 'none',
+                  duration: 600
+                })
+                console.log("注册过了")
+              }
+            }
           })
-          wx.showToast({
-            title: '添加成功！',
-            icon: 'none',
-            duration: 600
-          })
+
+      //判断是后登陆开始
         }
       })
-
-        
-        // _this.setData({
-        //     hide_good_box: false
-        // })
-        // //展示
-        // _this.animation.translateY(350).step({ duration: 400 }); 
-
-        // _this.setData({
-        //     //输出动画
-        //     animation: _this.animation.export()
-        // })
-        // _this.setData({
-        //     hide_good_box: true
-        // })
     },
   /**
    * 生命周期函数--监听页面加载

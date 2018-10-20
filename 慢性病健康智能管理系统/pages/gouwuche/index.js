@@ -1,5 +1,5 @@
 // pages/gouwuche/index.js
-var _this=null;
+var _this = null, zong ='http://192.168.1.243:8081';
 Page({
 
   /**
@@ -66,7 +66,8 @@ Page({
                 }
 
             }
-            _this.setData({ money: m });
+            shuliang(1, Number(_this.data.checkboxItems[e.currentTarget.id].name), _this.data.checkboxItems[e.currentTarget.id].Number);
+       _this.setData({ money: m });
         } else if (sv = 1){
             wx.showModal({
                 title: "提示",
@@ -87,9 +88,14 @@ Page({
                             
                         }
                         console.log(arr)
+                        shanchu(_this.data.checkboxItems[e.currentTarget.id].name);
                         _this.setData({
                             checkboxItems: arr
                         })
+                        
+                    } else if (res.cancel){
+                        console.log(1111)
+                      
                     }
                 }
             })
@@ -110,7 +116,9 @@ Page({
             }
 
         }
+        shuliang(1, Number(_this.data.checkboxItems[e.currentTarget.id].name), _this.data.checkboxItems[e.currentTarget.id].Number);
         _this.setData({ money: m });
+       
     },
     checkboxChange: function (e) {
         var checked = e.detail.value, changed = {},mon1=0,s=0;
@@ -129,16 +137,22 @@ Page({
         _this.setData(changed);
         _this.setData({ money: mon1 });
         _this.setData({num: s});
-
+     
     },
-
+    zhifu :function(){
+        wx.navigateTo({
+            url: '/pages/submitorder/submitorder?id=' 
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      console.log(5474587458745)
+      console.log(options.id)
       _this = this;
       wx.request({
-          url: 'http://192.168.1.243:8081/cart/myCart',
+          url: zong+'/cart/myCart',
           data: {
               userId: options.id
           },
@@ -151,7 +165,7 @@ Page({
              console.log(res.data.data)
              var ar=[];
               for (var s = 0; s < res.data.data.length;s++){
-                  ar.push({ name: res.data.data[s].goodId +"", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount })
+                  ar.push({ name: res.data.data[s].cartId +"", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount })
        }
              _this.setData({ checkboxItems: ar });
           }
@@ -210,3 +224,43 @@ Page({
 
   }
 })
+//修改商品数量
+function shuliang(types, cartId, buyNumber){
+    wx.request({
+        url: zong+'/cart/modifyBySpec',
+        data: {
+            type: types,
+            cartId: cartId,
+            specStr:24,
+            buyNumber: buyNumber,
+        },
+        header: {
+            'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+       method: "POST",
+        success: function (res) {
+            console.log(res.data)
+            console.log(res.data.result)
+
+        }
+    })
+}
+//删除商品
+function shanchu(cartIdArray) {
+    wx.request({
+        url: zong + '/cart/deleteById',
+        data: {
+            cartIdArray: cartIdArray,
+
+        },
+        header: {
+            'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+       method: "POST",
+        success: function (res) {
+            console.log(res.data)
+            console.log(res.data.result)
+
+        }
+    })
+}

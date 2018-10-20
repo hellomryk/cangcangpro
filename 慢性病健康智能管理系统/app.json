@@ -21,6 +21,7 @@
         "pages/baogao/baogao",
         "pages/submitorder/submitorder",
         "pages/gouwuche/index",
+        "pages/signup/signup",
         "pages/receiptinformation/receiptinformation",
         "pages/tianjiadizhi/index"
     ],
