@@ -57,11 +57,11 @@ Page({
         console.log("成功")
         console.log(res)
         // 把登陆状态存储起来-start
-        var Num= this.data.signUpStatus;
-        wx.setStorage({ //存储到本地
-          key: 'signUpStatus',
-          data: Num,
-        })
+        // var Num= this.data.signUpStatus;
+        // wx.setStorage({ //存储到本地
+        //   key: 'signUpStatus',
+        //   data: Num,
+        // })
         // 把登陆状态存储起来-end
         if(res.data.code == 0) {
           _this.setData({

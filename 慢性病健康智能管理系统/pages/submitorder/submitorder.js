@@ -35,7 +35,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    checkedArr:[],
+    summoney:12,//总钱数
+    fare:15,//运费
   },
 
   /**
@@ -50,22 +52,14 @@ Page({
     return parseInt(new Date().getTime() / 1000) + ''
   },
   onLoad: function (options) {
-    //   wx.requestPayment(
-    //       {
-    //           'appId': "wx5bc33b2ffa89c123",
-    //           'timeStamp': '1490840662',
-    //           'nonceStr': '	5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
-    //           'package': '',
-    //           'signType': 'MD5',
-    //           'paySign': '',
-    //           'success': function (res) { },
-    //           'fail': function (res) { },
-    //           'complete': function (res) { }
-    //       })
-
+    const _this = this;
     console.log(1)
-    //   console.log(this.createNonceStr())
-    //   console.log(this.createTimeStamp())
+    console.log(JSON.parse(options.checkedArr))
+    console.log(options.summoney)
+    _this.setData({
+      checkedArr: JSON.parse(options.checkedArr),
+      summoney: Number(options.summoney)
+    })
     wx.request({
       url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
       data: {

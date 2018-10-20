@@ -10,7 +10,6 @@ Page({
       box:false,
       money:0,//实付
       num: 0,//去结算
-
   },
     boxchen:function(){
         var changed = {},mon=0;
@@ -137,11 +136,17 @@ Page({
         _this.setData(changed);
         _this.setData({ money: mon1 });
         _this.setData({num: s});
-     
     },
     zhifu :function(){
+      console.log(_this.data.checkboxItems)
+      const checkedArr= []
+      for (var i = 0; i < _this.data.checkboxItems.length; i ++) {
+        if (_this.data.checkboxItems[i].checked) {
+          checkedArr.push(_this.data.checkboxItems[i])
+        }
+      }
         wx.navigateTo({
-            url: '/pages/submitorder/submitorder?id=' 
+          url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney='+_this.data.money
         })
     },
   /**
@@ -162,12 +167,29 @@ Page({
         //   method: "POST",
           success: function (res) {
               console.log(res.data)
+            console.log("查看商品名字")
              console.log(res.data.data)
+            //  数组去重并添加上数量
+            const targetArr = res.data.data;
+            arrayUnique2(targetArr,'goodId')
+            console.log(arrayUnique2(targetArr, 'goodId'))
+            const obj = {}
+            targetArr.forEach(function(item,index) {
+              if(obj[item]) {
+                  obj[item]++;
+              } else {
+                obj[item] = 1;
+              }
+            })
+            console.log(obj)
+            // targetArr.forEach(v,k)=>{
+
+            // }
              var ar=[];
               for (var s = 0; s < res.data.data.length;s++){
                   ar.push({ name: res.data.data[s].cartId +"", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount })
        }
-             _this.setData({ checkboxItems: ar });
+             _this.setData({ checkboxItems: ar.reverse() });
           }
       })
 
@@ -264,3 +286,13 @@ function shanchu(cartIdArray) {
         }
     })
 }
+
+//更具数组中的某一属性去重
+function arrayUnique2(arr, name) {
+  var hash = {};
+  return arr.reduce(function (item, next) {
+    hash[next[name]] ? '' : hash[next[name]] = true && item.push(next);
+    return item;
+  }, []);
+}
+

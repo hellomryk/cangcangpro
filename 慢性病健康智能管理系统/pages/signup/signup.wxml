@@ -13,5 +13,5 @@
     <input class='submitorder_remark_input' placeholder='请输入验证码' type='text' bindinput="getSignIdentify" value='{{getSignIdentifyVal}}'></input>
   </view>
   <view class='signup' bindtap='signup'>
-      登陆
+      注册
   </view>

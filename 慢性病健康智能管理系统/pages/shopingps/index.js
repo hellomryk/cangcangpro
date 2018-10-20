@@ -68,7 +68,7 @@ Page({
             userId: res.data.data
           })
           wx.navigateTo({
-            url: '/pages/gouwuche/index?userId=' + _this.userId
+            url: '/pages/gouwuche/index?id=' + _this.data.userId
           })
           console.log("注册过了")
         }
@@ -78,58 +78,64 @@ Page({
   },
     touchOnGoods:function(){
       const _this = this;
+      //判断是后登陆开始
       wx.request({
-        url: url +'/cart/add',
-        data:{
-          userId:_this.data.userId,
-          goodId: _this.data.id,
-          buyNumber:1,
-          specStr: _this.data.specStr
+        url: url + '/login/validation',
+        data: {
+          weixinId: _this.data.openId,
         },
-        method:"POST",
-        // header:{
-        //   'Content-Type': 'application/x-www-form-urlencoded'
-        // },
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
+        method: "POST",
         success(res) {
           console.log(res)
-          //判断是后登陆开始
-          wx.request({
-            url: url + '/login/validation',
-            data: {
-              weixinId: _this.data.openId,
-            },
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            method: "POST",
-            success(res) {
-              console.log(res)
-              if (res.data.code == 500) {
-                console.log("没有注册过")
-                wx.navigateTo({
-                  url: '/pages/signup/signup'//(没有登录跳到注册页面)
-                })
-              } else {
-                _this.setData({
-                  userId: res.data.data,
-                  count: _this.data.count + 1
-                })
-                wx.showToast({
-                  title: '添加成功！',
-                  icon: 'none',
-                  duration: 600
-                })
-                console.log("注册过了")
+          if (res.data.code == 500) {
+            console.log("没有注册过")
+            wx.navigateTo({
+              url: '/pages/signup/signup'//(没有登录跳到注册页面)
+            })
+          } else {
+            // 注册过了把商品信息存入数据库
+            console.log("注册过了")
+            _this.setData({
+              userId: res.data.data,
+            })
+            console.log(_this.data.userId)
+            console.log(_this.data.id)
+            console.log(1)
+            console.log(_this.data.specStr)
+            wx.request({
+              url: url + '/cart/add',
+              data: {
+                userId: _this.data.userId,
+                goodId: _this.data.id,
+                buyNumber: 1,
+                specStr: _this.data.specStr
+              },
+              method: "POST",
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              success(res) {
+                if(res.data.code == 0) {
+                  console.log("添加信息成功")
+                  console.log(res)
+                  _this.setData({
+                    count: _this.data.count + 1
+                  })
+                  wx.showToast({
+                    title: '添加成功！',
+                    icon: 'none',
+                    duration: 600
+                  })
+                }
               }
-            }
-          })
-
-      //判断是后登陆开始
+            })
+          }
         }
       })
+      //判断是后登陆开始
     },
   /**
    * 生命周期函数--监听页面加载

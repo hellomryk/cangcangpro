@@ -45,6 +45,8 @@ page {
 }
 .submitorder_zong {
   background:#f6f6f6;
+  height:1090rpx;
+  overflow-y:scroll;
 }
 .submitorder_cen {
   background:#fff;
@@ -55,6 +57,10 @@ page {
   color:#1eda7a;
   padding-left:32rpx;
   border-bottom: 1px solid #e6e6e6;
+}
+.submitorder_cen_list {
+  height:471rpx;
+  overflow-y:scroll;
 }
 .submitorder_cen_listli_imgleft {
   float: left;

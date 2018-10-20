@@ -1,5 +1,5 @@
 <!--pages/shangcheng_head_list/index.wxml-->
- <scroll-view scroll-y bindscrolltolower="loadMore" style="height: 600px;">
+ <scroll-view scroll-y bindscrolltolower="loadMore" style="height:660px;">
 
 <scroll-view scroll-x="true" class='shangcheng_head_list'>
     <block wx:for-items="{{list}}" wx:key="{{item.categoryId}}">
