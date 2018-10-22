@@ -1,41 +1,39 @@
-// pages/receiptinformation/receiptinformation.js
+// pages/manyslowdesiseson/manyslowdesiseson.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    getRemarkVal:'',//备注输入内容
-    getPhoneVal: '',//手机号输入内容
-    getAddressVal: '',//地址输入内容
+    nametitle:"",
+    nametext:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(12345678)
+    console.log(options)
+    console.log(options.selectid)
+    const selfPage = this;
+    wx.request({
+      url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/wiki',
+      data: {
+        wikiid: options.selectid,//0代表查列表，具体某一个id表示查具体某一条
+      },
+      method: 'get',
+      success: function (res) {
+        console.log(res)
+        console.log(JSON.parse(res.data.data))
+        selfPage.setData({
+          nametitle: JSON.parse(res.data.data).wikipediName,
+          nametext: JSON.parse(res.data.data).wikipediaDescribe
+        })
+      }
+    })
+  },
 
-  },
-  //获取备注输入内容
-  getRemark(e) {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      getRemarkVal:value
-    }) 
-  },
-  //获取手机号输入内容
-  getPhone(e) {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      getPhoneVal:value
-    })
-  },
-  //获取详细地址输入内容
-  getAddress(e) {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      getAddressVal:value
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
