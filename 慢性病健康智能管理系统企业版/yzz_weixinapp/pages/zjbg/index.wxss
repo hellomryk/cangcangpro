@@ -1,0 +1,47 @@
+/* pages/zjbg/index.wxss */
+page{
+   background:  #F6F6F6;
+    }
+.head{
+    width: 100%;
+background: #fff;
+padding: 40rpx 0;
+    }
+.zj_head{
+    width: 92%;
+    height: 300rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    box-shadow: 0 0 14px 0 #ddd; 
+    background: #fff;
+}
+.zj_tr{
+   float: left;
+    width: 25%;
+    font-size: 32rpx;
+    color: #141414;
+    margin-right: 40rpx;
+   margin: 10rpx 0;
+
+}
+.zj_td{
+ float: left;
+    width: 75%;
+
+    font-size: 32rpx;
+    color: #999;
+    margin: 10rpx 0;
+ 
+}
+.cont .zj_td,.cont .zj_tr{
+    font-size: 28rpx;
+}
+.cont{
+    margin-top: 20rpx;
+    width: 100%;
+    padding: 30rpx;
+    background: #fff;
+    box-sizing: border-box;
+    
+}

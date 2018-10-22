@@ -59,7 +59,7 @@ page {
   border-bottom: 1px solid #e6e6e6;
 }
 .submitorder_cen_list {
-  height:471rpx;
+  max-height:471rpx;
   overflow-y:scroll;
 }
 .submitorder_cen_listli_imgleft {

@@ -58,32 +58,19 @@ Page({
       checkedArr: JSON.parse(options.checkedArr),
       summoney: Number(options.summoney)
     })
-    wx.request({
-      url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
-      data: {
-        appid: "wxe233654cc28fd440",//小程序ID
-        mch_id: "1494063492",//商户号
-        sign: paysignjsapi("wxe233654cc28fd440", "商品支付—商品结算", "1494063492", this.createNonceStr(), "https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report", "oltg65O6bVAouExzU5ZfLHdibglM", '20150806125346', '123.12.12.123', "88", 'jr8k4d94ks94nas9jt9lu3nr9ge4krtk'),//签名
-        nonce_str: this.createNonceStr(),//随机字符串
-        body: "商品支付—商品结算",//商品描述
-        out_trade_no: '20150806125346',//商户订单号
-        total_fee: "88",//金额
-        spbill_create_ip: '192.168.1.177',//终端ip
-        notify_url: "https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report",//通知地址
-        trade_type: "JSAPI",//交易类型
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      method: "POST",
-      success: function (res) {
-        console.log(1111)
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.result)
+    // 获取收获地址
+    wx.chooseAddress({
+      success(res) {
+        console.log(res.userName)
+        console.log(res.postalCode)
+        console.log(res.provinceName)
+        console.log(res.cityName)
+        console.log(res.countyName)
+        console.log(res.detailInfo)
+        console.log(res.nationalCode)
+        console.log(res.telNumber)
       }
     })
-    console.log(paysignjsapi("wx5bc33b2ffa89c123", "商品支付—商品结算", "1494063492", this.createNonceStr(), "https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report", "oltg65O6bVAouExzU5ZfLHdibglM", '20150806125346', '123.12.12.123', "88", 'jr8k4d94ks94nas9jt9lu3nr9ge4krtk'))
   },
 
   /**
@@ -95,6 +82,7 @@ Page({
   // 提交订单
   submitorder() {
     const _this = this;
+    console.log(_this.data.openId)
     // 获取统一下单
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
