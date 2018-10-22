@@ -37,7 +37,17 @@ Page({
                         },
                         method: "POST",
                         success: function (res) {
+                            var arr = [];
+                            for (var s = 0; s < _this.data.checkboxItems.length; s++) {
+                                if (_this.data.checkboxItems[s].id != e.currentTarget.id) {
+                                    arr.push(_this.data.checkboxItems[s])
+                                }
 
+                            }
+                            console.log(arr)
+                            _this.setData({
+                                checkboxItems: arr
+                            })
                         }
                     })
 
@@ -93,7 +103,7 @@ Page({
         wx.request({
             url: url + '/address/api/getAddressesByUserId',
             data: {
-                userId: 22
+                userId: options.id
             },
             header: {
                 'content-type': 'application/json' // 默认值application/x-www-form-urlencoded

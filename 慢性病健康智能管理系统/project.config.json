@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -166,10 +166,10 @@
 					"query": "name=支气管炎"
 				},
 				{
-					"id": -1,
-					"name": "添加地址",
+					"id": 22,
+					"name": "收货地址",
 					"pathName": "pages/tianjiadizhi/index",
-					"query": ""
+					"query": "id=22"
 				},
 				{
 					"id": 23,
@@ -182,6 +182,12 @@
 					"name": "自诊报告",
 					"pathName": "pages/zjbg/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加、编辑地址",
+					"pathName": "pages/receiptinformation/receiptinformation",
+					"query": "id=22"
 				}
 			]
 		}
