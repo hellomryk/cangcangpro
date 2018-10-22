@@ -1,0 +1,53 @@
+<!--pages/submitorder/submitorder.wxml-->
+<view class='submitorder_zong'>
+  <view class='submitorder_top clearfix'>
+      <image class='submitorder_top_leftimg' src='../../pics/dingwei.png'></image>
+        <image src='../../pics/jiantouright.png' class='submitorder_top_rightimg'></image>
+      <view class='submitorder_top_cen'>
+          <view class='submitorder_top_cen_title'>华尊大厦</view>
+          <view class='submitorder_top_cen_address'>请填写您的收货信息</view>
+      </view>
+  </view>
+  <!-- 商品列表部分 -->
+  <view class='submitorder_cen'>
+      <view class='submitorder_cen_title'>现在下单(大约14:32)送达</view>
+      <view class='submitorder_cen_list'>
+          <view class='submitorder_cen_listli' wx:for-items="{{checkedArr}}">
+              <image src='{{item.image}}' class='submitorder_cen_listli_imgleft'></image>
+              <view class='submitorder_cen_listli_right'>×{{item.Number}}</view>
+              <view class='submitorder_cen_listli_center'>
+                  <view class='sclc_title'>{{item.value}}</view>
+                  <view class='sclc_standard'>{{item.ps}}</view>
+                  <view class='sclc_money'>¥{{item.yuanjia}}</view>
+              </view>
+          </view>
+      </view>
+  </view>
+  <view class='submitorder_money'>
+      <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good'>商品金额</view>
+          <view class='submitorder_money_list_number'>¥{{summoney}}</view>
+      </view>
+            <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good'>优惠</view>
+          <view class='submitorder_money_list_number'>¥00.00</view>
+      </view>
+            <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good'>运费</view>
+          <view class='submitorder_money_list_number'>¥{{fare}}</view>
+      </view>
+      <view class='submitorder_money_list border-top clearfix'>
+          <view class='submitorder_money_list_good'>实付金额</view>
+          <view class='submitorder_money_list_number'>¥{{summoney + fare}}</view>
+      </view>
+  </view>
+  <view class='submitorder_remark clearfix'>
+    <view class='submitorder_remark_text'>备注:</view>
+    <input class='submitorder_remark_input' placeholder='如有备注请填写' type='text'></input>
+  </view>
+  <view class='submitorder_pay clearfix'>
+    <view class="submitorder_pay_confirm" bindtap="submitorder">确认支付</view>
+    <view class='submitorder_pay_money'>实付:<text> ¥{{summoney + fare}}</text></view>
+  </view>
+</view>
+

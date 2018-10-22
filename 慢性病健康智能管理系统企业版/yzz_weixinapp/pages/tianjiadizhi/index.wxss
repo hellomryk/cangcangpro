@@ -1,0 +1,65 @@
+/* pages/tianjiadizhi/index.wxss */
+page{
+    background: #F6F6F6;
+}
+.tianjia{
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    color: #15c86c;
+    font-size: 32rpx;
+    line-height: 100rpx;
+    margin-bottom: 20rpx;
+}
+.tianjia view{
+    width:35%;
+    margin: 0 auto;
+
+}
+.tianjia image{
+    width:40rpx;
+    height:40rpx;
+    vertical-align: middle;
+}
+.dizhi{
+    width: 100%;
+    min-height:213rpx;
+    padding: 30rpx;
+    background: #fff;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+.dizhi_name{
+    float: left;
+font-size: 32rpx;
+color: #141414;
+}
+.dizhi_dianhua{
+    float: right;
+    font-size: 32rpx;
+color: #141414;
+}
+.dizhi_xiangxi{
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 30rpx;
+}
+.dizhi_moren{
+    width: 100%;
+    border-top:1rpx solid #ddd; 
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #15c86c;
+    padding-top: 30rpx;
+}
+.label-1__icon-checked{
+    width: 35rpx;
+    height: 35rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+.bianji,.shanchu{
+    color: #999;
+    float: right;
+    margin-left: 10rpx;
+}
