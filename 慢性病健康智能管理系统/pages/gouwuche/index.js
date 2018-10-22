@@ -171,16 +171,26 @@ Page({
              console.log(res.data.data)
             //  数组去重并添加上数量
             const targetArr = res.data.data;
-            arrayUnique2(targetArr,'goodId')
-            console.log(arrayUnique2(targetArr, 'goodId'))
+            const arr2 = arrayUnique2(targetArr,'goodId')
+            console.log('数组去重')
+            console.log(arr2)
+            const arr3 = [0,0,0];
+            for(var i = 0; i < arr2.length; i ++) {
+                for(var j = 0; j < targetArr.length; j ++) {
+                  if (arr2[i].goodId == targetArr[j].goodId) {
+                    arr3[i]++;
+                  }
+                }
+            }
+            console.log(arr3)
             const obj = {}
-            targetArr.forEach(function(item,index) {
-              if(obj[item]) {
-                  obj[item]++;
-              } else {
-                obj[item] = 1;
-              }
-            })
+            // targetArr.forEach(function(item,index) {
+            //   if(obj[item]) {
+            //       obj[item]++;
+            //   } else {
+            //     obj[item] = 1;
+            //   }
+            // })
             console.log(obj)
             // targetArr.forEach(v,k)=>{
 

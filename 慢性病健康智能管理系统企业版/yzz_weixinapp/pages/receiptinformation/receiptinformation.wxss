@@ -1,1 +1,64 @@
 /* pages/receiptinformation/receiptinformation.wxss */
+page {
+   background:#f6f6f6;
+}
+.clearfix::after {
+  content:'';
+  clear: both;
+  display: block;
+}
+.submitorder_remark {
+  background:#fff;
+  height:88rpx;
+}
+.submitorder_remark_text {
+    float:left;
+    font-size:24rpx;
+    line-height: 88rpx;
+    color:#141414;
+    margin-left:30rpx;
+    width:142rpx;
+    text-align: left;
+}
+.submitorder_remark_input {
+    float:left;
+    font-size:24rpx;
+    line-height:88rpx;
+    color:#141414;
+    margin-top:18rpx;
+}
+.submitorder_remark_input::-webkit-input-placeholder{
+    line-height:88rpx;
+    color:#999999;
+}
+.submitorder_remark_borderbottom {
+   border-bottom: 1px solid #e6e6e6;
+}
+.submitorder_top_leftimg {
+  float:left;
+  width:28rpx;
+  height:36rpx;
+  margin-top:28rpx;
+}
+.submitorder_top_rightimg {
+  float:right;
+  width:14rpx;
+  height:24rpx;
+  margin-top:32rpx;
+  margin-right:30rpx;
+}
+.submitorder_remark_address {
+    font-size:24rpx;
+    line-height: 88rpx;
+    color:#141414;
+    margin-left:207rpx;
+}
+.receipt_save {
+    font-size:32rpx;
+    line-height: 88rpx;
+    color:#1eda7a;
+    width:100%;
+    text-align: center;
+    background:#fff;
+    margin-top:20rpx;
+}
