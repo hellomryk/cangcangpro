@@ -23,7 +23,8 @@
         "pages/gouwuche/index",
         "pages/signup/signup",
         "pages/receiptinformation/receiptinformation",
-        "pages/tianjiadizhi/index"
+        "pages/tianjiadizhi/index",
+        "pages/zjbg/index"
     ],
     "window": {
         "backgroundTextStyle": "black",

@@ -68,10 +68,11 @@ Page({
 
 
                     wx.request({
-                        url: 'http://192.168.1.154:8080/newrobot5',
+                        url: 'http://192.168.1.56:8080/newrobot5',
                         data: {
                             type: 4,
                             dis_name: options.name
+                            // dis_name:"支气管炎"
 
                         },
                         header: {
