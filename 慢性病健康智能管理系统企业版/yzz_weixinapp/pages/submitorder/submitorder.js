@@ -3,6 +3,7 @@ const url = "http://192.168.1.243:8081";
 const secret = "b6f619487205d6a3d49b45c5736a9d39";
 const appid = "wxe233654cc28fd440";
 const md51 = require('../../utils/MD5.js');
+var _this=null;
 const app = getApp();
 function paysignjsapi(appid, body, mch_id, nonce_str, notify_url, openid, out_trade_no, spbill_create_ip, total_fee, key) {
   var ret = {
@@ -45,13 +46,44 @@ Page({
     prepayId:'',//微信支付同意下单接口生成的prepayID
     sign:'',//支付签名
     remarkValue:'',//获取备注
+      condition: true,//地址开关
+      userName:'',
+      provinceName: '',//省
+      cityName: '',//市
+      countyName: '',//区县
+      detailInfo: '',//详细地址
+      telNumber: '',//电话
   },
+dizhi:function(){
+  // 获取收获地址
+  wx.chooseAddress({
+    success(res) {
+      _this.setData({
+        userName: res.userName,
+        provinceName: res.provinceName,
+        cityName: res.cityName,
+        countyName: res.countyName,
+        detailInfo: res.detailInfo,
+        telNumber: res.telNumber,
+      })
 
+    }
+  })
+    if (_this.data.condition){
+        _this.setData({
+            condition: false,
+        })
+    }else{
+
+    }
+    
+
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const _this = this;
+        _this = this;
     console.log(1)
     console.log(JSON.parse(options.checkedArr))
     console.log(options.summoney)
@@ -59,19 +91,7 @@ Page({
       checkedArr: JSON.parse(options.checkedArr),
       summoney: Number(options.summoney)
     })
-    // 获取收获地址
-    wx.chooseAddress({
-      success(res) {
-        console.log(res.userName)
-        console.log(res.postalCode)
-        console.log(res.provinceName)
-        console.log(res.cityName)
-        console.log(res.countyName)
-        console.log(res.detailInfo)
-        console.log(res.nationalCode)
-        console.log(res.telNumber)
-      }
-    })
+
   },
 
   /**
@@ -288,12 +308,4 @@ function getOpenId(_this) {
     }
   });
   //获取小程序id结束
-}
-//随机字符串函数的产生：
-function createNonceStr() {
-  return Math.random().toString(36).substr(2, 15)
-}
-// 时间戳产生的函数：
-function createTimeStamp() {
-  return parseInt(new Date().getTime() / 1000) + ''
 }
