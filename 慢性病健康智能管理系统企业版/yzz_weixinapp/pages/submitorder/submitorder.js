@@ -44,6 +44,7 @@ Page({
     openId:'',//小程序openid
     prepayId:'',//微信支付同意下单接口生成的prepayID
     sign:'',//支付签名
+    remarkValue:'',//获取备注
   },
 
   /**
@@ -79,6 +80,13 @@ Page({
   onReady: function () {
 
   },
+  // 获取备注信息
+  remark() {
+    const _this = this,value = e.detail.value;
+    _this.setData({
+      remarkValue:value
+    })
+  },
   // 提交订单
   submitorder() {
     const _this = this;
@@ -87,7 +95,7 @@ Page({
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
       data: {
-        amount:0.01,//金额
+        amount:100,//金额
         openid:_this.data.openId,//用户的OPenID
         minAppId: appid,//小程序AppID
         spbillCreateIp:'114.241.52.82',//终端IP
