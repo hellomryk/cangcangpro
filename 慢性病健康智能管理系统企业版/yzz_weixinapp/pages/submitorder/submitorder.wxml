@@ -1,13 +1,22 @@
 <!--pages/submitorder/submitorder.wxml-->
-<view class='submitorder_zong'>
-  <view class='submitorder_top clearfix'>
+ <view class='submitorder_zong' >
+
+
+  <view class='submitorder_top clearfix' bindtap='dizhi' wx:if="{{!condition}}">
       <image class='submitorder_top_leftimg' src='../../pics/dingwei.png'></image>
         <image src='../../pics/jiantouright.png' class='submitorder_top_rightimg'></image>
-      <view class='submitorder_top_cen'>
-          <view class='submitorder_top_cen_title'>华尊大厦</view>
-          <view class='submitorder_top_cen_address'>请填写您的收货信息</view>
+      <view class='submitorder_top_cen' >
+          <view class='submitorder_top_cen_title'> <text>{{userName}}</text> <text style="margin-left:80rpx;">{{telNumber}}</text> </view>
+          <view class='submitorder_top_cen_address'>{{provinceName}}{{cityName}}{{countyName}}{{detailInfo}}</view>
       </view>
   </view>
+
+
+<view class='tianjia' wx:if="{{condition}}" bindtap='dizhi'>
+  <view>  <image src='/pics/tianjiadizhi.png'></image>  添加收货地址</view>
+</view>
+
+
   <!-- 商品列表部分 -->
   <view class='submitorder_cen'>
       <view class='submitorder_cen_title'>现在下单(大约14:32)送达</view>
