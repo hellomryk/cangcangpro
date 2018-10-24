@@ -1,0 +1,4 @@
+git log --pretty=oneline
+git reset --hard ºÅ
+
+git reflog 

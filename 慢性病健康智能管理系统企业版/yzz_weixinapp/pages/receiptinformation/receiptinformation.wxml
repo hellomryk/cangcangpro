@@ -23,7 +23,7 @@
     <view class='submitorder_remark_text'>详细地址:</view>
     <input class='submitorder_remark_input' placeholder='例:1号楼3单元502室' type='text' bindinput="getAddress" value='{{getAddressVal}}'></input>
   </view>
-  <view class='receipt_save'>
+  <view class='receipt_save' bindtap='save'>
     保存地址
   </view>
 </view>

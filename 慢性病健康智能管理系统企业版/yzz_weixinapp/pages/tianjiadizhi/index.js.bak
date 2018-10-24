@@ -134,8 +134,11 @@ tianjia:function(){
         wx.request({
             url: url + '/address/api/getAddressesByUserId',
             data: {
-
+<<<<<<< HEAD
                 userId: options.id
+=======
+              userId: options.id
+>>>>>>> b5bc3bd55793d064d8bee171d884a5d253cf67df
             },
             header: {
                 'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
