@@ -41,27 +41,26 @@ Page({
   data: {
       userId:'',
     checkedArr:[],
-    summoney:12,//总钱数
-    fare:15,//运费
+    summoney:0,//总钱数
+    fare:0,//运费
     openId:'',//小程序openid
     prepayId:'',//微信支付同意下单接口生成的prepayID
     sign:'',//支付签名
-    remarkValue:'',//获取备注
       condition: true,//地址开关
+      conditionid: "",//地址id
       userName:'',
       provinceName: '',//省
       cityName: '',//市
       countyName: '',//区县
       detailInfo: '',//详细地址
       telNumber: '',//电话
+      inputValue:"",//input值
   },
 dizhi:function(){
-
 
     wx.navigateTo({
         url: '/pages/tianjiadizhi/index?id=' + _this.data.userId
     }) 
-
 
 },
 tianjiadizhi: function () {
@@ -70,6 +69,12 @@ tianjiadizhi: function () {
         url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId
     })
 
+    },
+    // < !--获取input值 -->
+    input: function (e) {
+        this.setData({
+            inputValue: e.detail.value
+        })
     },
   /**
    * 生命周期函数--监听页面加载
@@ -82,7 +87,7 @@ tianjiadizhi: function () {
     // _this.setData({
     //   checkedArr: JSON.parse(options.checkedArr),
     //   summoney: Number(options.summoney),
-       // userId: options.id
+    //    userId: options.id
     // })
 
       //地址列表接口
@@ -111,6 +116,7 @@ tianjiadizhi: function () {
                               countyName: res.data.data[s].area,
                               detailInfo: res.data.data[s].detailedAddress,
                               telNumber: res.data.data[s].personTel,
+                              conditionid: res.data.data[s].id,
                           })
                              }
                }
@@ -132,26 +138,35 @@ tianjiadizhi: function () {
   onReady: function () {
 
   },
-  // 获取备注信息
-  remark() {
-    const _this = this,value = e.detail.value;
-    _this.setData({
-      remarkValue:value
-    })
-  },
   // 提交订单
   submitorder() {
-    const _this = this;
+   
     console.log(_this.data.openId)
       if (!_this.data.condition){
+
+    //获取ip
+    wx.request({
+        url: url + '/weixin/getIpAddress',
+        data: {
+
+        },
+        method: "GET",
+        header: {
+            "Content-Type": "application/json"
+        },
+        success(res) {
+            var ip = res.data;
+            console.log("获取地址ip")
+            console.log(res)
+            console.log(res.data)
     // 获取统一下单
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
       data: {
-        amount:100,//金额
+          amount: Number(_this.data.summoney) + Number(_this.data.fare),//金额
         openid:_this.data.openId,//用户的OPenID
         minAppId: appid,//小程序AppID
-        spbillCreateIp:'114.241.52.82',//终端IP
+          spbillCreateIp: ip,//终端IP
       },
       header: {
         "Content-Type": "application/json"
@@ -194,9 +209,35 @@ tianjiadizhi: function () {
                 'paySign': res.data.data.sign,//签名,具体签名方案参见微信公众号支付帮助文档;
                 'success': function (res) {
                   console.log("成功") 
-                  wx.navigateTo({
-                    url: '/pages/shouye/shouye',
-                  })
+                    console.log(res)
+                    wx.request({
+                        url: url + '/order/add',
+                        data: {
+                            userId: _this.data.userId,//用户ID
+                            cartIdArray: "参数",//购物车ID
+                            addressId: "参数",//地址ID
+                            goodSpecStrNumberArray: "参数",//规格以 及数量字符串 格式为：goodId：商品规格specStr：buyNumber
+                            totalAmount: _this.data.summoney,//订单总金额
+                            note: _this.data.inputValue,//备注
+                            freightVal: _this.data.fare,//运费
+                            orderNo: "211314",//订单号
+                        },
+                        header: {
+                            'content-type': 'application/x-www-form-urlencoded' // 默认值application/json
+                        },
+                        method: "POST",
+                        success: function (res) {
+                            console.log(res.data)
+                            console.log(res.data.result)
+
+                        }
+                    })
+
+
+
+                //   wx.navigateTo({
+                //     url: '/pages/shouye/shouye',
+                //   })
                 },
                 'fail': function (res) { },
                 'complete': function (res) { }
@@ -205,57 +246,10 @@ tianjiadizhi: function () {
         })
       },
     });
-    // // 获取签名
-    // wx.request({
-    //   url: url +'/weixin/generateSignature',
-    //   data: {
-    //     prepayId: this.data.prepayId,//微信统一下单接口生成的prepay_id参数
-    //     minAppId: appid,//小程序appid
-    //   },
-    //   header:{
-    //     "Content-Type":'application/json'
-    //   },
-    //   method:"GET",
-    //   success(res) {
-    //     console.log('获取签名')
-    //     console.log(res)
-    //     _this.setData({
-    //       sign:res.data.data.sign
-    //     })
-    //   }
-    // })
-    //获取ip
-    wx.request({
-      url: url+'/weixin/getIpAddress',
-      data: {
 
-      },
-      method: "GET",
-      header: {
-        "Content-Type":"application/json"
-      },
-      success(res) {
-        console.log("获取地址ip")
-        console.log(res)
-        console.log(res.data)
       }
     })
-    // // 调取支付方法
-    // console.log("paaaaaaaaaaaaa")
-    // console.log(_this.data.prepayId)
-    // wx.requestPayment(
-    //   {
-    //     'timeStamp': createTimeStamp(),//时间戳从1970年1月1日00:00:00至今的秒数,即当前的时间
-    //     'nonceStr': createNonceStr(),//随机字符串，长度为32个字符以下
-    //     'package':_this.data.prepayId, //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
-    //     'signType': 'MD5',//签名类型，默认为MD5，支持HMAC-SHA256和MD5。注意此处需与统一下单的签名类型一致
-    //     'paySign': _this.data.sign,//签名,具体签名方案参见微信公众号支付帮助文档;
-    //     'success': function (res) { 
-    //       console.log("成功")
-    //     },
-    //     'fail': function (res) { },
-    //     'complete': function (res) { }
-    //   })
+
       }else{
           wx.showToast({
               title: "请填写地址！",
@@ -349,4 +343,12 @@ function getOpenId(_this) {
     }
   });
   //获取小程序id结束
+}
+//随机字符串函数的产生：
+function createNonceStr() {
+  return Math.random().toString(36).substr(2, 15)
+}
+// 时间戳产生的函数：
+function createTimeStamp() {
+  return parseInt(new Date().getTime() / 1000) + ''
 }
