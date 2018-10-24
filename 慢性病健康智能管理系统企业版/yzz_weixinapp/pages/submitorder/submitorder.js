@@ -66,7 +66,6 @@ dizhi:function(){
         detailInfo: res.detailInfo,
         telNumber: res.telNumber,
       })
-
     }
   })
     if (_this.data.condition){
@@ -111,11 +110,13 @@ dizhi:function(){
   submitorder() {
     const _this = this;
     console.log(_this.data.openId)
+    console.log(appid)
+    console.log(_this.data.openId)
     // 获取统一下单
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
       data: {
-        amount:100,//金额
+        amount:1000000,//金额
         openid:_this.data.openId,//用户的OPenID
         minAppId: appid,//小程序AppID
         spbillCreateIp:'114.241.52.82',//终端IP
