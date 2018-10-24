@@ -39,6 +39,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      userId:'',
     checkedArr:[],
     summoney:12,//总钱数
     fare:15,//运费
@@ -55,41 +56,69 @@ Page({
       telNumber: '',//电话
   },
 dizhi:function(){
-  // 获取收获地址
-  wx.chooseAddress({
-    success(res) {
-      _this.setData({
-        userName: res.userName,
-        provinceName: res.provinceName,
-        cityName: res.cityName,
-        countyName: res.countyName,
-        detailInfo: res.detailInfo,
-        telNumber: res.telNumber,
-      })
-    }
-  })
-    if (_this.data.condition){
-        _this.setData({
-            condition: false,
-        })
-    }else{
-
-    }
-    
-
+    wx.navigateTo({
+        url: '/pages/tianjiadizhi/index?id=' + _this.data.userId
+    }) 
 },
+tianjiadizhi: function () {
+
+    wx.navigateTo({
+        url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId
+    })
+
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
         _this = this;
-    console.log(1)
-    console.log(JSON.parse(options.checkedArr))
-    console.log(options.summoney)
-    _this.setData({
-      checkedArr: JSON.parse(options.checkedArr),
-      summoney: Number(options.summoney)
-    })
+    // console.log(1)
+    // console.log(JSON.parse(options.checkedArr))
+    // console.log(options.summoney)
+    // _this.setData({
+    //   checkedArr: JSON.parse(options.checkedArr),
+    //   summoney: Number(options.summoney),
+       // userId: options.id
+    // })
+
+      //地址列表接口
+      wx.request({
+          url: url + '/address/api/getAddressesByUserId',
+          data: {
+              userId: 22  // options.id
+          },
+          header: {
+              'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
+          },
+          //   method: "POST",
+          success: function (res) {
+              console.log(res.data)
+              console.log(res.data.data)
+              if (res.data.data.length>0){
+                  _this.setData({
+                      condition: false,
+                  })
+                  for (var s = 0; s < res.data.data.length;s++){
+                      if (res.data.data[s].isDefault==1){
+                          _this.setData({
+                              userName: res.data.data[s].personName,
+                              provinceName: res.data.data[s].province,
+                              cityName: res.data.data[s].city,
+                              countyName: res.data.data[s].area,
+                              detailInfo: res.data.data[s].detailedAddress,
+                              telNumber: res.data.data[s].personTel,
+                          })
+                             }
+               }
+
+              }else{
+                  _this.setData({
+                      condition: true,
+                  })
+              }
+
+          }
+      })
 
   },
 
@@ -112,6 +141,7 @@ dizhi:function(){
     console.log(_this.data.openId)
     console.log(appid)
     console.log(_this.data.openId)
+      if (!_this.data.condition){
     // 获取统一下单
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
@@ -224,7 +254,15 @@ dizhi:function(){
     //     'fail': function (res) { },
     //     'complete': function (res) { }
     //   })
+      }else{
+          wx.showToast({
+              title: "请填写地址！",
+              icon: 'none',
+              duration: 1000
+          })
+      }
   },
+
   /**
    * 生命周期函数--监听页面显示
    */

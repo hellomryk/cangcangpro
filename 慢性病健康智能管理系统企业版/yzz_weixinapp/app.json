@@ -24,6 +24,7 @@
         "pages/signup/signup",
         "pages/receiptinformation/receiptinformation",
         "pages/tianjiadizhi/index",
+        "pages/myshopping/index",
         "pages/zjbg/index"
     ],
     "window": {

@@ -3,24 +3,24 @@
     <view class='zj_head'>
         <view>
             <text class='zj_tr'>用户姓名</text>
-            <text class='zj_td'>张三</text>
+            <text class='zj_td'>{{jbxi.name}}</text>
         </view>
-
+    <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>用户性别</text>
-            <text class='zj_td'>男</text>
+            <text class='zj_td'>{{jbxi.sex}}</text>
         </view>
-
+    <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>用户年龄</text>
-            <text class='zj_td'>32</text>
+            <text class='zj_td'>{{jbxi.old}}</text>
         </view>
-
+    <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>自诊日期</text>
-            <text class='zj_td'>2018/12/2</text>
+            <text class='zj_td'>{{jbxi.date}}</text>
         </view>
-        
+            <view style="clear:both;"></view>
     </view>
     <view style="clear:both;"></view>
 </view>
@@ -31,32 +31,39 @@
     <view class='zj_cont'>
         <view>
             <text class='zj_tr'>自诊疾病</text>
-            <text class='zj_td'>喘息样支气管炎</text>
+            <text class='zj_td'>{{jbxi1.diseaseName}}</text>
         </view>
+            <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>挂什么科</text>
-            <text class='zj_td'>呼吸内科</text>
+            <text class='zj_td'>{{jbxi1.deparment}}</text>
         </view>
+            <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>需做检查</text>
-            <text class='zj_td'>肺部检查、肺和胸膜听诊、抗链球菌型M蛋白抗体</text>
+            <text class='zj_td'>{{jbxi1.check}}</text>
         </view>
+            <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>常见药物</text>
-            <text class='zj_td'>布地奈德气雾剂、喷托维林氯化铵糖浆 </text>
+           <view class='zj_td'><navigator  wx:for='{{jbxi1.commenDrug}}'  url="../shopingps/index?id={{item.drugID}}" style="display: inline-block;margin-right:15rpx;color:#15c86c;" hover-class="none">{{item.drugName}} </navigator>  </view> 
         </view>
+            <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>治疗费用</text>
-            <text class='zj_td'>根据不同医院，收费标准不一致，市三甲医院约（5000-8000元）。 </text>
+            <text class='zj_td'>{{jbxi1.cost}} </text>
         </view>
+            <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>哪些症状</text>
-            <text class='zj_td'>喘息、哮鸣音、干咳、胸闷、咳嗽、咳痰、气喘等。 </text>
+            <text class='zj_td'>{{jbxi1.symptom}} </text>
         </view>
+            <view style="clear:both;"></view>
         <view>
             <text class='zj_tr'>引发疾病</text>
-            <text class='zj_td'>支气管哮喘 </text>
+            <text class='zj_td'>{{jbxi1.CauseDisease}} </text>
         </view>
+        
          <view style="clear:both;"></view>
     </view>
     
@@ -67,7 +74,7 @@
     <view class='zj_cont'>
         <view>
             <text class='zj_tr'>治疗方法</text>
-            <text class='zj_td'>1、一般治疗 注意休息。婴儿须经常拍背、改变体位，使呼吸道分泌物易于排出。重者参考毛细支气管炎及支气管哮喘的治疗。 2、抗感染</text>
+            <text class='zj_td'>{{jbxi2.treatment}}</text>
         </view>
          <view style="clear:both;"></view>
     </view>

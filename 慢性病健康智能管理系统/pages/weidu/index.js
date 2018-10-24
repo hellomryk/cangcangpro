@@ -73,16 +73,17 @@ Page({
       wx.request({
           url: 'http://192.168.1.56:8080/newrobot5',
           data: {
-
+              'information':{
               name: bean.username,
               sex: bean.sex,
-              old: bean.age, 
+              old: bean.age,
               diseaseName: options.id,
               symptom: bean1, //（多个症状用空格分开）
               openid: bean.openId,
               inLocation: '北京市', //（所在地）
               date: ' ' //（实时时间，精确到秒，年月日时分秒）
-
+              }
+          
                  },
           header: {
               'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
@@ -90,12 +91,12 @@ Page({
            method: "POST",
           success: function (res) {
               console.log(res.data)
-              _this.setData({
-                  ima: res.data.base64
-              })
+
 
           }
       })
+
+
 
      //照片
       wx.request({

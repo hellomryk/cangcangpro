@@ -12,14 +12,14 @@
   </view>
 
 
-<view class='tianjia' wx:if="{{condition}}" bindtap='dizhi'>
+<view class='tianjia' wx:if="{{condition}}" bindtap='tianjiadizhi'>
   <view>  <image src='/pics/tianjiadizhi.png'></image>  添加收货地址</view>
 </view>
 
 
   <!-- 商品列表部分 -->
   <view class='submitorder_cen'>
-      <view class='submitorder_cen_title'>现在下单(大约14:32)送达</view>
+      <view class='submitorder_cen_title'>温馨提示：请注意付款安全！</view>
       <view class='submitorder_cen_list'>
           <view class='submitorder_cen_listli' wx:for-items="{{checkedArr}}">
               <image src='{{item.image}}' class='submitorder_cen_listli_imgleft'></image>

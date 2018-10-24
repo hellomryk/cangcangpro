@@ -16,6 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
+     
      selfPage = this;
     // 获取小程序id开始
     var user = wx.getStorageSync('user') || {};
@@ -99,6 +102,9 @@ Page({
       }
     });
   //获取小程序id结束
+
+
+
 
 
  
@@ -209,6 +215,10 @@ Page({
                   // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
                   var l = zong +'/appletApi/getUserInfo'
                   // console.log(res)
+
+
+
+    
                   wx.request({
                       url: l,
                       data: {
@@ -229,39 +239,41 @@ Page({
                           console.log("打印openid结束")
                           wx.setStorageSync('user', obj); //存储openid 
                           console.log(selfPage.data.bopenid)
+
+
+
+                          //列表
                           wx.request({
-                              url: zong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/evaluationtest',
+                              url: 'http://192.168.1.56:8080/newrobot5',
                               data: {
-                                  openid: encodeURI(selfPage.data.bopenid)
+                             
+
+                                  openid:   selfPage.data.bopenid,
                               },
-                              method: "get",
+                              header: {
+                                  'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
+                              },
+                              method: "POST",
                               success: function (res) {
-                                  console.log(res)
-                                  console.log(res.data.data)
-                                  // console.log(JSON.parse(res.data.data))
-                                  // console.log(JSON.parse(res.data.data).selftest)
-                                  // console.log(JSON.parse(res.data.data).selftest[0].evaluationTime)
-                                  // console.log(getMyDate(JSON.parse(res.data.data).selftest[0].evaluationTime))
-                                  var arr1 = JSON.parse(res.data.data).inquiry;
-                                  console.log(arr1)
-                                  console.log(55555555555555555)
+                                  console.log(res.data)
+                                 var arr1 = res.data;
                                   var arr2 = [];
                                   for (var i = 0; i < arr1.length; i++) {
                                       var obj = {}
-                                      obj.id = arr1[i].id;
-                                      obj.basicInfo = arr1[i].basicinfo
-                                      obj.questioningSymptoms = arr1[i].symptoms
-                                      obj.time = getMyDate(arr1[i].time)
+                                      obj.id = arr1[i].date;
+                                      obj.basicInfo = arr1[i].name + "  " + arr1[i].sex + "  "+ arr1[i].old +"岁"
+                                      obj.questioningSymptoms = arr1[i].symptom
+                                      obj.time = arr1[i].date
                                       arr2.push(obj)
                                   }
                                   console.log(arr2)
                                   selfPage.setData({
                                       array: arr2
                                   })
-                                  // console.log(JSON.parse(res.data.data))
-                                  // console.log(JSON.parse(res.data.data))
+
                               }
                           })
+
                       }
                   });
               } else {
@@ -274,9 +286,16 @@ Page({
     console.log(e)
     const id = e.currentTarget.id
     const selfPage = this;
-    wx.navigateTo({
-      url: '/pages/baogao/baogao?bid='+id+'&bopenid='+selfPage.data.bopenid,
-    })
+      if (selfPage.data.pinggu_box_show){
+          wx.navigateTo({
+              url: '/pages/baogao/baogao?bid=' + id + '&bopenid=' + selfPage.data.bopenid,
+          })
+    }else{
+          wx.navigateTo({
+              url: '/pages/zjbg/index?bid=' + id + '&bopenid=' + selfPage.data.bopenid,
+          })
+    }
+
     
   },
   /**
