@@ -23,24 +23,6 @@ Page({
     const _this = this;
     getOpenId(_this)
   },
-  //获取验证码
-  yzm() {
-    const _this = this;
-    console.log(_this.data.getSignPhoneVal)
-      wx.request({
-        url: url +'/login/sms',
-        data: {
-          phone: _this.data.getSignPhoneVal
-        },
-        header: {
-          "Content-Type":"application/x-www-form-urlencoded"
-        },
-        method:"POST",
-        success(res) {
-          console.log(res)
-        }
-      })
-  },
 // 获取手机号
   getSignPhone(e) {
      const _this = this,value = e.detail.value
@@ -62,41 +44,40 @@ Page({
     console.log(_this.data.getSignPhoneVal)
     console.log(_this.data.openId)
     console.log('chakanshifouyouopenid')
-    if (_this.data.getSignPhoneVal == '' || _this.data.getSignIdentifyVal == '') {
-      wx.showToast({
-        title:'请输入正确内容',
-        icon:'none',
-        duration:2000
-      })
-    } else {
-      wx.request({
-        url: url + '/register3',
-        data: {
-          phone: _this.data.getSignPhoneVal,
-          code: _this.data.getSignIdentifyVal,
-          weixinId: _this.data.openId
-        },
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        method: "POST",
-        success(res) {
-          console.log("成功")
-          console.log(res)
-          if (res.data.code == 0) {
-            _this.setData({
-              userId: res.data.data
-            })
+    wx.request({
+      url:url+'/register3',
+      data: {
+        phone: _this.data.getSignPhoneVal,
+        // password:,
+        weixinId: _this.data.openId
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      success(res) {
+        console.log("成功")
+        console.log(res)
+        // 把登陆状态存储起来-start
+        // var Num= this.data.signUpStatus;
+        // wx.setStorage({ //存储到本地
+        //   key: 'signUpStatus',
+        //   data: Num,
+        // })
+        // 把登陆状态存储起来-end
+        if(res.data.code == 0) {
+          _this.setData({
+            userId: res.data.data
+          })
             console.log(546656664)
             console.log(res)
             const id = res.data.data
-            wx.navigateTo({
+          wx.navigateTo({
               url: '/pages/shopingps/index?id=' + id,
-            })
-          }
+          })
         }
-      })
-    }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

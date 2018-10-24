@@ -10,6 +10,7 @@ Page({
         checkboxItems: [],
         userId:null,
         addressId: null,
+        userId:22,
 
     },
     shanchu:function(e){
@@ -85,10 +86,27 @@ Page({
         }
         this.setData(changed)
     },
-
+bianji:function(){
+    for (var s = 0; s < _this.data.checkboxItems.length;s++){
+        if (_this.data.checkboxItems[s].checked){
+            wx.navigateTo({
+                url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId + '&json=' + JSON.stringify(_this.data.checkboxItems[s])
+            })
+        }
+       
+    }
+  
+},
+tianjia:function(){
+    wx.navigateTo({
+        url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId
+    })
+},
     onLoad: function(options) {
         _this = this;
-
+        // _this.setData({
+        //     userId: options.id
+        // })
         //地址列表接口
         wx.request({
             url: url + '/address/api/getAddressesByUserId',

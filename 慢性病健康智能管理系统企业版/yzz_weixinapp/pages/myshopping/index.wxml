@@ -1,0 +1,45 @@
+<!--pages/shangcheng_head_list/index.wxml-->
+<scroll-view scroll-y bindscrolltolower="loadMore" style="height:660px;">
+
+
+
+    <view class='shangcheng_move'>
+        <block wx:for-items="{{list1}}" wx:key="{{item.id}}">
+            <view class="shangcheng_move_li {{item.checked ? 'li_o' : ''}} " id="{{item.id}}" bindtap="kindToggle1">{{item.label}}</view>
+        </block>
+    </view>
+
+
+    <view class='submitorder_cen_list'>
+        <view style="font-size:24rpx;line-height:80rpx;padding-left:35rpx;border-bottom: 1rpx solid #E6E6E6;">
+            <text>订单编号：23434355456</text>
+            <text style="margin-left:45%;color:#15c86c;">待付款</text> </view>
+        <view class='submitorder_cen_listli'>
+            <image src='http://file2.infobigdata.com/group1/M00/00/32/rBAKJFvAEO_wuzkiAAKCoBhMKy41..jpeg' class='submitorder_cen_listli_imgleft'></image>
+            <view class='submitorder_cen_listli_right'>×111</view>
+            <view class='submitorder_cen_listli_center'>
+                <view class='sclc_title'>nihao</view>
+                <view class='sclc_standard'>qqqq</view>
+                <view class='sclc_money'>¥22</view>
+            </view>
+
+        </view>
+
+       <view class='submitorder_cen_listli'>
+            <image src='http://file2.infobigdata.com/group1/M00/00/32/rBAKJFvAEO_wuzkiAAKCoBhMKy41..jpeg' class='submitorder_cen_listli_imgleft'></image>
+            <view class='submitorder_cen_listli_right'>×111</view>
+            <view class='submitorder_cen_listli_center'>
+                <view class='sclc_title'>nihao</view>
+                <view class='sclc_standard'>qqqq</view>
+                <view class='sclc_money'>¥22</view>
+            </view>
+        </view>
+
+
+      <view style="font-size:24rpx;text-align:right;line-height:80rpx"><text style="margin-right:40rpx;">共2件商品</text><text>实付金额  <text style="color:#fd432a;margin-right:35rpx;">¥32.00</text></text></view>
+      <view style="font-size:24rpx;text-align:right;line-height:80rpx"><text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#141414;margin-right:30rpx;">取消订单</text><text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#15c86c;margin-right:30rpx;">去付款  </text></view>
+
+    </view>
+
+
+</scroll-view>

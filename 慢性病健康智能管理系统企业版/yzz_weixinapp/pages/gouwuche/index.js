@@ -10,6 +10,7 @@ Page({
       box:false,
       money:0,//实付
       num: 0,//去结算
+     uid:""//客户id
   },
     boxchen:function(){
         var changed = {},mon=0;
@@ -146,7 +147,7 @@ Page({
         }
       }
         wx.navigateTo({
-          url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney='+_this.data.money
+            url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney=' + _this.data.money + '&id=' + _this.data.uid
         })
     },
   /**
@@ -156,6 +157,7 @@ Page({
       console.log(5474587458745)
       console.log(options.id)
       _this = this;
+      _this.setData({ uid:options.id})
       wx.request({
           url: zong+'/cart/myCart',
           data: {

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 27,
 			"list": [
 				{
 					"id": 0,
@@ -166,8 +166,8 @@
 					"query": "name=支气管炎"
 				},
 				{
-					"id": -1,
-					"name": "添加地址",
+					"id": 22,
+					"name": "收货地址",
 					"pathName": "pages/tianjiadizhi/index",
 					"query": ""
 				},
@@ -187,6 +187,18 @@
 					"id": -1,
 					"name": "登陆",
 					"pathName": "pages/signup/signup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加地址",
+					"pathName": "pages/receiptinformation/receiptinformation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/myshopping/index",
 					"query": ""
 				}
 			]
