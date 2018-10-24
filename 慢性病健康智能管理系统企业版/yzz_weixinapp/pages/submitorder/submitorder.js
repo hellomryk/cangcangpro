@@ -66,7 +66,7 @@ dizhi:function(){
 tianjiadizhi: function () {
 
     wx.navigateTo({
-        url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId
+      url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId + "&json=1"
     })
 
     },
@@ -142,6 +142,8 @@ tianjiadizhi: function () {
   submitorder() {
    
     console.log(_this.data.openId)
+    console.log(appid)
+    console.log(_this.data.openId)
       if (!_this.data.condition){
 
     //获取ip
@@ -163,6 +165,7 @@ tianjiadizhi: function () {
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
       data: {
+
           amount: Number(_this.data.summoney) + Number(_this.data.fare),//金额
         openid:_this.data.openId,//用户的OPenID
         minAppId: appid,//小程序AppID

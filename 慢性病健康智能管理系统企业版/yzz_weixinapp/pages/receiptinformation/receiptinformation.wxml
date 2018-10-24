@@ -9,12 +9,16 @@
     <view class='submitorder_remark_text'>手机:</view>
     <input class='submitorder_remark_input' placeholder='请填写收货人手机' type='text' bindinput="getPhone" value='{{getPhoneVal}}'></input>
   </view>
-    <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
+      <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
+    <view class='submitorder_remark_text'>所在地址:</view>
+    <input class='submitorder_remark_input' placeholder='北京市海淀区' type='text' bindinput="getAdd" value='{{getAddVal}}'></input>
+  </view>
+    <!-- <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
     <view class='submitorder_remark_text'>所在地址:</view>
     <image class='submitorder_top_leftimg' src='../../pics/dingwei.png'></image>
     <image src='../../pics/jiantouright.png' class='submitorder_top_rightimg'></image>
     <view class='submitorder_remark_address'>华尊大厦</view>
-  </view>
+  </view> -->
     <view class='submitorder_remark clearfix'>
     <view class='submitorder_remark_text'>详细地址:</view>
     <input class='submitorder_remark_input' placeholder='例:1号楼3单元502室' type='text' bindinput="getAddress" value='{{getAddressVal}}'></input>

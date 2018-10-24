@@ -191,9 +191,9 @@
 				},
 				{
 					"id": -1,
-					"name": "添加地址",
+					"name": "保存地址",
 					"pathName": "pages/receiptinformation/receiptinformation",
-					"query": ""
+					"query": "id=1"
 				},
 				{
 					"id": -1,
