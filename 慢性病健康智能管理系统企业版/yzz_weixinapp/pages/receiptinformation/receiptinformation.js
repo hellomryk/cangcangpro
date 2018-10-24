@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log(options)
   },
   //获取备注输入内容
   getRemark(e) {
@@ -27,6 +27,13 @@ Page({
     const _this = this,value = e.detail.value;
     _this.setData({
       getPhoneVal:value
+    })
+  },
+  // 获取地址
+  getAdd(e) {
+    const _this = this,value = e.detail.value;
+    _this.setData({
+      getAddVal:value
     })
   },
   //获取详细地址输入内容

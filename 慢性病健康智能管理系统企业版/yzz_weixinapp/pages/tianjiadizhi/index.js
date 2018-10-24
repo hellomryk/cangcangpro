@@ -99,7 +99,7 @@ bianji:function(){
 },
 tianjia:function(){
     wx.navigateTo({
-        url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId
+        url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId +"&json=1"
     })
 },
     onLoad: function(options) {
