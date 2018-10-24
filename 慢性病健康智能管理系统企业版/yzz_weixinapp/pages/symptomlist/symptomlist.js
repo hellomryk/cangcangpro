@@ -199,7 +199,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+            var l = 'http://192.168.1.243:8081/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -279,7 +279,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+            var l = 'http://192.168.1.243:8081/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,

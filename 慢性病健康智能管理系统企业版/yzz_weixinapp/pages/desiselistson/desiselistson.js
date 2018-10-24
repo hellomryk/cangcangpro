@@ -3,7 +3,7 @@ const date = new Date()
 const years = []
 const months = []
 const days = []
-// const hostlocal = "http://192.168.1.111:8080"
+const hostlocal1 = "http://192.168.1.243:8081";
 const hostlocal = "https://chronic.infobigdata.com"
 // for (let i = 1990; i <= date.getFullYear(); i++) {
 //   years.push(i)
@@ -199,7 +199,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal+'/appletApi/getUserInfo'
+          var l = hostlocal1+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -351,7 +351,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal+'/appletApi/getUserInfo'
+          var l = hostlocal1+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -529,7 +529,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal+'/appletApi/getUserInfo'
+          var l = hostlocal1+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -601,7 +601,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal+'/appletApi/getUserInfo'
+          var l = hostlocal1+'/appletApi/getUserInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -787,7 +787,7 @@ function sendmessage_pubId(selfPage) {
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
         // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-        var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
+          var l = hostlocal1+'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,

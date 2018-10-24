@@ -26,6 +26,29 @@ Page({
             success: function (res) {
                 console.log(res)
                 if (res.confirm) {
+                    var arr=[];
+                    for (var s = 0; s < _this.data.checkboxItems.length;s++){
+
+                        if (e.currentTarget.id != _this.data.checkboxItems[s].id){
+                            arr.push({
+                                name: _this.data.checkboxItems[s].name,
+                                sheng: _this.data.checkboxItems[s].sheng,
+                                shi: _this.data.checkboxItems[s].shi,
+                                qu: _this.data.checkboxItems[s].qu,
+                                youzheng: _this.data.checkboxItems[s].youzheng,
+                                value: _this.data.checkboxItems[s].value,
+                                ps: _this.data.checkboxItems[s].ps,
+                                checked: _this.data.checkboxItems[s].checked,
+                                id: _this.data.checkboxItems[s].id,
+                                userId: _this.data.checkboxItems[s].userId
+                            })
+                        }
+                    }
+                    _this.setData({
+                        checkboxItems: arr,
+
+                    })
+
                     //删除地址接口
                     wx.request({
                         url: url + '/address/api/delete',
@@ -104,14 +127,14 @@ tianjia:function(){
 },
     onLoad: function(options) {
         _this = this;
-        // _this.setData({
-        //     userId: options.id
-        // })
+        _this.setData({
+            userId: options.id
+        })
         //地址列表接口
         wx.request({
             url: url + '/address/api/getAddressesByUserId',
             data: {
-                userId: 22
+                userId: options.id
             },
             header: {
                 'content-type': 'application/json' // 默认值application/x-www-form-urlencoded

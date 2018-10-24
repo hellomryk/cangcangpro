@@ -4,6 +4,7 @@ const years = [];
 const months = [];
 const days = [];
 const gongyong ="https://chronic.infobigdata.com";
+const gongyong1 = "http://192.168.1.243:8081";
 
 Page({
 
@@ -193,7 +194,7 @@ starttest() {
           }
         });
         // var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
-          var l = gongyong +'/appletApi/getUserInfo'
+          var l = gongyong1 +'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -341,7 +342,7 @@ confirmbtn () {
             wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
-          var l = gongyong +'/appletApi/getUserInfo'
+          var l = gongyong1 +'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -576,7 +577,7 @@ function sendmessage_pubId(selfPage) {
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
 
-          var l = gongyong +'/appletApi/getUserInfo'
+          var l = gongyong1 +'/appletApi/getUserInfo'
         // console.log(res)
         wx.request({
           url: l,

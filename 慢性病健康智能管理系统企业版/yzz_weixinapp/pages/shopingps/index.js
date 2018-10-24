@@ -63,6 +63,11 @@ Page({
           wx.navigateTo({
             url: '/pages/signup/signup'
           })
+            // wx.showToast({
+            //     title: res.data.msg,
+            //     icon: 'none',
+            //     duration: 600
+            // })
         } else {
           _this.setData({
             userId: res.data.data

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 22,
 			"list": [
 				{
 					"id": 0,
@@ -169,7 +169,7 @@
 					"id": 22,
 					"name": "收货地址",
 					"pathName": "pages/tianjiadizhi/index",
-					"query": ""
+					"query": "id=22"
 				},
 				{
 					"id": 23,

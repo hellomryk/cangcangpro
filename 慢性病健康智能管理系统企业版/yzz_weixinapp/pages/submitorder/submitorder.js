@@ -44,6 +44,7 @@ Page({
     summoney:0,//总钱数
     fare:0,//运费
     openId:'',//小程序openid
+      outTradeNo: '',// 微信支付同意下单接口生成的outTradeNo
     prepayId:'',//微信支付同意下单接口生成的prepayID
     sign:'',//支付签名
       condition: true,//地址开关
@@ -81,14 +82,14 @@ tianjiadizhi: function () {
    */
   onLoad: function (options) {
         _this = this;
-    // console.log(1)
-    // console.log(JSON.parse(options.checkedArr))
-    // console.log(options.summoney)
-    // _this.setData({
-    //   checkedArr: JSON.parse(options.checkedArr),
-    //   summoney: Number(options.summoney),
-    //    userId: options.id
-    // })
+    console.log(1)
+    console.log(JSON.parse(options.checkedArr))
+    console.log(options.summoney)
+    _this.setData({
+      checkedArr: JSON.parse(options.checkedArr),
+      summoney: Number(options.summoney),
+       userId: options.id
+    })
 
       //地址列表接口
       wx.request({
@@ -140,10 +141,9 @@ tianjiadizhi: function () {
   },
   // 提交订单
   submitorder() {
-   
-    console.log(_this.data.openId)
-    console.log(appid)
-    console.log(_this.data.openId)
+
+
+
       if (!_this.data.condition){
 
     //获取ip
@@ -181,7 +181,8 @@ tianjiadizhi: function () {
         console.log(res.data.data)
         console.log(res.data.data.prepayId)
         _this.setData({
-          prepayId: res.data.data.prepayId
+          prepayId: res.data.data.prepayId,
+            outTradeNo: res.data.data.outTradeNo
         })
         // 获取签名
         wx.request({
@@ -212,35 +213,40 @@ tianjiadizhi: function () {
                 'paySign': res.data.data.sign,//签名,具体签名方案参见微信公众号支付帮助文档;
                 'success': function (res) {
                   console.log("成功") 
-                    console.log(res)
-                    wx.request({
-                        url: url + '/order/add',
-                        data: {
-                            userId: _this.data.userId,//用户ID
-                            cartIdArray: "参数",//购物车ID
-                            addressId: "参数",//地址ID
-                            goodSpecStrNumberArray: "参数",//规格以 及数量字符串 格式为：goodId：商品规格specStr：buyNumber
-                            totalAmount: _this.data.summoney,//订单总金额
-                            note: _this.data.inputValue,//备注
-                            freightVal: _this.data.fare,//运费
-                            orderNo: "211314",//订单号
-                        },
-                        header: {
-                            'content-type': 'application/x-www-form-urlencoded' // 默认值application/json
-                        },
-                        method: "POST",
-                        success: function (res) {
-                            console.log(res.data)
-                            console.log(res.data.result)
+                    console.log(res) 
+                    var arr = [], arr1 = [];
+                    for (var s = 0; s < _this.data.checkedArr.length; s++) {
+                        arr.push(_this.data.checkedArr[s].name);
+                        arr1.push(_this.data.checkedArr[s].goodId + ":" + _this.data.checkedArr[s].ps + ":" + _this.data.checkedArr[s].Number);
+                    }
+                        wx.request({
+                            url: url + '/order/add',
+                            data: {
+                                userId: _this.data.userId,//用户ID
+                                cartIdArray: arr,//购物车ID
+                                addressId: _this.data.conditionid,//地址ID
+                                goodSpecStrNumberArray: arr1,//规格以 及数量字符串 格式为：goodId：商品规格specStr：buyNumber
+                                totalAmount: _this.data.summoney,//订单总金额
+                                note: _this.data.inputValue,//备注
+                                freightVal: _this.data.fare,//运费
+                                orderNo: _this.data.outTradeNo,//订单号
+                            },
+                            header: {
+                                'content-type': 'application/x-www-form-urlencoded' // 默认值application/json
+                            },
+                            method: "POST",
+                            success: function (res) {
+                                console.log(res.data)
+                              wx.navigateTo({
+                                    url: '/pages/shouye/shouye',
+                                  })
 
-                        }
-                    })
+                            }
+                        })
 
 
 
-                //   wx.navigateTo({
-                //     url: '/pages/shouye/shouye',
-                //   })
+
                 },
                 'fail': function (res) { },
                 'complete': function (res) { }
