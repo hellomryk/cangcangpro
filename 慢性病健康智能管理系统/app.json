@@ -24,7 +24,8 @@
         "pages/signup/signup",
         "pages/receiptinformation/receiptinformation",
         "pages/tianjiadizhi/index",
-        "pages/zjbg/index"
+        "pages/zjbg/index",
+        "pages/paizhao/index"
     ],
     "window": {
         "backgroundTextStyle": "black",
