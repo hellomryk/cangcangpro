@@ -18,7 +18,7 @@ page {
     line-height: 88rpx;
     color:#141414;
     margin-left:30rpx;
-    width:142rpx;
+    width:100rpx;
     text-align: left;
 }
 .submitorder_remark_input {
@@ -27,6 +27,7 @@ page {
     line-height:88rpx;
     color:#141414;
     margin-top:18rpx;
+    width:161rpx;
 }
 .submitorder_remark_input::-webkit-input-placeholder{
     line-height:88rpx;
