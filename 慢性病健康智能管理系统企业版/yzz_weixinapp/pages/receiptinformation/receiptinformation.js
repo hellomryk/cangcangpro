@@ -69,9 +69,13 @@ Page({
       data:{
         userId: _this.data.userId,//用户ID
         detailedAddress: _this.data.getAddressVal,//详细地址
-        postcode: _this.data.getAddVal,//暂时放地址
+        postcode: 0,//暂时放地址
         personName: _this.data.getRemarkVal,//姓名
         personTel: _this.data.getPhoneVal,//电话
+          isDefault:0,
+          province: "地",
+          city: "址：",
+          area: _this.data.getAddVal,
       },
       header: {
         'Content-Type':'application/x-www-form-urlencoded'

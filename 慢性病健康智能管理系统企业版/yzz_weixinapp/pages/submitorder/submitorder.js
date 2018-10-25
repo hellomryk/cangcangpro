@@ -56,6 +56,7 @@ Page({
       detailInfo: '',//详细地址
       telNumber: '',//电话
       inputValue:"",//input值
+      en:null
   },
 dizhi:function(){
 
@@ -95,7 +96,7 @@ tianjiadizhi: function () {
       wx.request({
           url: url + '/address/api/getAddressesByUserId',
           data: {
-              userId: 22  // options.id
+              userId: _this.data.userId
           },
           header: {
               'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
@@ -145,8 +146,12 @@ tianjiadizhi: function () {
 
 
       if (!_this.data.condition){
-
-    //获取ip
+          var arr = [], arr1 = [];
+          for (var s = 0; s < _this.data.checkedArr.length; s++) {
+              arr.push(_this.data.checkedArr[s].name);
+              arr1.push(_this.data.checkedArr[s].goodId + ":" + _this.data.checkedArr[s].specId + ":" + _this.data.checkedArr[s].Number);
+          }
+              //获取ip
     wx.request({
         url: url + '/weixin/getIpAddress',
         data: {
@@ -162,11 +167,12 @@ tianjiadizhi: function () {
             console.log(res)
             console.log(res.data)
     // 获取统一下单
+            var mon=Number(_this.data.summoney) + Number(_this.data.fare);
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
       data: {
 
-          amount: Number(_this.data.summoney) + Number(_this.data.fare),//金额
+          amount: mon,//金额
         openid:_this.data.openId,//用户的OPenID
         minAppId: appid,//小程序AppID
           spbillCreateIp: ip,//终端IP
@@ -199,51 +205,49 @@ tianjiadizhi: function () {
             console.log('获取签名')
             console.log(res)
             _this.setData({
-              sign: res.data.data.sign
+              sign: res.data.data.sign,
+                en: res.data.data
+
             })
+          wx.request({
+              url: url + '/order/add',
+              data: {
+                  userId: _this.data.userId,//用户ID
+                  cartIdArray: arr,//购物车ID
+                  addressId: _this.data.conditionid,//地址ID
+                  goodSpecStrNumberArray: arr1,//规格以 及数量字符串 格式为：goodId：商品规格specStr：buyNumber
+                  totalAmount: _this.data.summoney,//订单总金额
+                  note: _this.data.inputValue,//备注
+                  freightVal: _this.data.fare,//运费
+                  orderNo: _this.data.outTradeNo,//订单号
+              },
+              header: {
+                  'content-type': 'application/x-www-form-urlencoded' // 默认值application/json
+              },
+              method: "POST",
+              success: function (res) {
+                  console.log(res.data)
+
+      
+
             // 调取支付方法
             console.log("paaaaaaaaaaaaa")
             console.log(_this.data.prepayId)
             wx.requestPayment(
               {
-                'timeStamp': res.data.data.timeStamp,//时间戳从1970年1月1日00:00:00至今的秒数,即当前的时间
-                'nonceStr': res.data.data.nonceStr,//随机字符串，长度为32个字符以下
-                'package': res.data.data.package, //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
+                'timeStamp': _this.data.en.timeStamp,//时间戳从1970年1月1日00:00:00至今的秒数,即当前的时间
+                    'nonceStr': _this.data.en.nonceStr,//随机字符串，长度为32个字符以下
+                    'package': _this.data.en.package, //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
                 'signType': 'MD5',//签名类型，默认为MD5，支持HMAC-SHA256和MD5。注意此处需与统一下单的签名类型一致
-                'paySign': res.data.data.sign,//签名,具体签名方案参见微信公众号支付帮助文档;
+                    'paySign': _this.data.en.sign,//签名,具体签名方案参见微信公众号支付帮助文档;
                 'success': function (res) {
                   console.log("成功") 
                     console.log(res) 
-                    var arr = [], arr1 = [];
-                    for (var s = 0; s < _this.data.checkedArr.length; s++) {
-                        arr.push(_this.data.checkedArr[s].name);
-                        arr1.push(_this.data.checkedArr[s].goodId + ":" + _this.data.checkedArr[s].ps + ":" + _this.data.checkedArr[s].Number);
-                    }
-                        wx.request({
-                            url: url + '/order/add',
-                            data: {
-                                userId: _this.data.userId,//用户ID
-                                cartIdArray: arr,//购物车ID
-                                addressId: _this.data.conditionid,//地址ID
-                                goodSpecStrNumberArray: arr1,//规格以 及数量字符串 格式为：goodId：商品规格specStr：buyNumber
-                                totalAmount: _this.data.summoney,//订单总金额
-                                note: _this.data.inputValue,//备注
-                                freightVal: _this.data.fare,//运费
-                                orderNo: _this.data.outTradeNo,//订单号
-                            },
-                            header: {
-                                'content-type': 'application/x-www-form-urlencoded' // 默认值application/json
-                            },
-                            method: "POST",
-                            success: function (res) {
-                                console.log(res.data)
-                              wx.navigateTo({
-                                    url: '/pages/shouye/shouye',
-                                  })
+                   
 
-                            }
-                        })
-
+                    wx.navigateTo({
+                        url: '/pages/shouye/shouye',
+                    })
 
 
 
@@ -258,7 +262,8 @@ tianjiadizhi: function () {
 
       }
     })
-
+              }
+          })
       }else{
           wx.showToast({
               title: "请填写地址！",
@@ -273,7 +278,46 @@ tianjiadizhi: function () {
    */
   onShow: function () {
     const _this = this;
-    getOpenId(_this)
+    getOpenId(_this);
+      //地址列表接口
+      wx.request({
+          url: url + '/address/api/getAddressesByUserId',
+          data: {
+              userId: _this.data.userId
+          },
+          header: {
+              'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
+          },
+          //   method: "POST",
+          success: function (res) {
+              console.log(res.data)
+              console.log(res.data.data)
+              if (res.data.data.length > 0) {
+                  _this.setData({
+                      condition: false,
+                  })
+                  for (var s = 0; s < res.data.data.length; s++) {
+                      if (res.data.data[s].isDefault == 1) {
+                          _this.setData({
+                              userName: res.data.data[s].personName,
+                              provinceName: res.data.data[s].province,
+                              cityName: res.data.data[s].city,
+                              countyName: res.data.data[s].area,
+                              detailInfo: res.data.data[s].detailedAddress,
+                              telNumber: res.data.data[s].personTel,
+                              conditionid: res.data.data[s].id,
+                          })
+                      }
+                  }
+
+              } else {
+                  _this.setData({
+                      condition: true,
+                  })
+              }
+
+          }
+      })
   },
 
   /**
