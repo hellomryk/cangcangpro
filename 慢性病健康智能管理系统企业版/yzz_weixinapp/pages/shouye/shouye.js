@@ -1,5 +1,7 @@
 // pages/box/index.js
 const md51 = require('../../utils/MD5.js');
+const secret = "b6f619487205d6a3d49b45c5736a9d39";
+const appid = "wxe233654cc28fd440";
 const app = getApp();
 // function paysignjsapi(appid, body, mch_id, nonce_str, notify_url, openid, out_trade_no, spbill_create_ip, total_fee,key) {
 //     var ret = {
@@ -35,7 +37,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    openId: '',//小程序openid
   },
 
   /**
@@ -50,8 +52,8 @@ Page({
         return parseInt(new Date().getTime() / 1000) + ''
     },
   onLoad: function (options) {
-
-
+    const _this = this;
+    getOpenId(_this)
   },
 
   /**
@@ -65,7 +67,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const _this = this;
+    getOpenId(_this)
   },
 
   /**
@@ -103,3 +106,46 @@ Page({
 
   }
 })
+
+function getOpenId(_this) {
+  // 获取小程序id开始
+  var user = wx.getStorageSync('user') || {};
+  var userInfo = wx.getStorageSync('userInfo') || {};
+  wx.login({
+    success: function (res) {
+      if (res.code) {
+        wx.getUserInfo({
+          success: function (res) {
+            var objz = {};
+            objz.avatarUrl = res.userInfo.avatarUrl;
+            objz.nickName = res.userInfo.nickName;
+            wx.setStorageSync('userInfo', objz); //存储userInfo
+          }
+        });
+        var l = url + '/weixin/getWeixinInfo'
+        wx.request({
+          url: l,
+          data: {
+            code: res.code,
+            appid: appid,
+            secret: secret
+          },
+          method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+          success: function (res) {
+            console.log(JSON.parse(res.data.data).openid)
+            _this.setData({
+              openId: JSON.parse(res.data.data).openid
+            })
+            console.log("打印openid结束")
+            // wx.setStorageSync('user', obj); 
+            //存储openid 
+          }
+        });
+      } else {
+        console.log('获取用户登录态失败！' + res.errMsg)
+      }
+    }
+  });
+  //获取小程序id结束
+}
+

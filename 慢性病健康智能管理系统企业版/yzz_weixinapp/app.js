@@ -2,17 +2,61 @@
 
 const corpusList = require('./config').corpus
 var UTIL = require('./utils/util.js');
-
+const url = "http://192.168.1.243:8081";
+const secret = "b6f619487205d6a3d49b45c5736a9d39";
+const appid = "wxe233654cc28fd440";
 App({
+  globalData: {
+    openId: '你好', //自定义
+  },
   onShow: function () {
     UTIL.log('App Show')
+    const _this = this;
+    // 获取小程序id开始
+    var user = wx.getStorageSync('user') || {};
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          wx.getUserInfo({
+            success: function (res) {
+              var objz = {};
+              objz.avatarUrl = res.userInfo.avatarUrl;
+              objz.nickName = res.userInfo.nickName;
+              wx.setStorageSync('userInfo', objz); //存储userInfo
+            }
+          });
+          var l = url + '/weixin/getWeixinInfo'
+          wx.request({
+            url: l,
+            data: {
+              code: res.code,
+              appid: appid,
+              secret: secret
+            },
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+            success: function (res) {
+              console.log(JSON.parse(res.data.data).openid)
+              _this.globalData.openId = JSON.parse(res.data.data).openid
+              console.log("打印openid结束")
+              // wx.setStorageSync('user', obj); 
+              //存储openid 
+            }
+          });
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
+    //获取小程序id结束
   },
   onHide: function () {
     UTIL.log('App Hide')
   },
   onLaunch: function () {
     UTIL.log('App Launch')
-    this.updateUserLocation()
+    this.updateUserLocation();
+    
   },
   updateUserLocation: function() {
     var that = this
@@ -70,3 +114,5 @@ App({
     speed: 0,
   }
 })
+
+
