@@ -91,7 +91,7 @@ Page({
             console.log(res)
             const id = res.data.data
             wx.navigateTo({
-              url: '/pages/shopingps/index?id=' + id,
+              url: '/pages/shangcheng_list/index?id=' + id,
             })
           }
         }

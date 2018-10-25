@@ -82,7 +82,7 @@ tianjiadizhi: function () {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-        _this = this;
+    _this = this;
     console.log(1)
     console.log(JSON.parse(options.checkedArr))
     console.log(options.summoney)
@@ -110,17 +110,17 @@ tianjiadizhi: function () {
                       condition: false,
                   })
                   for (var s = 0; s < res.data.data.length;s++){
-                      if (res.data.data[s].isDefault==1){
-                          _this.setData({
-                              userName: res.data.data[s].personName,
-                              provinceName: res.data.data[s].province,
-                              cityName: res.data.data[s].city,
-                              countyName: res.data.data[s].area,
-                              detailInfo: res.data.data[s].detailedAddress,
-                              telNumber: res.data.data[s].personTel,
-                              conditionid: res.data.data[s].id,
-                          })
-                             }
+                    if (res.data.data[s].isDefault==1){
+                              _this.setData({
+                                  userName: res.data.data[s].personName,
+                                  provinceName: res.data.data[s].province,
+                                  cityName: res.data.data[s].city,
+                                  countyName: res.data.data[s].area,
+                                  detailInfo: res.data.data[s].detailedAddress,
+                                  telNumber: res.data.data[s].personTel,
+                                  conditionid: res.data.data[s].id,
+                              })
+                            }
                }
 
               }else{
@@ -128,12 +128,9 @@ tianjiadizhi: function () {
                       condition: true,
                   })
               }
-
           }
       })
-
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -142,9 +139,6 @@ tianjiadizhi: function () {
   },
   // 提交订单
   submitorder() {
-
-
-
       if (!_this.data.condition){
           var arr = [], arr1 = [];
           for (var s = 0; s < _this.data.checkedArr.length; s++) {
@@ -171,11 +165,10 @@ tianjiadizhi: function () {
     wx.request({
       url: url +'/weixin/createUnifiedOrder',
       data: {
-
-          amount: mon,//金额
+        amount: mon,//金额
         openid:_this.data.openId,//用户的OPenID
         minAppId: appid,//小程序AppID
-          spbillCreateIp: ip,//终端IP
+        spbillCreateIp: ip,//终端IP
       },
       header: {
         "Content-Type": "application/json"
