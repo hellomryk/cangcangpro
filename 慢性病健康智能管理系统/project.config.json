@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 26,
 			"list": [
 				{
 					"id": 0,
@@ -188,6 +188,11 @@
 					"name": "添加、编辑地址",
 					"pathName": "pages/receiptinformation/receiptinformation",
 					"query": "id=22"
+				},
+				{
+					"id": -1,
+					"name": "拍照",
+					"pathName": "pages/paizhao/index"
 				}
 			]
 		}

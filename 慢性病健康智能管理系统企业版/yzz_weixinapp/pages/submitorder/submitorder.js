@@ -246,7 +246,7 @@ tianjiadizhi: function () {
                    
 
                     wx.navigateTo({
-                        url: '/pages/shouye/shouye',
+                        url: '/pages/myshopping/shouye?id=' + _this.data.userId,
                     })
 
 
