@@ -146,9 +146,18 @@ Page({
           checkedArr.push(_this.data.checkboxItems[i])
         }
       }
-        wx.navigateTo({
-            url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney=' + _this.data.money + '&id=' + _this.data.uid
-        })
+        if (checkedArr.length>0){
+            wx.navigateTo({
+                url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney=' + _this.data.money + '&id=' + _this.data.uid
+            })
+        }else{
+            wx.showToast({
+                title: "亲！请选择商品结算哦",
+                icon: 'none',
+                duration: 1000
+            })
+        }
+
     },
   /**
    * 生命周期函数--监听页面加载
@@ -199,7 +208,7 @@ Page({
             // }
              var ar=[];
               for (var s = 0; s < res.data.data.length;s++){
-                  ar.push({ name: res.data.data[s].cartId + "", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount, goodId: res.data.data[s].goodId  })
+                  ar.push({ name: res.data.data[s].cartId + "", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount, goodId: res.data.data[s].goodId, specId: res.data.data[s].goodSpec[0].specId + "@" + res.data.data[s].goodSpec[1].specId })
        }
              _this.setData({ checkboxItems: ar.reverse() });
           }

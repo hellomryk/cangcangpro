@@ -23,10 +23,10 @@ Page({
       wx.request({
           url: 'http://192.168.1.56:8080/newrobot5',
           data: {
-              'report': {
+                   type: 7,
                   openid: options.bopenid,
-                  date: options.bid
-              }
+                  time: options.bid
+            
           },
           header: {
               'content-type': 'application/json' // 默认值application/x-www-form-urlencoded

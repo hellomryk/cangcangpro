@@ -9,7 +9,9 @@ Page({
       open:false,
       name:"--",
       list: [],
-      ima:''
+      ima:'',
+      bid:'',
+      id:''
 
   },
 
@@ -73,7 +75,7 @@ Page({
       wx.request({
           url: 'http://192.168.1.56:8080/newrobot5',
           data: {
-              'information':{
+              type: 5,
               name: bean.username,
               sex: bean.sex,
               old: bean.age,
@@ -82,7 +84,7 @@ Page({
               openid: bean.openId,
               inLocation: '北京市', //（所在地）
               date: ' ' //（实时时间，精确到秒，年月日时分秒）
-              }
+            
           
                  },
           header: {
@@ -91,7 +93,10 @@ Page({
            method: "POST",
           success: function (res) {
               console.log(res.data)
-
+              _this.setData({
+                  id: bean.openId,
+                  bid: res.data.time
+              })
 
           }
       })

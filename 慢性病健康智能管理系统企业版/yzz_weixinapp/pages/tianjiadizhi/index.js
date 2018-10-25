@@ -10,7 +10,7 @@ Page({
         checkboxItems: [],
         userId:null,
         addressId: null,
-        userId:22,
+        userId:null,
 
     },
     shanchu:function(e){

@@ -73,7 +73,7 @@ Page({
             userId: res.data.data
           })
           wx.navigateTo({
-            url: '/pages/gouwuche/index?id=' + _this.data.userId
+              url: '/pages/gouwuche/index?id=' + _this.data.userId 
           })
           console.log("注册过了")
         }
