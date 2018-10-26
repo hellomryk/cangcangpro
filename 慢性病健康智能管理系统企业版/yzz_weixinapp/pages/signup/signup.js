@@ -93,6 +93,14 @@ Page({
             wx.navigateTo({
               url: '/pages/shangcheng_list/index?id=' + id,
             })
+          } else { 
+
+              wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none',
+                  duration: 2000
+              })
+
           }
         }
       })

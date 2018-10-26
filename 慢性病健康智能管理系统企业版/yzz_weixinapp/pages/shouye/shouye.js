@@ -53,7 +53,7 @@ Page({
     },
   onLoad: function (options) {
     const _this = this;
-    getOpenId(_this)
+    // getOpenId(_this)
   },
 
   /**
@@ -68,7 +68,7 @@ Page({
    */
   onShow: function () {
     const _this = this;
-    getOpenId(_this)
+    // getOpenId(_this)
   },
 
   /**
@@ -107,45 +107,45 @@ Page({
   }
 })
 
-function getOpenId(_this) {
-  // 获取小程序id开始
-  var user = wx.getStorageSync('user') || {};
-  var userInfo = wx.getStorageSync('userInfo') || {};
-  wx.login({
-    success: function (res) {
-      if (res.code) {
-        wx.getUserInfo({
-          success: function (res) {
-            var objz = {};
-            objz.avatarUrl = res.userInfo.avatarUrl;
-            objz.nickName = res.userInfo.nickName;
-            wx.setStorageSync('userInfo', objz); //存储userInfo
-          }
-        });
-        var l = url + '/weixin/getWeixinInfo'
-        wx.request({
-          url: l,
-          data: {
-            code: res.code,
-            appid: appid,
-            secret: secret
-          },
-          method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-          success: function (res) {
-            console.log(JSON.parse(res.data.data).openid)
-            _this.setData({
-              openId: JSON.parse(res.data.data).openid
-            })
-            console.log("打印openid结束")
-            // wx.setStorageSync('user', obj); 
-            //存储openid 
-          }
-        });
-      } else {
-        console.log('获取用户登录态失败！' + res.errMsg)
-      }
-    }
-  });
-  //获取小程序id结束
-}
+// function getOpenId(_this) {
+//   // 获取小程序id开始
+//   var user = wx.getStorageSync('user') || {};
+//   var userInfo = wx.getStorageSync('userInfo') || {};
+//   wx.login({
+//     success: function (res) {
+//       if (res.code) {
+//         wx.getUserInfo({
+//           success: function (res) {
+//             var objz = {};
+//             objz.avatarUrl = res.userInfo.avatarUrl;
+//             objz.nickName = res.userInfo.nickName;
+//             wx.setStorageSync('userInfo', objz); //存储userInfo
+//           }
+//         });
+//         var l = url + '/weixin/getWeixinInfo'
+//         wx.request({
+//           url: l,
+//           data: {
+//             code: res.code,
+//             appid: appid,
+//             secret: secret
+//           },
+//           method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+//           success: function (res) {
+//             console.log(JSON.parse(res.data.data).openid)
+//             _this.setData({
+//               openId: JSON.parse(res.data.data).openid
+//             })
+//             console.log("打印openid结束")
+//             // wx.setStorageSync('user', obj); 
+//             //存储openid 
+//           }
+//         });
+//       } else {
+//         console.log('获取用户登录态失败！' + res.errMsg)
+//       }
+//     }
+//   });
+//   //获取小程序id结束
+// }
 
