@@ -4,6 +4,7 @@ const years = [];
 const months = [];
 const days = [];
 const gongyong ="https://chronic.infobigdata.com";
+
 const gongyong1 = "https://chronic-api.infobigdata.com";
 
 Page({
@@ -59,8 +60,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var app = getApp();
     const pageSelf = this;
+    console.log("监测能否获取到app里面的openid")
+    var getAppInfo = app.globalData.openId;
+    console.log(getAppInfo)
+    // console.log(app.getOpenId())
+    // console.log(app.getOpenId)
+    // console.log(getOpenId)
+    // console.log(appid)
     //计算屏幕高度
     wx.getSystemInfo({
       success: function (res) {
@@ -219,7 +227,7 @@ starttest() {
             wx.request({ 
                 url: gongyong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs', 
               data: {
-                openid: obj.openid,
+                openid: app.data.openId,
                 issue: encodeURI(selfPage.data.year)
               },
               method: 'GET',
