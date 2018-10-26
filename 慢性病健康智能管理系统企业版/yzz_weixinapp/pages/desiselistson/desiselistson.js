@@ -199,8 +199,8 @@ Page({
               wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -341,11 +341,11 @@ Page({
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
+              // wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -512,11 +512,11 @@ Page({
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
+              // wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -578,11 +578,11 @@ Page({
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
+              // wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -596,7 +596,7 @@ Page({
                 openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
+              // wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
@@ -756,13 +756,13 @@ function sendmessage_pubId(selfPage) {
             var objz = {};
             objz.avatarUrl = res.userInfo.avatarUrl;
             objz.nickName = res.userInfo.nickName;
-            wx.setStorageSync('userInfo', objz); //存储userInfo
+            // wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
-        // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+        // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
         // console.log(res)
         wx.request({
           url: l,

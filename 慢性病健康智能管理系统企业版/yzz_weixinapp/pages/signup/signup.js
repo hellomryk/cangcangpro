@@ -2,7 +2,7 @@
 const url = "https://chronic-api.infobigdata.com";
 const secret = "b6f619487205d6a3d49b45c5736a9d39";
 const appid = "wxe233654cc28fd440";
-
+const app = getApp();
 Page({
 
   /**
@@ -100,7 +100,9 @@ Page({
                   icon: 'none',
                   duration: 2000
               })
-
+            wx.navigateTo({
+              url: '/pages/shangcheng_list/index'
+            })
           }
         }
       })

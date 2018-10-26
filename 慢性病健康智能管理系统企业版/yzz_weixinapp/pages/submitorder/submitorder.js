@@ -83,6 +83,10 @@ tianjiadizhi: function () {
    */
   onLoad: function (options) {
     _this = this;
+    console.log('app中的openid嫩过来不')
+    var getAppInfo = app.globalData.openId;
+    console.log(getAppInfo)
+    getOpenId(_this);
     console.log(1)
     console.log(JSON.parse(options.checkedArr))
     console.log(options.summoney)

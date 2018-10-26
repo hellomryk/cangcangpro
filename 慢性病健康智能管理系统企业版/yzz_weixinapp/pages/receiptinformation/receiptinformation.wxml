@@ -2,16 +2,16 @@
 <!-- <text>pages/receiptinformation/receiptinformation.wxml</text> -->
 <view>
   <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
-    <view class='submitorder_remark_text'>备注:</view>
-    <input class='submitorder_remark_input' placeholder='如有备注请填写' type='text' bindinput='getRemark' value="{{getRemarkVal}}"></input>
+    <view class='submitorder_remark_text'>姓名:</view>
+    <input class='submitorder_remark_input' placeholder='如有备注请填写' type='text' bindinput='getRemark' ></input>
   </view>
     <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
     <view class='submitorder_remark_text'>手机:</view>
-    <input class='submitorder_remark_input' placeholder='请填写收货人手机' type='text' bindinput="getPhone" value='{{getPhoneVal}}'></input>
+    <input class='submitorder_remark_input' placeholder='请填写收货人手机' type='text' bindinput="getPhone" ></input>
   </view>
       <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
     <view class='submitorder_remark_text'>所在地址:</view>
-    <input class='submitorder_remark_input' placeholder='北京市海淀区' type='text' bindinput="getAdd" value='{{getAddVal}}'></input>
+    <input class='submitorder_remark_input' placeholder='北京市海淀区' type='text' bindinput="getAdd" ></input>
   </view>
     <!-- <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
     <view class='submitorder_remark_text'>所在地址:</view>
@@ -21,7 +21,7 @@
   </view> -->
     <view class='submitorder_remark clearfix'>
     <view class='submitorder_remark_text'>详细地址:</view>
-    <input class='submitorder_remark_input' placeholder='例:1号楼3单元502室' type='text' bindinput="getAddress" value='{{getAddressVal}}'></input>
+    <input class='submitorder_remark_input' placeholder='例:1号楼3单元502室' type='text' bindinput="getAddress" ></input>
   </view>
   <view class='receipt_save' bindtap='save'>
     保存地址

@@ -100,10 +100,9 @@ Page({
                             icon: 'none',
                             duration: 600
                         })
-                        wx.request({
-                          url: '/pages/',
+                        wx.navigateTo({
+                          url: '/pages/submitorder/submitorder',
                         })
-
                     }
                 })
             } else {

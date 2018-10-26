@@ -1,5 +1,6 @@
 // pages/znpgresult/znpgresult.js
 var selfPage = null, zong ="https://chronic.infobigdata.com";
+const gongyong1 = "https://chronic-api.infobigdata.com";
 var app = getApp();
 Page({
 
@@ -37,7 +38,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-            var l = zong+'/appletApi/getUserInfo'
+          var l = gongyong1 +'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -59,15 +60,11 @@ Page({
                     url: zong + '/doctorapplet/f52024d75d4348f38cdad3670d209c1e/evaluationtest',
                 data: {
                   openid: encodeURI(app.globalData.openId)
-      },
+                },
                 method: "get",
                 success: function (res) {
                   console.log(res)
                   console.log(res.data.data)
-                  // console.log(JSON.parse(res.data.data))
-                  // console.log(JSON.parse(res.data.data).selftest)
-                  // console.log(JSON.parse(res.data.data).selftest[0].evaluationTime)
-                  // console.log(getMyDate(JSON.parse(res.data.data).selftest[0].evaluationTime))
                   var arr1 = JSON.parse(res.data.data).selftest;
                    var arr3 = arr1.inquiry;
                     console.log(arr3)
@@ -122,7 +119,7 @@ Page({
                       }
                   });
                   // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-                  var l = zong +'/appletApi/getUserInfo'
+                var l = gongyong1 +'/weixin/getWeixinInfo'
                   // console.log(res)
                   wx.request({
                       url: l,
@@ -202,7 +199,7 @@ Page({
                       }
                   });
                   // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-                  var l = zong +'/appletApi/getUserInfo'
+                var l = gongyong1 +'/weixin/getWeixinInfo'
                   // console.log(res)
                   wx.request({
                       url: l,

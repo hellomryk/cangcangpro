@@ -36,8 +36,8 @@ Page({
               wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,

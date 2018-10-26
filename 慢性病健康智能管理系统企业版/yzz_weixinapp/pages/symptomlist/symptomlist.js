@@ -1,5 +1,6 @@
 // pages/symptomlist/symptomlist.js
 var _this=null;
+const gongyong1 = "https://chronic-api.infobigdata.com";
 var app = getApp();
 Page({
 
@@ -200,7 +201,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-            var l = 'http://192.168.1.243:8081/appletApi/getUserInfo'
+          var l = gongyong1 +' / weixin / getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -279,7 +280,7 @@ Page({
             }
           });
           // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-            var l = 'http://192.168.1.243:8081/appletApi/getUserInfo'
+          var l = gongyong1 +'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,

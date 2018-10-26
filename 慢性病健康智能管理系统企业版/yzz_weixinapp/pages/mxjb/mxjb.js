@@ -1,11 +1,13 @@
 // pages/mxjb/mxjb.js
 const date = new Date();
+var UTIL = require('../../utils/util.js');
 const years = [];
 const months = [];
 const days = [];
 const gongyong ="https://chronic.infobigdata.com";
 var app = getApp();
 const gongyong1 = "https://chronic-api.infobigdata.com";
+
 Page({
 
   /**
@@ -61,6 +63,10 @@ Page({
   onLoad: function (options) {
     const pageSelf = this;
     console.log("监测能否获取到app里面的openid")
+    console.log(app.globalData)
+    console.log(app.globalData.corpus)
+    console.log(app.globalData.longitude)
+    console.log(app.globalData.openId)
     var getAppInfo = app.globalData.openId;
     console.log(getAppInfo)
     // console.log(app.getOpenId())
@@ -199,8 +205,8 @@ starttest() {
             wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
-        // var l = 'https://chronic.infobigdata.com/appletApi/getUserInfo'
-          var l = gongyong1 +'/appletApi/getUserInfo'
+        // var l = 'https://chronic.infobigdata.com/weixin/getWeixinInfo'
+          var l = gongyong1 +'/weixin/getWeixinInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -343,7 +349,7 @@ confirmbtn () {
             wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
-          var l = gongyong1 +'/appletApi/getUserInfo'
+          var l = gongyong1 +'/weixin/getWeixinInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -575,7 +581,7 @@ function sendmessage_pubId(selfPage) {
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
 
-          var l = gongyong1 +'/appletApi/getUserInfo'
+          var l = gongyong1 +'/weixin/getWeixinInfo'
         // console.log(res)
         wx.request({
           url: l,
