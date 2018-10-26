@@ -3,7 +3,7 @@ const date = new Date()
 const years = []
 const months = []
 const days = []
-const hostlocal1 = "http://192.168.1.243:8081";
+const hostlocal1 = "https://chronic-api.infobigdata.com";
 const hostlocal = "https://chronic.infobigdata.com"
 var app = getApp();
 // for (let i = 1990; i <= date.getFullYear(); i++) {

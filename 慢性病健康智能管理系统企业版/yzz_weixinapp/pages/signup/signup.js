@@ -1,5 +1,5 @@
 // pages/signup/signup.js
-const url = "http://192.168.1.243:8081";
+const url = "https://chronic-api.infobigdata.com";
 const secret = "b6f619487205d6a3d49b45c5736a9d39";
 const appid = "wxe233654cc28fd440";
 
@@ -93,6 +93,14 @@ Page({
             wx.navigateTo({
               url: '/pages/shangcheng_list/index?id=' + id,
             })
+          } else { 
+
+              wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none',
+                  duration: 2000
+              })
+
           }
         }
       })

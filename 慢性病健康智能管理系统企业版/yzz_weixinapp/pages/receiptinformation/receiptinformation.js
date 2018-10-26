@@ -1,5 +1,5 @@
 // pages/receiptinformation/receiptinformation.js
-var _this = null, url = "http://192.168.1.243:8081";
+var _this = null, url = "https://chronic-api.infobigdata.com";
 Page({
   /**
    * 页面的初始数据

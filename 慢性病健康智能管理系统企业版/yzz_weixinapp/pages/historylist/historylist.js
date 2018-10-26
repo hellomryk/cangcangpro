@@ -1,7 +1,7 @@
 // pages/historylist/historylist.js
 const hostlocal = "https://chronic.infobigdata.com";
-const hostlocal1 = "http://192.168.1.243:8081";
 var app = getApp();
+const hostlocal1 = "https://chronic-api.infobigdata.com";
 Page({
 
   /**

@@ -5,6 +5,7 @@ var GUID = require('../../utils/GUID.js');
 var NLI = require('../../utils/NLI.js');
 var md5 = require('../../utils/MD5.js');
 var json = {};
+
 const appkey = require('../../config').appkey
 const appsecret = require('../../config').appsecret
 //微信小程序新录音接口，录出来的是aac或者mp3，这里要录成mp3
