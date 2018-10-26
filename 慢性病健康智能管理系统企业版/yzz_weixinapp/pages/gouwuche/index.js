@@ -1,5 +1,5 @@
 // pages/gouwuche/index.js
-var _this = null, zong ='http://192.168.1.243:8081';
+var _this = null, zong ='https://chronic-api.infobigdata.com';
 Page({
 
   /**

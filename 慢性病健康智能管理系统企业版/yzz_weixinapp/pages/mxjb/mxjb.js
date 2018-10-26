@@ -4,7 +4,7 @@ const years = [];
 const months = [];
 const days = [];
 const gongyong ="https://chronic.infobigdata.com";
-const gongyong1 = "http://192.168.1.243:8081";
+const gongyong1 = "https://chronic-api.infobigdata.com";
 
 Page({
 
