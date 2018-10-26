@@ -5,6 +5,7 @@ const months = [];
 const days = [];
 const gongyong ="https://chronic.infobigdata.com";
 const gongyong1 = "http://192.168.1.243:8081";
+var app = getApp();
 // var app = getApp();
 Page({
 
@@ -59,7 +60,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app = getApp();
     const pageSelf = this;
     console.log("监测能否获取到app里面的openid")
     var getAppInfo = app.globalData.openId;
@@ -213,20 +213,15 @@ starttest() {
           success: function (res) {
             var obj = {};
             console.log(res)
-            obj.openid = res.data.openid;
-            obj.expires_in = Date.now() + res.data.expires_in;
-            console.log("打印openid开始")
-            console.log(obj.openid);
             selfPage.setData({
-              openId: obj.openid
+              openId: app.globalData.openId
             })
             console.log("打印openid结束")
-            wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({ 
                 url: gongyong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs', 
               data: {
-                openid: app.data.openId,
+                openid: app.globalData.openId,
                 issue: encodeURI(selfPage.data.year)
               },
               method: 'GET',
@@ -361,20 +356,15 @@ confirmbtn () {
           success: function (res) {
             var obj = {};
             console.log(res)
-            obj.openid = res.data.openid;
-            obj.expires_in = Date.now() + res.data.expires_in;
-            console.log("打印openid开始")
-            console.log(obj.openid);
             selfPage.setData({
-              openId: obj.openid
+              openId: app.globalData.openId
             })
             console.log("打印openid结束")
-            wx.setStorageSync('user', obj); //存储openid 
             //发送输入信息开始
             wx.request({
                 url: gongyong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data: {
-                openid: obj.openid,
+                openid: app.globalData.openId,
                 issue: encodeURI(selfPage.data.year)
               },
               method: 'GET',
@@ -465,7 +455,9 @@ confirmbtn () {
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log("监测能否获取到app里面的openid1")
+    var getAppInfo = app.globalData.openId;
+    console.log(getAppInfo)
   },
 
   /**
@@ -599,9 +591,9 @@ function sendmessage_pubId(selfPage) {
             obj.openid = res.data.openid;
             obj.expires_in = Date.now() + res.data.expires_in;
             console.log("打印openid开始")
-            console.log(obj.openid);
+            console.log(app.globalData.openId);
             selfPage.setData({
-              openId: obj.openid
+              openId: app.globalData.openId
             })
             console.log("打印openid结束")
             wx.setStorageSync('user', obj); //存储openid 
@@ -609,7 +601,7 @@ function sendmessage_pubId(selfPage) {
             wx.request({
                 url: gongyong+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data:{
-                openid: obj.openid,
+                openid: app.globalData.openId,
                 issue: encodeURI(selfPage.data.inputValue)
                 //issue: encodeURI("通过症状列表选择")
               },

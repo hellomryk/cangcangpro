@@ -1,6 +1,7 @@
 // pages/historylist/historylist.js
 const hostlocal = "https://chronic.infobigdata.com";
 const hostlocal1 = "http://192.168.1.243:8081";
+var app = getApp();
 Page({
 
   /**
@@ -46,24 +47,13 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                bopenid: obj.openid
+                bopenid: app.globalData.openId
               })
-              console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
-              console.log(selfPage.data.bopenid)
-
-
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/history',
                 data: {
-                  openid: encodeURI(selfPage.data.bopenid)
+                  openid: encodeURI(app.globalData.openId)
                 },
                 method: 'get',
                 success(res) {

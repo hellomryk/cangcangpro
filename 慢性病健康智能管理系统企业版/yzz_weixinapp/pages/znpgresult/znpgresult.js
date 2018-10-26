@@ -1,5 +1,6 @@
 // pages/znpgresult/znpgresult.js
 var selfPage = null, zong ="https://chronic.infobigdata.com";
+var app = getApp();
 Page({
 
   /**
@@ -48,20 +49,16 @@ Page({
             success: function (res) {
               var obj = {};
               console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
               console.log("打印openid开始")
-              console.log(obj.openid);
+              console.log(app.globalData.openId);
               selfPage.setData({
-                bopenid: obj.openid
+                bopenid: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
-              console.log(selfPage.data.bopenid)
                 wx.request({
                     url: zong + '/doctorapplet/f52024d75d4348f38cdad3670d209c1e/evaluationtest',
                 data: {
-                  openid: encodeURI(selfPage.data.bopenid)
+                  openid: encodeURI(app.globalData.openId)
       },
                 method: "get",
                 success: function (res) {
@@ -137,12 +134,10 @@ Page({
                       success: function (res) {
                           var obj = {};
                           console.log(res)
-                          obj.openid = res.data.openid;
-                          obj.expires_in = Date.now() + res.data.expires_in;
                           console.log("打印openid开始")
-                          console.log(obj.openid);
+                        console.log(app.globalData.openId);
                           selfPage.setData({
-                              bopenid: obj.openid
+                            bopenid: app.globalData.openId
                           })
                           console.log("打印openid结束")
                           wx.setStorageSync('user', obj); //存储openid 
@@ -150,7 +145,7 @@ Page({
                           wx.request({
                               url: zong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/evaluationtest',
                               data: {
-                                  openid: encodeURI(selfPage.data.bopenid)
+                                openid: encodeURI(app.globalData.openId)
                               },
                               method: "get",
                               success: function (res) {
@@ -219,20 +214,13 @@ Page({
                       success: function (res) {
                           var obj = {};
                           console.log(res)
-                          obj.openid = res.data.openid;
-                          obj.expires_in = Date.now() + res.data.expires_in;
-                          console.log("打印openid开始")
-                          console.log(obj.openid);
                           selfPage.setData({
-                              bopenid: obj.openid
+                            bopenid: app.globalData.openId
                           })
-                          console.log("打印openid结束")
-                          wx.setStorageSync('user', obj); //存储openid 
-                          console.log(selfPage.data.bopenid)
                           wx.request({
                               url: zong +'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/evaluationtest',
                               data: {
-                                  openid: encodeURI(selfPage.data.bopenid)
+                                openid: encodeURI(app.globalData.openId)
                               },
                               method: "get",
                               success: function (res) {
@@ -275,7 +263,7 @@ Page({
     const id = e.currentTarget.id
     const selfPage = this;
     wx.navigateTo({
-      url: '/pages/baogao/baogao?bid='+id+'&bopenid='+selfPage.data.bopenid,
+      url: '/pages/baogao/baogao?bid=' + id + '&bopenid=' + app.globalData.openId,
     })
     
   },

@@ -1,5 +1,6 @@
 // pages/symptomlist/symptomlist.js
 var _this=null;
+var app = getApp();
 Page({
 
   /**
@@ -214,17 +215,16 @@ Page({
               obj.openid = res.data.openid;
               obj.expires_in = Date.now() + res.data.expires_in;
               console.log("打印openid开始")
-              console.log(obj.openid);
+              console.log(app.globalData.openId);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI("通过症状列表选择")
                 },
                 method: 'GET',
@@ -294,9 +294,9 @@ Page({
               obj.openid = res.data.openid;
               obj.expires_in = Date.now() + res.data.expires_in;
               console.log("打印openid开始")
-              console.log(obj.openid);
+              console.log(app.globalData.openId);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
               wx.setStorageSync('user', obj); //存储openid 
@@ -316,7 +316,7 @@ Page({
               wx.request({
                 url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI(w_ar),
                   clazzstep:"3"
                 },
