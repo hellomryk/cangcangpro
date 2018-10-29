@@ -1,6 +1,9 @@
 // pages/box/index.js
 const md51 = require('../../utils/MD5.js');
 const app = getApp();
+const url = "https://chronic-api.infobigdata.com";
+const secret = "b6f619487205d6a3d49b45c5736a9d39";
+const appid = "wxe233654cc28fd440";
 // function paysignjsapi(appid, body, mch_id, nonce_str, notify_url, openid, out_trade_no, spbill_create_ip, total_fee,key) {
 //     var ret = {
 //         appid: appid,
@@ -35,7 +38,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    openId: '',//小程序openid
   },
 
   /**
@@ -50,96 +53,46 @@ Page({
         return parseInt(new Date().getTime() / 1000) + ''
     },
   onLoad: function (options) {
-    //   wx.requestPayment(
-    //       {
-    //           'appId': "wx5bc33b2ffa89c123",
-    //           'timeStamp': '1490840662',
-    //           'nonceStr': '	5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
-    //           'package': '',
-    //           'signType': 'MD5',
-    //           'paySign': '',
-    //           'success': function (res) { },
-    //           'fail': function (res) { },
-    //           'complete': function (res) { }
-    //       })
-
-      console.log(1)
-    //   console.log(this.createNonceStr())
-    //   console.log(this.createTimeStamp())
-    //   wx.request({
-    //       url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
-    //       data: {
-    //           appid: "wx5bc33b2ffa89c123",//小程序ID
-    //           openid: "oltg65O6bVAouExzU5ZfLHdibglM",//小程序openid
-    //           mch_id:"1494063492",//商户号
-    //           sign: paysignjsapi("wx5bc33b2ffa89c123", "商品支付—商品结算", "1494063492", this.createNonceStr(), "https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report", "oltg65O6bVAouExzU5ZfLHdibglM", '20150806125346', '123.12.12.123', "88", 'jr8k4d94ks94nas9jt9lu3nr9ge4krtk'),//签名
-    //           nonce_str: this.createNonceStr(),//随机字符串
-    //           body:"商品支付—商品结算",//商品描述
-    //           out_trade_no:'20150806125346',//商户订单号
-    //           total_fee:"88",//金额
-    //           spbill_create_ip:'123.12.12.123',//终端ip
-    //           notify_url:"https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report",//通知地址
-    //           trade_type:"JSAPI",//交易类型
-    //       },
-    //       header: {
-    //           'content-type': 'application/json' // 默认值
-    //       },
-    //       method: "POST",
-    //       success: function (res) {
-    //           console.log(res.data)
-    //           console.log(res.data.result)
-
-    //       }
-    //   })
-//       wx.request({
-//           url: 'https://api.mch.weixin.qq.com/pay/unifiedorder',
-//           data: {
-//               appid: "wx5bc33b2ffa89c123",//小程序ID
-//               mch_id:"1494063492",//商户号
-//               sign: paysignjsapi("wx5bc33b2ffa89c123", "商品支付—商品结算", "1494063492", this.createNonceStr(), "https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report", "oltg65O6bVAouExzU5ZfLHdibglM", '20150806125346', '123.12.12.123', "88", 'jr8k4d94ks94nas9jt9lu3nr9ge4krtk'),//签名
-//               nonce_str: this.createNonceStr(),//随机字符串
-//               body:"商品支付—商品结算",//商品描述
-//               out_trade_no:'20150806125346',//商户订单号
-//               total_fee:"88",//金额
-//               spbill_create_ip:'192.168.1.177',//终端ip
-//               notify_url:"https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report",//通知地址
-//               trade_type:"JSAPI",//交易类型
-//           },
-//           url: 'http://192.168.1.245:8081/weixin/getIpAddress',
-//           data: {},
-//           header: {
-//               'content-type': 'application/json' // 默认值
-//           },
-//         //   method: "POST",
-//           success: function (res) {
-//             console.log(1111)
-//             console.log(res)
-//               console.log(111)
-//               console.log(res.data)
-//               var s = res.data;
-//               wx.request({
-//                   url: 'http://192.168.1.244:8081/freeter-api/weixin/createUnifiedOrder',
-//                   data: {
-//                       amount:11,
-//                       openid: 'oltg65O6bVAouExzU5ZfLHdibglM',
-//                       minAppId: 'wx5bc33b2ffa89c123',
-//                       spbillCreateIp:s
-//                   },
-//                   header: {
-//                       'content-type': 'application/json' // 默认值
-//                   },
-//                   //   method: "POST",
-//                   success: function (res) {
-//                       console.log(222)
-//                       console.log(res.data)
-
-//                   }
-//               })
-
-//           }
-//       })
-//       console.log(paysignjsapi("wx5bc33b2ffa89c123", "商品支付—商品结算", "1494063492", this.createNonceStr(), "https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/report", "oltg65O6bVAouExzU5ZfLHdibglM", '20150806125346', '123.12.12.123', "88", 'jr8k4d94ks94nas9jt9lu3nr9ge4krtk')) 
-   },
+    const _this = this;
+    // 获取小程序id开始
+    var user = wx.getStorageSync('user') || {};
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          wx.getUserInfo({
+            success: function (res) {
+              var objz = {};
+              objz.avatarUrl = res.userInfo.avatarUrl;
+              objz.nickName = res.userInfo.nickName;
+              wx.setStorageSync('userInfo', objz); //存储userInfo
+            }
+          });
+          var l = url + '/weixin/getWeixinInfo'
+          wx.request({
+            url: l,
+            data: {
+              code: res.code,
+              appid: appid,
+              secret: secret
+            },
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+            success: function (res) {
+              console.log(JSON.parse(res.data.data).openid)
+              getApp().globalData.openId = JSON.parse(res.data.data).openid
+              console.log("打印openid结束")
+              // console.log(JSON.parse(res.data.data).openid)
+              // wx.setStorageSync('user', obj); 
+              //存储openid 
+            }
+          });
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
+    //获取小程序id结束
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -152,7 +105,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const _this = this;
   },
 
   /**

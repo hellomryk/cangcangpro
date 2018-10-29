@@ -1,5 +1,7 @@
 // pages/historylist/historylist.js
-const hostlocal = "https://chronic.infobigdata.com"
+const hostlocal = "https://chronic.infobigdata.com";
+var app = getApp();
+const hostlocal1 = "https://chronic-api.infobigdata.com";
 Page({
 
   /**
@@ -34,8 +36,8 @@ Page({
               wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -45,24 +47,13 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                bopenid: obj.openid
+                bopenid: app.globalData.openId
               })
-              console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
-              console.log(selfPage.data.bopenid)
-
-
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/history',
                 data: {
-                  openid: encodeURI(selfPage.data.bopenid)
+                  openid: encodeURI(app.globalData.openId)
                 },
                 method: 'get',
                 success(res) {

@@ -1,5 +1,5 @@
 // pages/shangcheng_list/index.js
-var _this = null, url ='http://192.168.1.243:8081';
+var _this = null, url ='https://chronic-api.infobigdata.com';
 Page({
 
   /**
@@ -166,25 +166,25 @@ Page({
       url:'/pages/shopingps/index?id='+id
     })
   },
-    loadMore: function () { // 触底加载更多
-    console.log(2222222222222)
-        let len = _this.data.listbox.length,
-            lastItem = _this.data.listbox;
-        _this.setData({
-            bottom: false
-        });
+    // loadMore: function () { // 触底加载更多
+    // console.log(2222222222222)
+    //     let len = _this.data.listbox.length,
+    //         lastItem = _this.data.listbox;
+    //     _this.setData({
+    //         bottom: false
+    //     });
 
-        lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url:"/pics/shangpin.jpg"})
-        lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" })
-        lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" })
-        lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" })
-            _this.setData({
-                listbox: lastItem
-            })
-        _this.setData({
-            bottom: true
-        });
-    },
+    //     lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url:"/pics/shangpin.jpg"})
+    //     lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" })
+    //     lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" })
+    //     lastItem.push({ id: "111", xianjia: 398, yuanjia: 408, baoyou: true, name: "远红外线温灸炉（1个...", ps: "台湾红外温灸炉 祛湿排毒润容颜", url: "/pics/shangpin.jpg" })
+    //         _this.setData({
+    //             listbox: lastItem
+    //         })
+    //     _this.setData({
+    //         bottom: true
+    //     });
+    // },
 
   /**
    * 生命周期函数--监听页面加载

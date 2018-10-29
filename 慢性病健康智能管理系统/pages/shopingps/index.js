@@ -1,7 +1,7 @@
 // pages/shopingps/index.js
-var _this = null, url = 'http://192.168.1.243:8081';
-const secret = "fbcbe7d366db91e06e5ca38b923dd495";
-const appid = "wx84cae8ce6e9453d4";
+var _this = null, url = 'https://chronic-api.infobigdata.com';
+const secret = "b6f619487205d6a3d49b45c5736a9d39";
+const appid = "wxe233654cc28fd440";
 Page({
 
   /**
@@ -63,12 +63,17 @@ Page({
           wx.navigateTo({
             url: '/pages/signup/signup'
           })
+            // wx.showToast({
+            //     title: res.data.msg,
+            //     icon: 'none',
+            //     duration: 600
+            // })
         } else {
           _this.setData({
             userId: res.data.data
           })
           wx.navigateTo({
-            url: '/pages/gouwuche/index?id=' + _this.data.userId
+              url: '/pages/gouwuche/index?id=' + _this.data.userId 
           })
           console.log("注册过了")
         }

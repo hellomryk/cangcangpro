@@ -101,7 +101,7 @@
 <view class='slide_select' wx:if="{{inputShow ==0}}">
   <picker-view indicator-style="height: 30px;" style="width: 100%; height: 150px;" value="{{value}}" bindchange="bindChange">
     <picker-view-column>
-      <view wx:for="{{years}}" style="line-height: 30px;font-size:20rpx;text-align:center;color:#15c86c;">{{item}}</view>
+      <view wx:for="{{years}}" style="line-height: 30px;font-size:32rpx;text-align:center;color:#15c86c;">{{item}}</view>
     </picker-view-column>
   </picker-view>
   <view class='slide_select_confim' bindtap="confirmbtn">确认</view>
@@ -110,8 +110,8 @@
   <input type='text' placeholder="请输入您的症状,譬如头晕,恶心,发热..." class='mxjb_text_write_input' value="{{inputValue}}" name="shuru" bindinput='catchMessage' bindconfirm="submitMessage" cursor-spacing='20'></input>
 </view>
 <view class='mxjb_text_writebao' wx:if="{{inputShow == 2}}">
-    <view bindtap="baocun">保存</view>
-    <view bindtap="nobaocun">不保存</view>
+    <view bindtap="baocun" class='baocun'>保存</view>
+    <view bindtap="nobaocun" class='nobaocun'>不保存</view>
 </view>
 <view class='mxjb_text_write' wx:if="{{inputShow == 3}}" style="display:none;">
   <input type='text' placeholder="请输入您的症状,譬如头晕,恶心,发热..." class='mxjb_text_write_input' value="{{inputValue}}" name="shuru" bindinput='catchMessage' bindconfirm="submitMessage" cursor-spacing='20'></input>

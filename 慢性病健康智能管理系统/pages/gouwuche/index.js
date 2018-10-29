@@ -1,5 +1,120 @@
 // pages/gouwuche/index.js
-var _this = null, zong ='http://192.168.1.243:8081';
+var _this = null, zong = 'https://chronic-api.infobigdata.com', url = 'https://chronic-api.infobigdata.com';
+const appid = "wxe233654cc28fd440";
+const secret = "b6f619487205d6a3d49b45c5736a9d39";
+function getOpenId(_this) {
+    // 获取小程序id开始
+    var user = wx.getStorageSync('user') || {};
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    wx.login({
+        success: function (res) {
+            if (res.code) {
+                wx.getUserInfo({
+                    success: function (res) {
+                        var objz = {};
+                        objz.avatarUrl = res.userInfo.avatarUrl;
+                        objz.nickName = res.userInfo.nickName;
+                        wx.setStorageSync('userInfo', objz); //存储userInfo
+                    }
+                });
+                var l = url + '/weixin/getWeixinInfo'
+                wx.request({
+                    url: l,
+                    data: {
+                        code: res.code,
+                        appid: appid,
+                        secret: secret
+                    },
+                    method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+                    success: function (res) {
+                        console.log(JSON.parse(res.data.data).openid)
+                        _this.setData({
+                            openId: JSON.parse(res.data.data).openid
+                        })
+                        //判断是后登陆开始
+                        wx.request({
+                            url: url + '/login/validation',
+                            data: {
+                                weixinId: _this.data.openId,
+                            },
+                            header: {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            method: "POST",
+                            success(res) {
+                                console.log(res)
+                                if (res.data.code == 500) {
+                                    console.log("没有注册过")
+                                    wx.navigateTo({
+                                        url: '/pages/signup/signup'//(没有登录跳到注册页面)
+                                    })
+                                } else {
+                                    // 注册过了把商品信息存入数据库
+                                    console.log("注册过了")
+                                    console.log(res)
+                                    _this.setData({
+                                        id: res.data.data,
+                                    })
+                                    _this.setData({ uid: _this.data.id })
+                                    wx.request({
+                                        url: zong + '/cart/myCart',
+                                        data: {
+                                            userId: _this.data.id
+                                        },
+                                        header: {
+                                            'content-type': 'application/json' // 默认值
+                                        },
+                                        //   method: "POST",
+                                        success: function (res) {
+                                            console.log(res.data)
+                                            console.log("查看商品名字")
+                                            console.log(res.data.data)
+                                            //  数组去重并添加上数量
+                                            const targetArr = res.data.data;
+                                            const arr2 = arrayUnique2(targetArr, 'goodId')
+                                            console.log('数组去重')
+                                            console.log(arr2)
+                                            const arr3 = [0, 0, 0];
+                                            for (var i = 0; i < arr2.length; i++) {
+                                                for (var j = 0; j < targetArr.length; j++) {
+                                                    if (arr2[i].goodId == targetArr[j].goodId) {
+                                                        arr3[i]++;
+                                                    }
+                                                }
+                                            }
+                                            console.log(arr3)
+                                            const obj = {}
+                                            // targetArr.forEach(function(item,index) {
+                                            //   if(obj[item]) {
+                                            //       obj[item]++;
+                                            //   } else {
+                                            //     obj[item] = 1;
+                                            //   }
+                                            // })
+                                            console.log(obj)
+                                            // targetArr.forEach(v,k)=>{
+
+                                            // }
+                                            var ar = [];
+                                            for (var s = 0; s < res.data.data.length; s++) {
+                                                ar.push({ name: res.data.data[s].cartId + "", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount, goodId: res.data.data[s].goodId, specId: res.data.data[s].goodSpec[0].specId + "@" + res.data.data[s].goodSpec[1].specId })
+                                            }
+                                            _this.setData({ checkboxItems: ar.reverse() });
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                        //判断是后登陆开始
+                    }
+                });
+            } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
+            }
+        }
+    });
+    //获取小程序id结束
+}
 Page({
 
   /**
@@ -10,6 +125,7 @@ Page({
       box:false,
       money:0,//实付
       num: 0,//去结算
+     uid:""//客户id
   },
     boxchen:function(){
         var changed = {},mon=0;
@@ -145,64 +261,27 @@ Page({
           checkedArr.push(_this.data.checkboxItems[i])
         }
       }
-        wx.navigateTo({
-          url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney='+_this.data.money
-        })
+        if (checkedArr.length>0){
+            wx.navigateTo({
+                url: '/pages/submitorder/submitorder?checkedArr=' + JSON.stringify(checkedArr) + '&summoney=' + _this.data.money + '&id=' + _this.data.uid
+            })
+        }else{
+            wx.showToast({
+                title: "亲！请选择商品结算哦",
+                icon: 'none',
+                duration: 1000
+            })
+        }
+
     },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(5474587458745)
-      console.log(options.id)
+
       _this = this;
-      wx.request({
-          url: zong+'/cart/myCart',
-          data: {
-              userId: options.id
-          },
-          header: {
-              'content-type': 'application/json' // 默认值
-          },
-        //   method: "POST",
-          success: function (res) {
-              console.log(res.data)
-            console.log("查看商品名字")
-             console.log(res.data.data)
-            //  数组去重并添加上数量
-            const targetArr = res.data.data;
-            const arr2 = arrayUnique2(targetArr,'goodId')
-            console.log('数组去重')
-            console.log(arr2)
-            const arr3 = [0,0,0];
-            for(var i = 0; i < arr2.length; i ++) {
-                for(var j = 0; j < targetArr.length; j ++) {
-                  if (arr2[i].goodId == targetArr[j].goodId) {
-                    arr3[i]++;
-                  }
-                }
-            }
-            console.log(arr3)
-            const obj = {}
-            // targetArr.forEach(function(item,index) {
-            //   if(obj[item]) {
-            //       obj[item]++;
-            //   } else {
-            //     obj[item] = 1;
-            //   }
-            // })
-            console.log(obj)
-            // targetArr.forEach(v,k)=>{
 
-            // }
-             var ar=[];
-              for (var s = 0; s < res.data.data.length;s++){
-                  ar.push({ name: res.data.data[s].cartId +"", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount })
-       }
-             _this.setData({ checkboxItems: ar.reverse() });
-          }
-      })
-
+      getOpenId(_this)
 
       
   },

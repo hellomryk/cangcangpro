@@ -1,6 +1,8 @@
 // pages/desiselist/desiselist.js
-//const hostlocal = "http://192.168.1.111:8080"
-const hostlocal = "https://chronic.infobigdata.com"
+const hostlocal = "https://chronic.infobigdata.com";
+var app = getApp();
+const hostlocal1 = "https://chronic-api.infobigdata.com";
+
 Page({
 
   /**
@@ -15,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     // wx.request({
-    //   url: 'https://chronic.infobigdata.com/appletApi/getUserInfo',
+    //   url: 'https://chronic.infobigdata.com/weixin/getWeixinInfo',
     //   data:{
 
     //   }
@@ -38,8 +40,8 @@ Page({
               wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+            var l = hostlocal1 +'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -49,22 +51,15 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI("慢病自测")
                 },
                 method: 'GET',

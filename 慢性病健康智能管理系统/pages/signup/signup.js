@@ -1,8 +1,8 @@
 // pages/signup/signup.js
-const url = "http://192.168.1.243:8081";
-const secret = "fbcbe7d366db91e06e5ca38b923dd495";
-const appid = "wx84cae8ce6e9453d4";
-
+const url = "https://chronic-api.infobigdata.com";
+const secret = "b6f619487205d6a3d49b45c5736a9d39";
+const appid = "wxe233654cc28fd440";
+const app = getApp();
 Page({
 
   /**
@@ -20,7 +20,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const _this = this;
+    getOpenId(_this)
+  },
+  //获取验证码
+  yzm() {
+    const _this = this;
+    console.log(_this.data.getSignPhoneVal)
+      wx.request({
+        url: url +'/login/sms',
+        data: {
+          phone: _this.data.getSignPhoneVal
+        },
+        header: {
+          "Content-Type":"application/x-www-form-urlencoded"
+        },
+        method:"POST",
+        success(res) {
+          console.log(res)
+        }
+      })
   },
 // 获取手机号
   getSignPhone(e) {
@@ -42,46 +61,58 @@ Page({
     const _this = this;
     console.log(_this.data.getSignPhoneVal)
     console.log(_this.data.openId)
-    wx.request({
-      url:url+'/register3',
-      data: {
-        phone: _this.data.getSignPhoneVal,
-        // password:,
-        weixinId: _this.data.openId
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: "POST",
-      success(res) {
-        console.log("成功")
-        console.log(res)
-        // 把登陆状态存储起来-start
-        // var Num= this.data.signUpStatus;
-        // wx.setStorage({ //存储到本地
-        //   key: 'signUpStatus',
-        //   data: Num,
-        // })
-        // 把登陆状态存储起来-end
-        if(res.data.code == 0) {
-          _this.setData({
-            userId: res.data.data
-          })
+    console.log('chakanshifouyouopenid')
+    if (_this.data.getSignPhoneVal == '' || _this.data.getSignIdentifyVal == '') {
+      wx.showToast({
+        title:'请输入正确内容',
+        icon:'none',
+        duration:2000
+      })
+    } else {
+      wx.request({
+        url: url + '/register3',
+        data: {
+          phone: _this.data.getSignPhoneVal,
+          code: _this.data.getSignIdentifyVal,
+          weixinId: _this.data.openId
+        },
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "POST",
+        success(res) {
+          console.log("成功")
+          console.log(res)
+          if (res.data.code == 0) {
+            _this.setData({
+              userId: res.data.data
+            })
             console.log(546656664)
             console.log(res)
             const id = res.data.data
-          wx.request({
-              url: '/pages/shopingps/index?id=' + id,
-          })
+            wx.navigateTo({
+              url: '/pages/shangcheng_list/index?id=' + id,
+            })
+          } else { 
+
+              wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none',
+                  duration: 2000
+              })
+            wx.navigateTo({
+              url: '/pages/shangcheng_list/index'
+            })
+          }
         }
-      }
-    })
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log("1")
   },
 
   /**
@@ -90,20 +121,22 @@ Page({
   onShow: function () {
     const _this = this;
     getOpenId(_this)
+    console.log("2")
+    console.log(_this.data.openId)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log("3")
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log("4")
   },
 
   /**

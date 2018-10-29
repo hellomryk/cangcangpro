@@ -1,0 +1,78 @@
+/* pages/shangcheng_list/index.wxss */
+
+
+
+
+
+.shangcheng_move {
+    width: 100%;
+    border-bottom: 1rpx solid #e7e7e7;
+    background: #fff;
+    height: 74rpx;
+    line-height: 74rpx;
+    font-size: 28rpx;
+}
+
+.shangcheng_move_li {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    color: #141414;
+}
+
+.li_o {
+    color: #15c86c;
+    border-bottom:1rpx solid #15c86c; 
+}
+
+.submitorder_cen_list {
+    margin-top: 25rpx;
+    background: #fff;
+  overflow-y:scroll;
+  padding-bottom: 30rpx;
+
+}
+.submitorder_cen_listli_imgleft {
+  float: left;
+  width:168rpx;
+  height:131rpx;
+  margin-top: 34rpx;
+}
+.submitorder_cen_listli_right {
+  float:right;
+  margin:144rpx 46rpx 0 0;
+}
+.sclc_title {
+  font-size:32rpx;
+  line-height: 50rpx;
+  color:#141414;
+}
+.sclc_standard {
+  font-size:24rpx;
+  line-height: 50rpx;
+  color:#999999;
+}
+.sclc_money {
+  font-size:24rpx;
+  line-height: 60rpx;
+  color:#141414;
+}
+.submitorder_cen_listli_center {
+  margin-left:221rpx;
+  margin-top:34rpx;
+  height:190rpx;
+}
+.submitorder_cen_listli {
+    width: 100%;
+      border-bottom: 1rpx solid #E6E6E6;
+      box-sizing: border-box;
+  padding-left:36rpx;
+}
+.submitorder_cen_listli_right {
+    font-size:24rpx;
+  color:#999999;
+}
+
+page {
+    background: #f6f6f6;
+}
