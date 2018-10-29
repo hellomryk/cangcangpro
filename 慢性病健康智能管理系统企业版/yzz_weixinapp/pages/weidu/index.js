@@ -9,7 +9,9 @@ Page({
       open:false,
       name:"--",
       list: [],
-      ima:''
+      ima:'',
+      bid:'',
+      id:''
 
   },
 
@@ -68,34 +70,38 @@ Page({
       //保存
       var bean = JSON.parse(options.za);
       var bean1 = JSON.parse(options.zheng);
-      bean1=bean1.join("、")
+      bean1=bean1.join(" ")
       console.log(bean1)
       wx.request({
-          url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+          url: 'https://jk.infobigdata.com/newrobot5',
           data: {
-              issue: encodeURI("保存问诊"),
-              openid: encodeURI(bean.openId),
-              clazzstep: encodeURI("2"),
-              baseinfo: encodeURI(bean.username + " " + bean.sex + " " + bean.age ),
-              questioningsymptoms: encodeURI(bean1),
-            diseaseprobability:encodeURI("85%"),
-                //   evaluation:encodeURI("严重"),
-              diseasename: encodeURI(options.id),
-                //   trend:encodeURI("↑")
-
+              type: 5,
+              name: bean.username,
+              sex: bean.sex,
+              old: bean.age,
+              diseaseName: options.id,
+              symptom: bean1, //（多个症状用空格分开）
+              openid: bean.openId,
+              inLocation: '北京市', //（所在地）
+              date: ' ' //（实时时间，精确到秒，年月日时分秒）
+            
+          
                  },
           header: {
-              'content-type': 'application/json' // 默认值
+              'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
           },
-        //   method: "POST",
+           method: "POST",
           success: function (res) {
               console.log(res.data)
               _this.setData({
-                  ima: res.data.base64
+                  id: bean.openId,
+                  bid: res.data.time
               })
 
           }
       })
+
+
 
      //照片
       wx.request({

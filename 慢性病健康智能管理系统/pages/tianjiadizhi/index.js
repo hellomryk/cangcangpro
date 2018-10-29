@@ -1,6 +1,6 @@
 // pages/tianjiadizhi/index.js
 var _this = null,
-    url = 'http://192.168.1.243:8081';
+    url = 'https://chronic-api.infobigdata.com';
 Page({
 
     /**
@@ -10,6 +10,7 @@ Page({
         checkboxItems: [],
         userId:null,
         addressId: null,
+        userId:null,
 
     },
     shanchu:function(e){
@@ -25,6 +26,29 @@ Page({
             success: function (res) {
                 console.log(res)
                 if (res.confirm) {
+                    var arr=[];
+                    for (var s = 0; s < _this.data.checkboxItems.length;s++){
+
+                        if (e.currentTarget.id != _this.data.checkboxItems[s].id){
+                            arr.push({
+                                name: _this.data.checkboxItems[s].name,
+                                sheng: _this.data.checkboxItems[s].sheng,
+                                shi: _this.data.checkboxItems[s].shi,
+                                qu: _this.data.checkboxItems[s].qu,
+                                youzheng: _this.data.checkboxItems[s].youzheng,
+                                value: _this.data.checkboxItems[s].value,
+                                ps: _this.data.checkboxItems[s].ps,
+                                checked: _this.data.checkboxItems[s].checked,
+                                id: _this.data.checkboxItems[s].id,
+                                userId: _this.data.checkboxItems[s].userId
+                            })
+                        }
+                    }
+                    _this.setData({
+                        checkboxItems: arr,
+
+                    })
+
                     //删除地址接口
                     wx.request({
                         url: url + '/address/api/delete',
@@ -37,17 +61,7 @@ Page({
                         },
                         method: "POST",
                         success: function (res) {
-                            var arr = [];
-                            for (var s = 0; s < _this.data.checkboxItems.length; s++) {
-                                if (_this.data.checkboxItems[s].id != e.currentTarget.id) {
-                                    arr.push(_this.data.checkboxItems[s])
-                                }
 
-                            }
-                            console.log(arr)
-                            _this.setData({
-                                checkboxItems: arr
-                            })
                         }
                     })
 
@@ -86,7 +100,9 @@ Page({
                             icon: 'none',
                             duration: 600
                         })
-
+                        wx.navigateTo({
+                          url: '/pages/submitorder/submitorder',
+                        })
                     }
                 })
             } else {
@@ -95,14 +111,32 @@ Page({
         }
         this.setData(changed)
     },
-
+bianji:function(){
+    for (var s = 0; s < _this.data.checkboxItems.length;s++){
+        if (_this.data.checkboxItems[s].checked){
+            wx.navigateTo({
+                url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId + '&json=' + JSON.stringify(_this.data.checkboxItems[s])
+            })
+        }
+       
+    }
+  
+},
+tianjia:function(){
+    wx.navigateTo({
+        url: '/pages/receiptinformation/receiptinformation?id=' + _this.data.userId +"&json=1"
+    })
+},
     onLoad: function(options) {
         _this = this;
-
+        _this.setData({
+            userId: options.id
+        })
         //地址列表接口
         wx.request({
             url: url + '/address/api/getAddressesByUserId',
             data: {
+
                 userId: options.id
             },
             header: {

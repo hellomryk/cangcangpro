@@ -1,5 +1,39 @@
 // pages/shangcheng_list/index.js
 var _this = null, url ='https://chronic-api.infobigdata.com';
+const app = getApp();
+function getOpenId(_this) {
+
+    //判断是后登陆开始
+    wx.request({
+        url: url + '/login/validation',
+        data: {
+            weixinId: _this.data.openId,
+        },
+        header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "POST",
+        success(res) {
+            console.log(res)
+            if (res.data.code == 500) {
+                console.log("没有注册过")
+                wx.navigateTo({
+                    url: '/pages/signup/signup'//(没有登录跳到注册页面)
+                })
+            } else {
+                // 注册过了把商品信息存入数据库
+                console.log("注册过了")
+                console.log(res)
+                _this.setData({
+                    id: res.data.data,
+                })
+                qingqiu(_this.data.id, -1)
+            }
+        }
+    })
+                        //判断是后登陆开始
+    //获取小程序id结束
+}
 //请求数据
 function qingqiu(use, order) {
     wx.request({
@@ -58,6 +92,7 @@ Page({
    */
   data: {
       id:null,
+      openId:null,
       bottom:true,
       list: [],
       list1: [
@@ -118,10 +153,14 @@ Page({
    */
   onLoad: function (options) {
          _this=this;
-         _this.setData({
-             id: options.id
-         })
-      qingqiu(options.id,-1)
+      // 获取小程序id开始
+
+      _this.setData({
+          openId: app.globalData.openId
+      });
+      getOpenId(_this);
+
+
   },
 
   /**
@@ -135,7 +174,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      getOpenId(_this);
   },
 
   /**

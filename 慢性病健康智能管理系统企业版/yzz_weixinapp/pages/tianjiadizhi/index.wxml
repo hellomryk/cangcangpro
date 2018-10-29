@@ -22,7 +22,7 @@
         <image src='/pics/{{item.checked ? "zhong.png": "buzhong.png"}}' class="label-1__icon-checked"></image>
         <text style='{{item.checked ? "color:#15c86c;": "color:#999;"}}'>  默认地址</text>
                </label>
-        <text class='bianji' bindtap='bianji' id="{{item.id}}" class="{{item.id}}">编辑</text>
+        <text class='bianji' bindtap='bianji' id="{{item.id}}" >编辑</text>
         <text class='shanchu' bindtap='shanchu' id="{{item.id}}"> 删除</text>
       </view>
     </view>

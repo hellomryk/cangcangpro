@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 30,
 			"list": [
 				{
 					"id": 0,
@@ -185,14 +185,38 @@
 				},
 				{
 					"id": -1,
-					"name": "添加、编辑地址",
-					"pathName": "pages/receiptinformation/receiptinformation",
-					"query": "id=22"
+					"name": "登陆",
+					"pathName": "pages/signup/signup",
+					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "拍照",
-					"pathName": "pages/paizhao/index"
+					"name": "保存地址",
+					"pathName": "pages/receiptinformation/receiptinformation",
+					"query": "id=1"
+				},
+				{
+					"id": 27,
+					"name": "我的订单",
+					"pathName": "pages/myshopping/index",
+					"query": "id=23"
+				},
+				{
+					"id": -1,
+					"name": "物流信息",
+					"pathName": "pages/logisticsInformation/logisticsInformation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/dingdanxiangqing/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "照相",
+					"pathName": "pages/zhaoxiang/index"
 				}
 			]
 		}

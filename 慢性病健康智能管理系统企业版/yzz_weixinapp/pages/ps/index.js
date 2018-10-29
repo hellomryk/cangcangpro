@@ -68,7 +68,7 @@ Page({
 
 
                     wx.request({
-                        url: 'http://192.168.1.56:8080/newrobot5',
+                        url: 'https://jk.infobigdata.com/newrobot5',
                         data: {
                             type: 4,
                             dis_name: options.name

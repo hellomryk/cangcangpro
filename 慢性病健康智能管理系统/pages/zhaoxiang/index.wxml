@@ -1,0 +1,2 @@
+<!--pages/zhaoxiang/index.wxml-->
+<text bindtap='chooseimage'>pages/zhaoxiang/index.wxml</text>

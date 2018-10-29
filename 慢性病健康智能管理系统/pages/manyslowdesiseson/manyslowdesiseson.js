@@ -1,4 +1,5 @@
 // pages/manyslowdesiseson/manyslowdesiseson.js
+var app = getApp();
 Page({
 
   /**

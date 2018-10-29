@@ -2,6 +2,7 @@
 var _this = null;
 import * as echarts from '../../ec-canvas/echarts';
 let chart = null;
+var app = getApp();
 function setOption(chart,list,data) {
     var option = {
         color: ['#37a2da', '#32c5e9', '#67e0e3'],
