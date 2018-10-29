@@ -3,7 +3,7 @@
 <view>
   <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
     <view class='submitorder_remark_text'>姓名:</view>
-    <input class='submitorder_remark_input' placeholder='如有备注请填写' type='text' bindinput='getRemark' ></input>
+    <input class='submitorder_remark_input' placeholder='请填写您的姓名' type='text' bindinput='getRemark' ></input>
   </view>
     <view class='submitorder_remark submitorder_remark_borderbottom clearfix'>
     <view class='submitorder_remark_text'>手机:</view>
