@@ -26,6 +26,7 @@
         "pages/tianjiadizhi/index",
         "pages/myshopping/index",
         "pages/zjbg/index",
+        "pages/foodlist/foodlist",
         "pages/logisticsInformation/logisticsInformation",
         "pages/dingdanxiangqing/index"
     ],

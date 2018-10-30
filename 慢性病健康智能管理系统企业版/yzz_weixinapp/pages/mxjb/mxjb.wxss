@@ -94,3 +94,9 @@ picker-view-column {
 .starttestlistborder {
   border-bottom: none;
 }
+.kaishiceping_none {
+  display: none;
+} 
+.kaishiceping_block {
+  display: block;
+}
