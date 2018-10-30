@@ -191,8 +191,9 @@ Page({
                           for (var i = 0; i < arr1.length; i++) {
                               var obj = {}
                               obj.id = arr1[i].date;
-                              obj.basicInfo = arr1[i].name + "  " + arr1[i].sex + "  " + arr1[i].old + "岁"
-                              obj.questioningSymptoms = arr1[i].symptom
+                            //   obj.basicInfo = arr1[i].name + "  " + arr1[i].sex + "  " + arr1[i].old + "岁"
+                                obj.basicInfo = arr1[i].name 
+                              obj.questioningSymptoms = "疾病名称:" + arr1[i].diseaseName +"\n症状描述："+arr1[i].symptom
                               obj.time = arr1[i].date
                               arr2.push(obj)
                           }

@@ -238,13 +238,13 @@ Page({
      */
     onLoad: function (options) {
         _this = this;
-        _this.setData({
-            ayyr4: { 'sex': options.sex, 'age': options.age, 'username': options.username, 'openId': options.openId,}
-        })
-        console.log(options.sex)
-        console.log(options.age)
-        console.log(options.username)
-        console.log(options.openId)
+        // _this.setData({
+        //     ayyr4: { 'sex': options.sex, 'age': options.age, 'username': options.username, 'openId': options.openId,}
+        // })
+        // console.log(options.sex)
+        // console.log(options.age)
+        // console.log(options.username)
+        // console.log(options.openId)
         wx.showLoading({
             title: '加载中',
         })

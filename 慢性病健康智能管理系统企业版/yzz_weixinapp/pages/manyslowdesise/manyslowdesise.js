@@ -54,7 +54,7 @@ Page({
         "Content-Type":"application/json"
       },
       success(res) {
-        selfPage.setData({
+        _this.setData({
           foodlistarr: JSON.parse(res.data.data)
         })
       }

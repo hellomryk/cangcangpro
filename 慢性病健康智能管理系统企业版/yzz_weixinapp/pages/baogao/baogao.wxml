@@ -5,7 +5,7 @@
         <view style="text-align:center; font-size:45rpx;font-weight: 600; "> 慢性病健康评估报告</view>
         <view style="margin-top:30rpx;font-size:28rpx;"> 尊敬的
             <text>{{name_yy}}</text>:</view>
-        <view style="text-indent:2em;font-size:28rpx;"> 感谢您使用魔系AI慢性病智能自诊系统，通过本报告，可以帮助您全面及时准确研判慢性病自测的症状和病情，进而通过健康指导、风险干预等方式进行健康管理。由于疾病发生发展进而演变为慢性病有一个渐进的过程，建议您7天为一检测周期。</view>
+        <view style="text-indent:2em;font-size:28rpx;">评估报告根据您的症状选择自动生成，报告内容系基于科学完善的医疗知识体系构建。进一步完善个人信息后有助于您更准确地把握自身健康状态，也有利于系统更智能地向您提供定制化的健康解决方案。</view>
         <view style="text-indent:2em;font-size:28rpx;">本报告内容不作为医学诊断依据，仅作为慢性病健康管理参考。</view>
     </view>
     <view class='box_content'>
