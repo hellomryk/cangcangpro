@@ -48,6 +48,7 @@ Page({
     phonenumber:"010-89561235",//电话号码
     wheel_demo: "#1ba9c8",//颜色
     thinkValue:"",//储存联想内容
+    kaishiceping:'',//开始测评
     arrayThink:[
       {
       id:"0",

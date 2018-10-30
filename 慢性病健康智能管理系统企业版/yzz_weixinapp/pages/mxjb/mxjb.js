@@ -27,6 +27,7 @@ Page({
     scrollTop:'',//滚动的高度
     array:[
     ],
+    kaishiceping:'',
     chuanson:[]
   },
   bindChange: function (e) {
@@ -235,6 +236,9 @@ starttest() {
                 console.log(data.data.prompt)
                 // console.log(data.data.prompt.split('['))
                 // console.log(JSON.parse("{'key':122}"))
+                selfPage.setData({
+                  kaishiceping:true
+                })
                 if (data.data.inputShow == 0) {
                   var arr = data.data.prompt.split('[')
                   var arr2 = arr[1].split("]")
