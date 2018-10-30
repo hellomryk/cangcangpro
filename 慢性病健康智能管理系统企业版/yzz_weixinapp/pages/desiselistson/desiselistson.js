@@ -43,6 +43,7 @@ Page({
     desisename: '',
     clazzstep: '', //小红记录步骤的参数
     whichnum:0,//默认时候是哪一个
+    kaishiceping: '',
     array: []
   },
   bindChange: function(e) {
@@ -111,7 +112,8 @@ Page({
                 },
                 method: 'GET',
                 data: {
-                  username: encodeURI(pageSelf.data.username)
+                  username: encodeURI(pageSelf.data.username),
+                  dieasename: encodeURI(pageSelf.data.desisename)
                 },
                 success: function(res) {
                   console.log(pageSelf.data.username)
@@ -229,6 +231,9 @@ Page({
                   console.log(data.data.prompt)
                   // console.log(data.data.prompt.split('['))
                   // console.log(JSON.parse("{'key':122}"))
+                  selfPage.setData({
+                    kaishiceping:true
+                  })
                   if (data.data.inputShow == 0) {
                     var arr = data.data.prompt.split('[')
                     var arr2 = arr[1].split("]")

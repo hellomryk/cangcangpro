@@ -48,3 +48,9 @@ page {
     color:#141414;
     border-radius:49rpx;
 }
+.kaishiceping_none {
+  display: none;
+} 
+.kaishiceping_block {
+  display: block;
+}

@@ -16,13 +16,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const selfPage = this;
+    // 德贵加的清除子页面中途退出bug的接口-start
+    wx.request({
+      url: hostlocal + '/doctorapplet/deleteMapByOpenid',
+      data: {
+        openid: app.globalData.openId
+      },
+      method:'get',
+      header: {
+        'Content-Type':"application/json"
+      },
+      success(res) {
+        console.log('qingkong')
+      }
+    })
+    // 德贵加的清除子页面中途退出bug的接口-end
     // wx.request({
     //   url: 'https://chronic.infobigdata.com/weixin/getWeixinInfo',
     //   data:{
 
     //   }
     // })
-    const selfPage = this;
+   
     // 获取小程序id开始
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
@@ -111,7 +127,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 德贵加的清除子页面中途退出bug的接口-start
+    wx.request({
+      url: hostlocal + '/doctorapplet/deleteMapByOpenid',
+      data: {
+        openid: app.globalData.openId
+      },
+      method: 'get',
+      header: {
+        'Content-Type': "application/json"
+      },
+      success(res) {
+        console.log('qingkong')
+      }
+    })
+    // 德贵加的清除子页面中途退出bug的接口-end
   },
 
   /**
@@ -125,7 +155,21 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // 德贵加的清除子页面中途退出bug的接口-start
+    wx.request({
+      url: hostlocal + '/doctorapplet/deleteMapByOpenid',
+      data: {
+        openid: app.globalData.openId
+      },
+      method: 'get',
+      header: {
+        'Content-Type': "application/json"
+      },
+      success(res) {
+        console.log('qingkong')
+      }
+    })
+    // 德贵加的清除子页面中途退出bug的接口-end
   },
 
   /**
