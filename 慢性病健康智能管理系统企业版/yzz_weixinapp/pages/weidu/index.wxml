@@ -43,4 +43,5 @@
      <navigator url="../zjbg/index?bid={{bid}}&bopenid={{id}}" class='block' hover-class="none">报告</navigator>
        </view>
   </view>
+  
     </view>

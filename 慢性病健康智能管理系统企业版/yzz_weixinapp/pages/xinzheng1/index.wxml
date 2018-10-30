@@ -29,7 +29,7 @@
 </view>
 
 <view class='yuce_gailv_head' bindtap='psname'>
-<view class='yuce_gailv_con'>ps:  为了您更好的康复，需要针对疾病症状同时用药才能达到更好的疗效哦！</view ><image src='/pics/ceyan_dayuhei.png'></image>
+<view class='yuce_gailv_con'>ps:不同的疾病可能具有相同的症状，请您根据自身实际情况选取多个标签，以提高自诊精度。</view ><image src='/pics/ceyan_dayuhei.png'></image>
 </view>
 
 <view class="contai">
