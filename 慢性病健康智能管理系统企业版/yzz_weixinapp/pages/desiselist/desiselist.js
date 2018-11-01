@@ -1,6 +1,8 @@
 // pages/desiselist/desiselist.js
 const hostlocal = "https://chronic.infobigdata.com";
+var app = getApp();
 const hostlocal1 = "https://chronic-api.infobigdata.com";
+
 Page({
 
   /**
@@ -14,13 +16,48 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const selfPage = this;
+
+      // 流量请求 
+      wx.request({
+          url: 'https://chronic.infobigdata.com/doctorapplet/tostatics',
+          data: {
+              openid: app.globalData.openId,
+              source: 2,
+
+          },
+          header: {
+              'content-type': 'application/json' // 默认值application/x-www-form-urlencoded
+          },
+        //   method: "POST",
+          success: function (res) {
+              console.log(res.data)
+              console.log(res.data.result)
+
+          }
+      })
+    // 德贵加的清除子页面中途退出bug的接口-start
+    wx.request({
+      url: hostlocal + '/doctorapplet/deleteMapByOpenid',
+      data: {
+        openid: app.globalData.openId
+      },
+      method:'get',
+      header: {
+        'Content-Type':"application/json"
+      },
+      success(res) {
+        console.log('qingkong')
+      }
+    })
+    // 德贵加的清除子页面中途退出bug的接口-end
     // wx.request({
-    //   url: 'https://chronic.infobigdata.com/appletApi/getUserInfo',
+    //   url: 'https://chronic.infobigdata.com/weixin/getWeixinInfo',
     //   data:{
 
     //   }
     // })
-    const selfPage = this;
+   
     // 获取小程序id开始
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
@@ -38,8 +75,8 @@ Page({
               wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-            var l = hostlocal1 +'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+            var l = hostlocal1 +'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -49,22 +86,15 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI("慢病自测")
                 },
                 method: 'GET',
@@ -116,7 +146,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 德贵加的清除子页面中途退出bug的接口-start
+    wx.request({
+      url: hostlocal + '/doctorapplet/deleteMapByOpenid',
+      data: {
+        openid: app.globalData.openId
+      },
+      method: 'get',
+      header: {
+        'Content-Type': "application/json"
+      },
+      success(res) {
+        console.log('qingkong')
+      }
+    })
+    // 德贵加的清除子页面中途退出bug的接口-end
   },
 
   /**
@@ -130,7 +174,21 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // 德贵加的清除子页面中途退出bug的接口-start
+    wx.request({
+      url: hostlocal + '/doctorapplet/deleteMapByOpenid',
+      data: {
+        openid: app.globalData.openId
+      },
+      method: 'get',
+      header: {
+        'Content-Type': "application/json"
+      },
+      success(res) {
+        console.log('qingkong')
+      }
+    })
+    // 德贵加的清除子页面中途退出bug的接口-end
   },
 
   /**

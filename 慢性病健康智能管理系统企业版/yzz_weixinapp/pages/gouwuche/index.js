@@ -1,5 +1,84 @@
 // pages/gouwuche/index.js
-var _this = null, zong ='https://chronic-api.infobigdata.com';
+var _this = null, zong ='https://chronic-api.infobigdata.com' ;
+const app = getApp();
+function getOpenId(_this) {
+
+    //判断是后登陆开始
+    wx.request({
+        url: zong + '/login/validation',
+        data: {
+            weixinId: _this.data.openId,
+        },
+        header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "POST",
+        success(res) {
+            console.log(res)
+            if (res.data.code == 500) {
+                console.log("没有注册过")
+                wx.navigateTo({
+                    url: '/pages/signup/signup'//(没有登录跳到注册页面)
+                })
+            } else {
+                // 注册过了把商品信息存入数据库
+                console.log("注册过了")
+                console.log(res)
+                _this.setData({
+                    id: res.data.data,
+                })
+                _this.setData({ uid: _this.data.id })
+                wx.request({
+                    url: zong + '/cart/myCart',
+                    data: {
+                        userId: _this.data.id
+                    },
+                    header: {
+                        'content-type': 'application/json' // 默认值
+                    },
+                    //   method: "POST",
+                    success: function (res) {
+                        console.log(res.data)
+                        console.log("查看商品名字")
+                        console.log(res.data.data)
+                        //  数组去重并添加上数量
+                        const targetArr = res.data.data;
+                        const arr2 = arrayUnique2(targetArr, 'goodId')
+                        console.log('数组去重')
+                        console.log(arr2)
+                        const arr3 = [0, 0, 0];
+                        for (var i = 0; i < arr2.length; i++) {
+                            for (var j = 0; j < targetArr.length; j++) {
+                                if (arr2[i].goodId == targetArr[j].goodId) {
+                                    arr3[i]++;
+                                }
+                            }
+                        }
+                        console.log(arr3)
+                        const obj = {}
+                        // targetArr.forEach(function(item,index) {
+                        //   if(obj[item]) {
+                        //       obj[item]++;
+                        //   } else {
+                        //     obj[item] = 1;
+                        //   }
+                        // })
+                        console.log(obj)
+                        // targetArr.forEach(v,k)=>{
+
+                        // }
+                        var ar = [];
+                        for (var s = 0; s < res.data.data.length; s++) {
+                            ar.push({ name: res.data.data[s].cartId + "", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount, goodId: res.data.data[s].goodId, specId: res.data.data[s].goodSpec[0].specId + "@" + res.data.data[s].goodSpec[1].specId })
+                        }
+                        _this.setData({ checkboxItems: ar.reverse() });
+                    }
+                })
+            }
+        }
+    })
+                        //判断是后登陆开始
+}
 Page({
 
   /**
@@ -163,57 +242,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(5474587458745)
-      console.log(options.id)
+
       _this = this;
-      _this.setData({ uid:options.id})
-      wx.request({
-          url: zong+'/cart/myCart',
-          data: {
-              userId: options.id
-          },
-          header: {
-              'content-type': 'application/json' // 默认值
-          },
-        //   method: "POST",
-          success: function (res) {
-              console.log(res.data)
-            console.log("查看商品名字")
-             console.log(res.data.data)
-            //  数组去重并添加上数量
-            const targetArr = res.data.data;
-            const arr2 = arrayUnique2(targetArr,'goodId')
-            console.log('数组去重')
-            console.log(arr2)
-            const arr3 = [0,0,0];
-            for(var i = 0; i < arr2.length; i ++) {
-                for(var j = 0; j < targetArr.length; j ++) {
-                  if (arr2[i].goodId == targetArr[j].goodId) {
-                    arr3[i]++;
-                  }
-                }
-            }
-            console.log(arr3)
-            const obj = {}
-            // targetArr.forEach(function(item,index) {
-            //   if(obj[item]) {
-            //       obj[item]++;
-            //   } else {
-            //     obj[item] = 1;
-            //   }
-            // })
-            console.log(obj)
-            // targetArr.forEach(v,k)=>{
-
-            // }
-             var ar=[];
-              for (var s = 0; s < res.data.data.length;s++){
-                  ar.push({ name: res.data.data[s].cartId + "", value: res.data.data[s].goodTitle, image: res.data.data[s].goodImg, ps: "规格" + res.data.data[s].goodSpec[0].specValue + res.data.data[s].goodSpec[0].specName + "*" + res.data.data[s].goodSpec[1].specValue + res.data.data[s].goodSpec[1].specName, yuanjia: res.data.data[s].goodUnitPrice, xianjia: res.data.data[s].goodUnitPrice, Number: res.data.data[s].goodCount, goodId: res.data.data[s].goodId, specId: res.data.data[s].goodSpec[0].specId + "@" + res.data.data[s].goodSpec[1].specId })
-       }
-             _this.setData({ checkboxItems: ar.reverse() });
-          }
+      // 获取小程序id开始
+      _this.setData({
+          openId: app.globalData.openId
       })
-
+        console.log("测试openidappjs版本")
+      console.log(app.globalData.openId)
+      getOpenId(_this)
 
       
   },

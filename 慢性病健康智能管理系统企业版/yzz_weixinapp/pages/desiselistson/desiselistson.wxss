@@ -22,3 +22,35 @@ page {
 .y-talk-box-content-left-top {
   border-bottom:none;
 }
+.mxjb_text_writebao {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.baocun {
+    width:46%;
+    height:200rpx;
+    background:#ddd;
+    line-height:115rpx;
+    text-align:center;
+    font-size:28rpx;
+    color:#141414;
+    border-radius:49rpx;
+}
+.nobaocun {
+    width:46%;
+    height:200rpx;
+    background:#ddd;
+    line-height:115rpx;
+    text-align:center;
+    font-size:28rpx;
+    color:#141414;
+    border-radius:49rpx;
+}
+.kaishiceping_none {
+  display: none;
+} 
+.kaishiceping_block {
+  display: block;
+}

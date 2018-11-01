@@ -371,6 +371,9 @@
 .phoneswitchhide {
   display:none;
 }
-.textThink {
-  
+.kaishiceping_none {
+  display: none;
+} 
+.kaishiceping_block {
+  display: block;
 }

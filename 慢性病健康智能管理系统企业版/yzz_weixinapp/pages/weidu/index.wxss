@@ -175,19 +175,19 @@ font-weight: 600;
 .tiaozhuan_box{
  float: left;
  width: 40%;
- margin-top: 30rpx;
+ margin-top: 10rpx;
  margin-left: 400rpx;
 }
 .tiaozhuan_box .block{
-    width: 80%;
-    height: 70rpx;
+    width: 70%;
+    height: 60rpx;
     margin: 0 auto;
     background: #fff;
     text-align: center;
-    line-height: 70rpx;
+    line-height: 60rpx;
      color: rgb(21, 200, 108);
      border-radius: 100rpx;
-     margin-top:15rpx;
+     margin-top:13rpx;
      font-size: 32rpx;
 }
 .anniu_box{

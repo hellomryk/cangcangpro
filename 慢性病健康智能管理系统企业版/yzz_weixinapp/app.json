@@ -25,7 +25,12 @@
         "pages/receiptinformation/receiptinformation",
         "pages/tianjiadizhi/index",
         "pages/myshopping/index",
-        "pages/zjbg/index"
+        "pages/zjbg/index",
+        "pages/foodlist/foodlist",
+        "pages/logisticsInformation/logisticsInformation",
+        "pages/dingdanxiangqing/index",
+        "pages/zc/index",
+        "pages/wodexinxi/index"
     ],
     "window": {
         "backgroundTextStyle": "black",
@@ -54,22 +59,22 @@
                 "text": "首页"
             },
             {
-                "pagePath": "pages/shouye/shouye",
+                "pagePath": "pages/mxjb/mxjb",
                 "iconPath": "/pics/home2.png",
                 "selectedIconPath": "/pics/home_2.png",
-                "text": "饮食"
+                "text": "自诊"
             },
             {
-                "pagePath": "pages/shouye/shouye",
+                "pagePath": "pages/desiselist/desiselist",
                 "iconPath": "/pics/home5.png",
                 "selectedIconPath": "/pics/home_5.png",
-                "text": "运动"
+                "text": "自测"
             },
             {
-                "pagePath": "pages/shouye/shouye",
+                "pagePath": "pages/znpgresult/znpgresult",
                 "iconPath": "/pics/home3.png",
                 "selectedIconPath": "/pics/home_3.png",
-                "text": "习惯"
+                "text": "报告"
             },
             {
                 "pagePath": "pages/shouye/shouye",

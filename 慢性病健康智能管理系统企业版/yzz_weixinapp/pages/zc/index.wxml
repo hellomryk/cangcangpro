@@ -1,0 +1,23 @@
+<!--pages/zc/index.wxml-->
+<view class='head'>
+    <view class='zj_head'>
+        <text class='zj_td'>起病急、最近24小时、呼气延长、气促、咳嗽、咳痰、喘息、干咳、鼻翼扇动、烦躁不安、发绀、呼吸困难、呼吸音减弱、小儿、婴幼儿、起病急、最近24小时等,</text>
+        <view style="clear:both;"></view>
+    </view>
+
+    <view class='zj_head'>
+        <text class='zj_td'>起病急、最近24小时、呼气延长、气促、咳嗽、咳痰、喘息、干咳、鼻翼扇动、烦躁不安、发绀、呼吸困难、呼吸音减弱、小儿、婴幼儿、起病急、最近24小时等,</text>
+        <view style="clear:both;"></view>
+    </view>
+
+        <view class='zj_head'>
+        <text class='zj_td'>起病急、最近24小时、呼气延长、气促、咳嗽、咳痰、喘息、干咳、鼻翼扇动、烦躁不安、发绀、呼吸困难、呼吸音减弱、小儿、婴幼儿、起病急、最近24小时等,</text>
+        <view style="clear:both;"></view>
+    </view>
+
+        <view class='zj_head'>
+        <text class='zj_td'>起病急、最近24小时、呼气延长、气促、咳嗽、咳痰、喘息、干咳、鼻翼扇动、烦躁不安、发绀、呼吸困难、呼吸音减弱、小儿、婴幼儿、起病急、最近24小时等,</text>
+        <view style="clear:both;"></view>
+    </view>
+
+</view>

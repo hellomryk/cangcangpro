@@ -1,3 +1,4 @@
+<!-- 123 -->
 <view class="container">
     <view class="page-section">
         <!-- 上部文字显示区域 start -->
@@ -37,6 +38,5 @@
 <view class='zhifu1'>
   <view class='zhifu'>请支付阅读全部</view>
 </view>
-
 <!--默认隐藏-->
 <loading hidden="{{hiddenLoading}}">正在加载</loading>

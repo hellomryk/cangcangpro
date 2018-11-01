@@ -1,0 +1,26 @@
+/* pages/zc/index.wxss */
+page{
+   background:  #F5F5F5;
+    }
+.head{
+    width: 100%;
+    padding:0 0 40rpx 0;
+    }
+.zj_head{
+    width: 92%;
+    padding: 30rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    box-shadow: 0 0 14px 0 #ddd; 
+    background: #fff;
+    margin-top: 35rpx;
+}
+
+.zj_td{
+    float: left;
+    width: 100%;
+    font-size: 32rpx;
+    color: #999;
+    margin: 10rpx 0;
+ 
+}

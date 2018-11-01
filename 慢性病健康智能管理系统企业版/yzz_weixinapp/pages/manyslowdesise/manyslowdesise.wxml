@@ -1,5 +1,12 @@
 <!--pages/manyslowdesise/manyslowdesise.wxml-->
 <view class='food_list_ul'>
+    <!-- 添加搜索框 -->
+    <view class='food_list_search'>
+        <view class='food_list_search_box'>
+            <image src='../../pics/flsb_img.png' class='flsb_img'></image>
+            <input placeholder='输入搜索内容' class='flsb_input' bindinput='flsb_input' bindconfirm="flsb_confirm"></input>
+        </view>
+    </view>
     <view class='food_list clearfix' wx:for-items = "{{foodlistarr}}" bindtap="gotoart" id='{{item.id}}'>
         <image src='{{item.wikipediaImageurl}}' class='food_list_img'></image>
         <view class='food_list_right'>
@@ -7,5 +14,10 @@
             <view style='clear:both;'></view>
             <view class='food_list_right_money'>{{item.wikipediaDescribe}}</view>
         </view>
+    </view>
+    <!-- 如果搜索不到 -->
+    <view class='food_list_search_none' wx:if="foodlistarr.length == 0">
+        <image src='../../pics/flsn_img.png' class='flsn_img'></image>
+        <view class='flsn_text'>搜索不到相关内容</view>
     </view>
 </view>

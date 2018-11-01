@@ -1,0 +1,27 @@
+<!--pages/logisticsInformation/logisticsInformation.wxml-->
+<view>
+    <view class='logisticsInformation_top clearfix'>
+        <view class='logisticsInformation_top_left'>
+            <view class='logisticsInformation_top_left_num'>共一件商品</view>
+            <image src="../../pics/litu.png" class='logisticsInformation_top_left_img'></image>
+        </view> 
+        <view class='logisticsInformation_top_right'>
+            <view class='logisticsInformation_top_right_status'>物流状态: 运输中</view>
+            <view class='logisticsInformation_top_right_company'>快递公司:顺丰快递</view>
+            <view class='logisticsInformation_top_right_number'>快递单号: 97382463784243</view>
+        </view>
+    </view>
+    <!-- 物流进展 -->
+    <view class='logisticsInformation_evolve'>
+        <view class='logisticsInformation_evolve_list clearfix' wx:for-items="{{list}}">
+            <view class='logisticsInformation_evolve_list_left'>
+                <image src="../../pics/{{item.icoimg ? 'arrive_active.png' : 'arrive.png'}}" class='lell_img'></image>
+                <view class="lell_line {{item.icoimg ? 'lell_line_active' :'' }}"></view>
+            </view>
+            <view class="logisticsInformation_evolve_list_right">
+                <view class='lelr_add'>{{item.name}}</view>
+                <view class='lelr_time'>{{item.time}}</view>
+            </view>
+        </view> 
+    </view>
+</view>

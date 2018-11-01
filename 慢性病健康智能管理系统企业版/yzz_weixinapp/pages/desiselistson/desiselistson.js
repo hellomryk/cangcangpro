@@ -5,6 +5,7 @@ const months = []
 const days = []
 const hostlocal1 = "https://chronic-api.infobigdata.com";
 const hostlocal = "https://chronic.infobigdata.com"
+var app = getApp();
 // for (let i = 1990; i <= date.getFullYear(); i++) {
 //   years.push(i)
 // }
@@ -42,6 +43,7 @@ Page({
     desisename: '',
     clazzstep: '', //小红记录步骤的参数
     whichnum:0,//默认时候是哪一个
+    kaishiceping: '',
     array: []
   },
   bindChange: function(e) {
@@ -110,7 +112,8 @@ Page({
                 },
                 method: 'GET',
                 data: {
-                  username: encodeURI(pageSelf.data.username)
+                  username: encodeURI(pageSelf.data.username),
+                  dieasename: encodeURI(pageSelf.data.desisename)
                 },
                 success: function(res) {
                   console.log(pageSelf.data.username)
@@ -198,8 +201,8 @@ Page({
               wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -209,22 +212,15 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function(res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI(selfPage.data.desisename)
                   //  issue: encodeURI("都不是")
                 },
@@ -235,6 +231,9 @@ Page({
                   console.log(data.data.prompt)
                   // console.log(data.data.prompt.split('['))
                   // console.log(JSON.parse("{'key':122}"))
+                  selfPage.setData({
+                    kaishiceping:true
+                  })
                   if (data.data.inputShow == 0) {
                     var arr = data.data.prompt.split('[')
                     var arr2 = arr[1].split("]")
@@ -347,11 +346,11 @@ Page({
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
+              // wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -361,22 +360,15 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function(res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI(selfPage.data.year),
                   clazzstep: encodeURI(selfPage.data.clazzstep)
                 },
@@ -525,11 +517,11 @@ Page({
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
+              // wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -539,22 +531,16 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
               console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
-                  openid: obj.openid,
+                  openid:app.globalData.openId,
                   issue: encodeURI("不保存"),
                   clazzstep: encodeURI(selfPage.data.clazzstep)
                 },
@@ -597,11 +583,11 @@ Page({
               var objz = {};
               objz.avatarUrl = res.userInfo.avatarUrl;
               objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
+              // wx.setStorageSync('userInfo', objz); //存储userInfo
             }
           });
-          // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
           // console.log(res)
           wx.request({
             url: l,
@@ -611,22 +597,16 @@ Page({
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
             // header: {}, // 设置请求的 header  
             success: function (res) {
-              var obj = {};
-              console.log(res)
-              obj.openid = res.data.openid;
-              obj.expires_in = Date.now() + res.data.expires_in;
-              console.log("打印openid开始")
-              console.log(obj.openid);
               selfPage.setData({
-                openId: obj.openid
+                openId: app.globalData.openId
               })
               console.log("打印openid结束")
-              wx.setStorageSync('user', obj); //存储openid 
+              // wx.setStorageSync('user', obj); //存储openid 
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
                 data: {
-                  openid: obj.openid,
+                  openid: app.globalData.openId,
                   issue: encodeURI("保存测评记录"),
                   uname:encodeURI(selfPage.data.username),
                   clazzstep: encodeURI(selfPage.data.clazzstep)
@@ -781,13 +761,13 @@ function sendmessage_pubId(selfPage) {
             var objz = {};
             objz.avatarUrl = res.userInfo.avatarUrl;
             objz.nickName = res.userInfo.nickName;
-            wx.setStorageSync('userInfo', objz); //存储userInfo
+            // wx.setStorageSync('userInfo', objz); //存储userInfo
           }
         });
         const appkey = 'wx84cae8ce6e9453d4'
         const appsecret = '39e817b148c512cde7ead6c4b3cde98a'
-        // var l = 'https://jqr.infobigdata.com/appletApi/getUserInfo'
-          var l = hostlocal1+'/appletApi/getUserInfo'
+        // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
+          var l = hostlocal1+'/weixin/getWeixinInfo'
         // console.log(res)
         wx.request({
           url: l,
@@ -804,7 +784,7 @@ function sendmessage_pubId(selfPage) {
             console.log("打印openid开始")
             console.log(obj.openid);
             selfPage.setData({
-              openId: obj.openid
+              openId: app.globalData.openId
             })
             console.log("打印openid结束")
             wx.setStorageSync('user', obj); //存储openid 
@@ -812,7 +792,7 @@ function sendmessage_pubId(selfPage) {
             wx.request({
               url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
               data: {
-                openid: obj.openid,
+                openid: app.globalData.openId,
                 issue: encodeURI(selfPage.data.inputValue)
                 //issue: encodeURI("通过症状列表选择")
               },

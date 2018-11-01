@@ -1,0 +1,97 @@
+<!--pages/wodexinxi/index.wxml-->
+<view class='head'>
+<view class='head_list'>
+<text>姓名</text>  <input placeholder='请填写您的姓名'></input>
+</view>
+
+        <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>性别</view>
+            <picker bindchange="binddayPickerChange" value="{{dayIndex1}}" range="{{dayArray}}">
+                <view>
+                    <text class='leave_text'>{{dayArray[dayIndex]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>体重</view>
+            <picker bindchange="binddayPickerChange1" value="{{dayIndex1}}" range="{{dayArray1}}">
+                <view>
+                    <text class='leave_text'>{{dayArray1[dayIndex1]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>职业</view>
+            <picker bindchange="binddayPickerChange2" value="{{dayIndex1}}" range="{{dayArray2}}">
+                <view>
+                    <text class='leave_text'>{{dayArray2[dayIndex2]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>年龄</view>
+            <picker bindchange="binddayPickerChange3" value="{{dayIndex1}}" range="{{dayArray3}}">
+                <view>
+                    <text class='leave_text'>{{dayArray3[dayIndex3]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>省份</view>
+            <picker bindchange="binddayPickerChange4" value="{{dayIndex1}}" range="{{dayArray4}}">
+                <view>
+                    <text class='leave_text'>{{dayArray4[dayIndex4]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>吸烟</view>
+            <picker bindchange="binddayPickerChange5" value="{{dayIndex1}}" range="{{dayArray5}}">
+                <view>
+                    <text class='leave_text'>{{dayArray5[dayIndex5]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>饮酒</view>
+            <picker bindchange="binddayPickerChange6" value="{{dayIndex1}}" range="{{dayArray6}}">
+                <view>
+                    <text class='leave_text'>{{dayArray6[dayIndex6]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+        <view style="clear:both;"></view>
+
+
+
+     
+</view>
+<view class='baocun'>保存信息</view>
+
+
+

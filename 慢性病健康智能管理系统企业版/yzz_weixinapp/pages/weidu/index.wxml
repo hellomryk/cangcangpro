@@ -37,9 +37,11 @@
   </view>
   <image src='/pics/yisheng.png' class="yisheng {{open ? 'none' : ''}}"></image>
        <view class="tiaozhuan_box">
-     <navigator url="../ps/index?id=1&name={{name}}" class='block' hover-class="none">医院</navigator>
-     <navigator url="../ps/index?id=2&name={{name}}" class='block' hover-class="none">医生</navigator>
-     <navigator url="../ps/index?id=3&name={{name}}" class='block' hover-class="none">药品</navigator>
+     <navigator url="../foodlist/foodlist" class='block' hover-class="none">附近医院</navigator>
+     <navigator url="../ps/index?id=2&name={{name}}" class='block' hover-class="none">推荐医生</navigator>
+     <navigator url="../ps/index?id=3&name={{name}}" class='block' hover-class="none">推荐药品</navigator>
+     <navigator url="../baogao/baogao?bid={{bid}}&bopenid={{id}}" class='block' hover-class="none">自诊报告</navigator>
        </view>
   </view>
+  
     </view>
