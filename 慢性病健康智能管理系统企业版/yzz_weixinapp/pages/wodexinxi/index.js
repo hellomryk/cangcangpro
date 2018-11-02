@@ -1,6 +1,6 @@
 // pages/wodexinxi/index.js
 // pages/zjbg/index.js
-var _this = null;
+var _this = null,app = getApp();
 Page({
 
     /**
@@ -139,8 +139,29 @@ Page({
      */
     onLoad: function (options) {
         _this = this;
-        //详细
+        //判断信息是否填过
+        wx.request({
+            url: 'https://chronic-api.infobigdata.com/userDetail/info',
+            data: {
+                userId: 23
+            },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值application/json
+            },
+            method: "POST",
+            success: function (res) {
+                console.log(res.data)
+                if (res.data.userDetail!=null){
 
+
+
+
+
+                   }else{
+
+                   }
+            }
+        })
 
 
     },

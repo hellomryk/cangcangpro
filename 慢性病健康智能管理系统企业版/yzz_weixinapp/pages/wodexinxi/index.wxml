@@ -15,7 +15,7 @@
             </picker>
         </view>
 
-                <view class="row-wrap">
+                <!-- <view class="row-wrap">
             <view class="label">
                 <text class='leave_warning'></text>体重</view>
             <picker bindchange="binddayPickerChange1" value="{{dayIndex1}}" range="{{dayArray1}}">
@@ -24,10 +24,13 @@
                     <image src='/pics/weidu_xia.png' class='leave_img'></image>
                 </view>
             </picker>
-        </view>
+        </view> -->
+        <view class='head_list'>
+<text>体重</text>  <input placeholder='请填写您的体重'></input>
+</view>
 
 
-                <view class="row-wrap">
+                <!-- <view class="row-wrap">
             <view class="label">
                 <text class='leave_warning'></text>职业</view>
             <picker bindchange="binddayPickerChange2" value="{{dayIndex1}}" range="{{dayArray2}}">
@@ -36,10 +39,13 @@
                     <image src='/pics/weidu_xia.png' class='leave_img'></image>
                 </view>
             </picker>
-        </view>
+        </view> -->
+                <view class='head_list'>
+<text>职业</text>  <input placeholder='请填写您的职业'></input>
+</view>
 
 
-                <view class="row-wrap">
+                <!-- <view class="row-wrap">
             <view class="label">
                 <text class='leave_warning'></text>年龄</view>
             <picker bindchange="binddayPickerChange3" value="{{dayIndex1}}" range="{{dayArray3}}">
@@ -48,7 +54,10 @@
                     <image src='/pics/weidu_xia.png' class='leave_img'></image>
                 </view>
             </picker>
-        </view>
+        </view> -->
+                        <view class='head_list'>
+<text>职业</text>  <input placeholder='请填写您的职业'></input>
+</view>
 
 
                 <view class="row-wrap">

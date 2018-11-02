@@ -13,7 +13,7 @@
     </view>
   </view>
 
-    <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+    <navigator url='/pages/wodexinxi/index' class='mine_dingdan'>
       <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
       <view class='mine_dingdan_text'>我的信息</view>
       <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
