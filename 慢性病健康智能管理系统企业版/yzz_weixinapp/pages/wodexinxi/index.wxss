@@ -21,7 +21,7 @@ page {
     float: left;
     line-height: 85rpx;
     height: 85rpx;
-    text-indent: 45rpx;
+    padding-left: 45rpx;
 }
 
 .head_list text {
