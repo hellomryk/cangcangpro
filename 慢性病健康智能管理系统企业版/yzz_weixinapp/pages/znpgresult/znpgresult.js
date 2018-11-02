@@ -80,7 +80,7 @@ Page({
                     var obj = {}
                     obj.id = arr1[i].id;
                     obj.basicInfo = arr1[i].basicinfo
-                    obj.questioningSymptoms = arr1[i].symptoms
+                      obj.questioningSymptoms = arr1[i].diseasename
                     obj.time = getMyDate(arr1[i].time)
                     arr2.push(obj)
                   }
@@ -166,7 +166,7 @@ Page({
                                       var obj = {}
                                       obj.id = arr1[i].id;
                                       obj.basicInfo = arr1[i].basicinfo
-                                      obj.questioningSymptoms = arr1[i].symptoms
+                                      obj.questioningSymptoms = arr1[i].diseasename
                                       obj.time = getMyDate(arr1[i].time)
                                       arr2.push(obj)
                                   }
@@ -250,7 +250,7 @@ Page({
                                       var obj = {}
                                       obj.id = arr1[i].id;
                                       obj.basicInfo = arr1[i].basicinfo
-                                      obj.questioningSymptoms = arr1[i].symptoms
+                                      obj.questioningSymptoms = arr1[i].diseasename
                                       obj.time = getMyDate(arr1[i].time)
                                       arr2.push(obj)
                                   }
