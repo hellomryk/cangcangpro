@@ -2,11 +2,12 @@
 var _this = null;
 import * as echarts from '../../ec-canvas/echarts';
 let chart = null;
+var app = getApp();
 function setOption(chart,list,data) {
     var option = {
         color: ['#37a2da', '#32c5e9', '#67e0e3'],
         title: {
-            text: '疾病排行',
+            text: '自诊疾病',
             textStyle:{
                 fontSize: 17,
                 color: '#141414',
@@ -109,6 +110,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        lazy: true,
         nub: 1,
         num: "主要",
         ayyr: [],
@@ -143,7 +145,8 @@ Page({
             }
         }
         this.setData({
-            allGoodsFilte: allGoodsFilte
+            allGoodsFilte: allGoodsFilte,
+            lazy:false
         })
         ayyr();
         
@@ -240,10 +243,10 @@ Page({
         _this.setData({
             ayyr4: { 'sex': options.sex, 'age': options.age, 'username': options.username, 'openId': options.openId,}
         })
-        console.log(options.sex)
-        console.log(options.age)
-        console.log(options.username)
-        console.log(options.openId)
+        // console.log(options.sex)
+        // console.log(options.age)
+        // console.log(options.username)
+        // console.log(options.openId)
         wx.showLoading({
             title: '加载中',
         })

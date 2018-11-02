@@ -1,6 +1,8 @@
 // pages/zjbg/index.js
 var _this=null;
+
 const app = getApp();
+
 Page({
 
   /**
@@ -10,6 +12,7 @@ Page({
       jbxi:{},
       jbxi1: {},
       jbxi2: {},
+
 //性别
       dayArray: ['选择您的性别', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
       duration_day: "",
@@ -38,10 +41,12 @@ Page({
       dayArray6: ['选择饮酒习惯', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
       duration_day6: "",
       dayIndex6: 0,
+
   },
     tiaozhuan:function(e){
        console.log(e)
     },
+
 
     //性别
     binddayPickerChange: function (e) {
@@ -134,11 +139,13 @@ Page({
         })
 
     },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       _this=this;
+
 
      
 
@@ -174,6 +181,7 @@ Page({
 
     //           }
     //       })
+
       //详细
       wx.request({
           url: 'https://jk.infobigdata.com/newrobot5',

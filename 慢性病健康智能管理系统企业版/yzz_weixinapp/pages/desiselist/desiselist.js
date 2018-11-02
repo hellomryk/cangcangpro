@@ -18,6 +18,7 @@ Page({
   onLoad: function (options) {
     const selfPage = this;
 
+
       // 流量请求 
       wx.request({
           url: 'https://chronic.infobigdata.com/doctorapplet/tostatics',
@@ -36,6 +37,7 @@ Page({
 
           }
       })
+
     // 德贵加的清除子页面中途退出bug的接口-start
     wx.request({
       url: hostlocal + '/doctorapplet/deleteMapByOpenid',

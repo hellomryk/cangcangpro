@@ -179,6 +179,7 @@ siginuptab: function() {
 //跳转到症状列表
 gotozhengzhuang() {
   const selfPage = this;
+    console.log(111111)
   console.log((selfPage.data.chuanson))
   console.log(selfPage.data.username)
   console.log(selfPage.data.openId)

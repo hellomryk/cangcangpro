@@ -1,0 +1,70 @@
+<!--pages/mine/mine.wxml-->
+<view class='mine'>
+  <view class='mine_top_z'>
+      <view class='mine_top'>
+        <image src='../../pics/wodeyonghubeijing.png' class='wodeyonghubg'></image>
+        <view class='mine_top_name'>
+          <image src='../../pics/wodeyonghu.png' class='wodeyonghu'></image>
+          <view class='mine_top_name_text'>
+              <view class='mtnt_name'>用户名</view>
+              <view class='mtnt_tui'>退出账号</view>
+          </view>
+        </view>
+    </view>
+  </view>
+
+    <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的信息</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的自测</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的自诊</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+  <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodedingdan.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的订单</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+    <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodegouwuche.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的购物车</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+
+
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的收货地址</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的分享</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的积分</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>我的推荐</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+
+      <navigator url='/pages/shangcheng_head_list/index' class='mine_dingdan'>
+      <image src='../../pics/wodexinxi.png' class='mine_dingdan_img_left'></image>
+      <view class='mine_dingdan_text'>联系客服</view>
+      <image src='../../pics/wodejian.png' class='mine_dingdan_img_right'></image>
+  </navigator>
+</view>

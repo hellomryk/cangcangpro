@@ -364,6 +364,28 @@ Page({
                 openId: app.globalData.openId
               })
               console.log("打印openid结束")
+
+
+              if (selfPage.data.year == "不清楚" || selfPage.data.year == "下一组") {
+
+              } else {
+                var newYears = selfPage.data.years;
+                var temStr = "";
+                for (var z = 1; z < newYears.length; z++) {
+                  if (z != 1 && z != newYears.length) {
+                    if (temStr == "") {
+                      temStr = newYears[z - 1];
+                    } else {
+                      temStr += "、" + newYears[z - 1];
+                    }
+                  }
+                }
+                if (temStr != "") {
+                  selfPage.data.year = temStr;
+                }
+              }
+
+
               //发送输入信息开始
               wx.request({
                 url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',

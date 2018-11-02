@@ -1,5 +1,6 @@
 // pages/baogao/index.js
 var _this = null;
+var app = getApp();
 Page({
 
   /**

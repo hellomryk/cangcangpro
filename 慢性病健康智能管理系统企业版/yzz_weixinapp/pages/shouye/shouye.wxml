@@ -2,7 +2,9 @@
 <view class='container'>
   <view class='box_cont'>
   <navigator hover-class="none" open-type='switchTab' url="/pages/box/index" ><image src='/pics/banner.jpg'  class='banner'></image></navigator>
+
   <navigator hover-class="none" open-type='switchTab' url="/pages/mxjb/mxjb" ><image src='/pics/box_img1.jpg'  class='banner1'></image></navigator>
+
   <navigator hover-class="none" open-type='switchTab' url="/pages/desiselist/desiselist" ><image src='/pics/box_img2.jpg'  class='banner2'></image></navigator>
   <navigator hover-class="none" url="/pages/historylist/historylist" ><image src='/pics/box_img3.jpg'  class='banner3'></image></navigator>
   <view style="clear:both;"></view>

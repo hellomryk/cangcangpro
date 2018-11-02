@@ -30,7 +30,12 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< HEAD
 			"current": 33,
+
+=======
+			"current": 34,
+>>>>>>> 3a3fedd43527d134a2d862fa0c6ee50fb71c1e46
 			"list": [
 				{
 					"id": 0,
@@ -234,7 +239,25 @@
 				{
 					"id": -1,
 					"name": "我的信息",
-					"pathName": "pages/wodexinxi/index"
+					"pathName": "pages/wodexinxi/index",
+<<<<<<< HEAD
+                      "query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+
+=======
+					"query": ""
+				},
+				{
+					"id": 34,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+>>>>>>> 3a3fedd43527d134a2d862fa0c6ee50fb71c1e46
 				}
 			]
 		}

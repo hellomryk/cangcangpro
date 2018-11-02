@@ -251,6 +251,26 @@ Page({
       }
     });
   //获取小程序id结束
+    wx.request({
+      url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+      data: {
+        openid: app.globalData.openId,
+        issue: encodeURI("通过症状列表选择")
+      },
+      method: 'GET',
+      success: function (data) {
+        console.log(data)
+        console.log(JSON.parse(data.data.data))
+        selfPage.setData({
+          array: JSON.parse(data.data.data)
+        })
+        // console.log(data.data.prompt.split('['))
+        // console.log(JSON.parse("{'key':122}"))
+
+        //滚动到底部
+
+      }
+    })
   },
   wancheng() {
   

@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarBackgroundColor":"#14c86c",
+  "navigationBarTitleText":"慢病百科",
+  "navigationBarTextStyle":"#fff",
+  "enablePullDownRefresh":false
+}

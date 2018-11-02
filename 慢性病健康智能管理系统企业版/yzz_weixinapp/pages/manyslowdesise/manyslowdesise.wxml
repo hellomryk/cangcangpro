@@ -1,11 +1,21 @@
 <!--pages/manyslowdesise/manyslowdesise.wxml-->
-<view class='food_list_ul'>
+
+<view class="food_list_ul">
     <!-- 添加搜索框 -->
     <view class='food_list_search'>
         <view class='food_list_search_box'>
             <image src='../../pics/flsb_img.png' class='flsb_img'></image>
             <input placeholder='输入搜索内容' class='flsb_input' bindinput='flsb_input' bindconfirm="flsb_confirm"></input>
         </view>
+        <image src='../../pics/food_list_search_img.png' class="food_list_search_img {{xiala ? 'food_list_search_img_active' : '' }}"  bindtap="tanxiala"></image>
+    </view>
+    <!-- 下拉框 -->
+    <view class="food_list_xia1 {{xiala ? 'food_list_xia_active':''}}" catchtouchmove="true" bindtap="tanxiala">
+
+    </view>
+
+    <view class="food_list_xia_ul {{xiala ? 'food_list_xia_ul_active' : ''}}" catchtouchmove="true">
+        <view class="flxu_li {{item.status == 1 ? 'flxu_li_active':''}}" wx:for-items="{{leibiearr}}" id='{{item.id}}' bindtap='leibie'>{{item.wikipediaName}}</view>
     </view>
     <view class='food_list clearfix' wx:for-items = "{{foodlistarr}}" bindtap="gotoart" id='{{item.id}}'>
         <image src='{{item.wikipediaImageurl}}' class='food_list_img'></image>
@@ -16,7 +26,7 @@
         </view>
     </view>
     <!-- 如果搜索不到 -->
-    <view class='food_list_search_none' wx:if="foodlistarr.length == 0">
+    <view class='food_list_search_none' wx:if="{{foodlistarr.length == 0}}">
         <image src='../../pics/flsn_img.png' class='flsn_img'></image>
         <view class='flsn_text'>搜索不到相关内容</view>
     </view>
