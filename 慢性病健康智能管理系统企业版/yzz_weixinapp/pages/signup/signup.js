@@ -3,6 +3,9 @@ const url = "https://chronic-api.infobigdata.com";
 const secret = "b6f619487205d6a3d49b45c5736a9d39";
 const appid = "wxe233654cc28fd440";
 const app = getApp();
+var countDownTime = 60;
+var intervalis;
+var _this = null;
 Page({
 
   /**
@@ -14,6 +17,7 @@ Page({
     openId:'',//小程序openid
     signUpStatus:'0',//登陆状态0未登录1登陆后
     userId:'',//登陆id
+    yzmText:'点击获取验证码',//获取验证码文字
   },
 
   /**
@@ -26,20 +30,55 @@ Page({
   //获取验证码
   yzm() {
     const _this = this;
+
+    console.log("000000000000000")
     console.log(_this.data.getSignPhoneVal)
+    if (countDownTime != 60){//倒计时中不让再次点击
+      return;
+    }
+    console.log("987654");
+    
+    if (_this.data.getSignPhoneVal != '') {
+      intervalis = setInterval(function () {
+        _this.setData({
+          yzmText: countDownTime + "秒后重新获取",
+        })
+        if (countDownTime > 0) {
+          countDownTime--;
+        } else {
+          countDownTime = 60;
+          clearInterval(intervalis);//清空验证码倒计时
+          _this.setData({
+            yzmText: "点击获取验证码",
+          })
+        }
+      }, 1000);//定时器 end
+
+
+      //请求发送验证码
       wx.request({
-        url: url +'/login/sms',
+        url: url + '/login/sms',
         data: {
           phone: _this.data.getSignPhoneVal
         },
         header: {
-          "Content-Type":"application/x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded"
         },
-        method:"POST",
+        method: "POST",
         success(res) {
           console.log(res)
         }
       })
+    }else{
+      wx.showToast({
+        title: '请输入正确内容',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+
+   
+    console.log(_this.data.getSignPhoneVal)
   },
 // 获取手机号
   getSignPhone(e) {
@@ -58,6 +97,8 @@ Page({
   // 登陆事件
 
   signup() {
+    //返回上一级
+    
     const _this = this;
     console.log(_this.data.getSignPhoneVal)
     console.log(_this.data.openId)
@@ -70,11 +111,11 @@ Page({
       })
     } else {
       wx.request({
-        url: url + '/register3',
+        url: url + '/login/debark',
         data: {
           phone: _this.data.getSignPhoneVal,
           code: _this.data.getSignIdentifyVal,
-          weixinId: _this.data.openId
+          openId: _this.data.openId
         },
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -85,24 +126,26 @@ Page({
           console.log(res)
           if (res.data.code == 0) {
             _this.setData({
-              userId: res.data.data
+              userId: res.data.data.userId
             })
             console.log(546656664)
             console.log(res)
-            const id = res.data.data
-            wx.navigateTo({
-              url: '/pages/shangcheng_list/index?id=' + id,
-            })
-          } else { 
+            const id = res.data.data.userId
 
+            //返回上一级
+            wx.navigateBack();
+
+            //wx.navigateTo({
+             // url: '/pages/shangcheng_list/index?id=' + id,
+            //})
+
+
+          } else {
               wx.showToast({
                   title: res.data.msg,
                   icon: 'none',
                   duration: 2000
               })
-            wx.navigateTo({
-              url: '/pages/shangcheng_list/index'
-            })
           }
         }
       })

@@ -6,8 +6,8 @@
         <view class='mine_top_name'>
           <image src='../../pics/wodeyonghu.png' class='wodeyonghu'></image>
           <view class='mine_top_name_text'>
-              <view class='mtnt_name'>用户名</view>
-              <view class='mtnt_tui'>退出账号</view>
+              <view class='mtnt_name'>{{nameText}}</view>
+              <view class='mtnt_tui' bindtap='loginOrOut'>{{buttonText}}</view>
           </view>
         </view>
     </view>

@@ -366,13 +366,13 @@ Page({
               console.log("打印openid结束")
 
 
-              if (selfPage.data.year == "不清楚" || selfPage.data.year == "下一组") {
+              if (selfPage.data.year == "不清楚" || selfPage.data.year == "继续自测") {
 
               } else {
                 var newYears = selfPage.data.years;
                 var temStr = "";
                 for (var z = 1; z < newYears.length; z++) {
-                  if (z != 1 && z != newYears.length) {
+                  if (z != newYears.length) {
                     if (temStr == "") {
                       temStr = newYears[z - 1];
                     } else {

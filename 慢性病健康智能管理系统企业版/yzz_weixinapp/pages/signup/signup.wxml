@@ -7,7 +7,7 @@
     <view class='submitorder_remark_text'>手机号</view>
     <view class='submitorder_remark_input'>
     <input  placeholder='请输入手机号' type='text' bindinput='getSignPhone' ></input></view>
-    <view class='submitorder_remark_yanzheng' bindtap='yzm'>获取验证码</view>
+    <view class='submitorder_remark_yanzheng' bindtap='yzm'>{{yzmText}}</view>
   </view>
     <view class='submitorder_remark clearfix'>
     <view class='submitorder_remark_text'>验证码</view>
@@ -15,5 +15,5 @@
     <input  placeholder='请输入验证码' type='text' bindinput="getSignIdentify" ></input></view>
   </view>
   <view class='signup' bindtap='signup'>
-      注册
+      提交
   </view>
