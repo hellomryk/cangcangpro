@@ -35,7 +35,16 @@
           </view>
           <view style="clear:both;"></view>
           <!-- mxjb初始2结束 -->
+                    <!-- mxjb初始1开始 -->
+          <!-- <view class="robot-sen clearfix" wx:if="{{item.typeId == -1}}">
+            <image src="../../pics/zrpdrobot.png"></image>
+            <view class='mxjb_robot_public'>
+                您是是否有以下主症?
+            </view>
+          </view>
+          <view style="clear:both;"></view> -->
 
+          <!-- mxjb初始1结束 -->
           <!-- mxjb初始3开始 -->
           <view class="robot-sen mxjb_people clearfix" wx:if="{{item.typeId == 0}}">
             <view class='mxjb_robot_public'>

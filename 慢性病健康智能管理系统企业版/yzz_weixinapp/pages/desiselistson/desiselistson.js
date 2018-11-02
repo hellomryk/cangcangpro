@@ -44,6 +44,8 @@ Page({
     clazzstep: '', //小红记录步骤的参数
     whichnum:0,//默认时候是哪一个
     kaishiceping: '',
+    confirmonce:0,//判断是第几次点击确定按钮
+    firstprompt:'',//第一次点击确认时候人类的话
     array: []
   },
   bindChange: function(e) {
@@ -116,12 +118,19 @@ Page({
                   dieasename: encodeURI(pageSelf.data.desisename)
                 },
                 success: function(res) {
-                  console.log(pageSelf.data.username)
+                  console.log("onload加载时数据")
                   console.log(res)
-                  console.log(res)
-                  console.log(res.data.secondprompt)
-                  console.log(res.data.secondprompt.welcomeuser)
-                  console.log(res.data.secondprompt.functionli.buttonone)
+                  console.log(res.data.firstprompt)
+                  var arronload = res.data.firstprompt.split(',');
+                  console.log(arronload)
+                  pageSelf.setData({
+                    years: arronload,
+                    firstprompt:res.data.firstprompt,
+                  })
+                  // console.log(pageSelf.data.username)
+                  // console.log(res.data.secondprompt)
+                  // console.log(res.data.secondprompt.welcomeuser)
+                  // console.log(res.data.secondprompt.functionli.buttonone)
                   if (res.data.showType == -1) {
                     var obj1 = {
                       typeId: -1,
@@ -185,339 +194,404 @@ Page({
   },
   starttest() {
     const selfPage = this;
-    // 获取小程序id开始
-    var user = wx.getStorageSync('user') || {};
-    var userInfo = wx.getStorageSync('userInfo') || {};
-    console.log(123)
-    wx.login({
-      success: function(res) {
-        console.log(res)
-        if (res.code) {
-          wx.getUserInfo({
-            success: function(res) {
-              var objz = {};
-              objz.avatarUrl = res.userInfo.avatarUrl;
-              objz.nickName = res.userInfo.nickName;
-              wx.setStorageSync('userInfo', objz); //存储userInfo
-            }
-          });
-          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
-          var l = hostlocal1+'/weixin/getWeixinInfo'
-          // console.log(res)
-          wx.request({
-            url: l,
-            data: {
-              code: res.code
-            },
-            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-            // header: {}, // 设置请求的 header  
-            success: function(res) {
               selfPage.setData({
-                openId: app.globalData.openId
+                inputShow:0
               })
-              console.log("打印openid结束")
-              //发送输入信息开始
-              wx.request({
-                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
-                data: {
-                  openid: app.globalData.openId,
-                  issue: encodeURI(selfPage.data.desisename)
-                  //  issue: encodeURI("都不是")
-                },
-                method: 'GET',
-                success: function(data) {
-                  console.log("测试支气管炎开始")
-                  console.log(data)
-                  console.log(data.data.prompt)
-                  // console.log(data.data.prompt.split('['))
-                  // console.log(JSON.parse("{'key':122}"))
-                  selfPage.setData({
-                    kaishiceping:true
-                  })
-                  if (data.data.inputShow == 0) {
-                    var arr = data.data.prompt.split('[')
-                    var arr2 = arr[1].split("]")
-                    var obj1 = {
-                      typeId: 1,
-                      robotsay: data.data.data
-                    }
-                    var obj2 = {
-                      typeId: 0,
-                      message: selfPage.data.year
-                    }
-                    var dataarray = selfPage.data.array;
-                    dataarray.push(obj2)
-                    dataarray.push(obj1)
-                    selfPage.setData({
-                      years: arr2[0].split(','),
-                      year: arr2[0].split(',')[0],
-                      inputShow: data.data.inputShow,
-                      windowHeightChange: 350,
-                      array: dataarray
-                    })
-                    console.log(arr2[0].split(','))
-                  } else if (data.data.inputShow == 1) {
-                    var obj2 = {
-                      typeId: 0,
-                      message: selfPage.data.year
-                    }
-                    var obj3 = {
-                      typeId: 2,
-                      welcomeuserlist: data.data.data,
-                      starttestlist: data.data.prompt
-                    }
-                    var dataarray = selfPage.data.array;
-                    dataarray.push(obj2)
-                    dataarray.push(obj3)
-                    selfPage.setData({
-                      windowHeightChange: 0,
-                      inputShow: data.data.inputShow,
-                      array: dataarray
-                    })
-                    // console.log(JSON.parse(data.data.prompt))
-                  } else {
-                    console.log("保存1")
-                    console.log(data.data.showType)
-                    if (data.data.showType == 3) {
-                      console.log("保存")
-                      console.log(JSON.parse(data.data).diseaseName)
-                      var obj3 = {
-                        typeId: 3,
-                        welcomeuserlist: JSON.parse(data.data).diseaseName,
-                        starttestlist: JSON.parse(data.data).diseaseProbability
-                      }
-                      var dataarray = selfPage.data.array;
-                      dataarray.push(obj3)
-                      selfPage.setData({
-                        windowHeightChange: 200,
-                        inputShow: data.data.inputShow,
-                        array: dataarray
-                      })
-                    }
-                    if (data.data.showType == 4) {
-                      var obj3 = {
-                        typeId: 4,
-                        welcomeuserlist: JSON.parse(data.data).diseaseName,
-                        starttestlist: JSON.parse(data.data).diseaseProbability
-                      }
-                      var dataarray = selfPage.data.array;
-                      dataarray.push(obj3)
-                      selfPage.setData({
-                        windowHeightChange: 200,
-                        inputShow: data.data.inputShow,
-                        array: dataarray
-                      })
-                    }
-                  }
-                  //滚动到底部
-                  let query = wx.createSelectorQuery().in(selfPage);
-                  query.select(".container_innerHeight").boundingClientRect((res) => {
-                    console.log('下滑高度')
-                    console.log(res)
-                    selfPage.setData({
-                      scrollTop: res.height
-                    })
-                  }).exec()
-                }
-              })
-              // 发送输入信息结束
+            var obj2 = {
+              typeId: 1,
+              robotsay: "请选择以下伴随或出现过的主症状？",
             }
-          });
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
-      }
-    });
-    //获取小程序id结束
+            var dataarray = selfPage.data.array;
+            dataarray.push(obj2)
+            selfPage.setData({
+              windowHeightChange: 350,
+              array: dataarray
+            })
+             //滚动到底部
+              let query = wx.createSelectorQuery().in(selfPage);
+              query.select(".container_innerHeight").boundingClientRect((res) => {
+                console.log('下滑高度')
+                console.log(res)
+                selfPage.setData({
+                  scrollTop: res.height
+                })
+              }).exec()
+              // console.log("打印openid结束")
+              // //发送输入信息开始
+              // wx.request({
+              //   url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+              //   data: {
+              //     openid: app.globalData.openId,
+              //     issue: encodeURI(selfPage.data.desisename)
+              //     //  issue: encodeURI("都不是")
+              //   },
+              //   method: 'GET',
+              //   success: function(data) {
+              //     console.log("测试支气管炎开始")
+              //     console.log(data)
+              //     console.log(data.data.prompt)
+              //     // console.log(data.data.prompt.split('['))
+              //     // console.log(JSON.parse("{'key':122}"))
+              //     selfPage.setData({
+              //       kaishiceping:true
+              //     })
+              //     if (data.data.inputShow == 0) {
+              //       var arr = data.data.prompt.split('[')
+              //       var arr2 = arr[1].split("]")
+              //       var obj1 = {
+              //         typeId: 1,
+              //         robotsay: data.data.data
+              //       }
+              //       var obj2 = {
+              //         typeId: 0,
+              //         message: selfPage.data.year
+              //       }
+              //       var dataarray = selfPage.data.array;
+              //       dataarray.push(obj2)
+              //       dataarray.push(obj1)
+              //       selfPage.setData({
+              //         years: arr2[0].split(','),
+              //         year: arr2[0].split(',')[0],
+              //         inputShow: data.data.inputShow,
+              //         windowHeightChange: 350,
+              //         array: dataarray
+              //       })
+              //       console.log(arr2[0].split(','))
+              //     } else if (data.data.inputShow == 1) {
+              //       var obj2 = {
+              //         typeId: 0,
+              //         message: selfPage.data.year
+              //       }
+              //       var obj3 = {
+              //         typeId: 2,
+              //         welcomeuserlist: data.data.data,
+              //         starttestlist: data.data.prompt
+              //       }
+              //       var dataarray = selfPage.data.array;
+              //       dataarray.push(obj2)
+              //       dataarray.push(obj3)
+              //       selfPage.setData({
+              //         windowHeightChange: 0,
+              //         inputShow: data.data.inputShow,
+              //         array: dataarray
+              //       })
+              //       // console.log(JSON.parse(data.data.prompt))
+              //     } else {
+              //       console.log("保存1")
+              //       console.log(data.data.showType)
+              //       if (data.data.showType == 3) {
+              //         console.log("保存")
+              //         console.log(JSON.parse(data.data).diseaseName)
+              //         var obj3 = {
+              //           typeId: 3,
+              //           welcomeuserlist: JSON.parse(data.data).diseaseName,
+              //           starttestlist: JSON.parse(data.data).diseaseProbability
+              //         }
+              //         var dataarray = selfPage.data.array;
+              //         dataarray.push(obj3)
+              //         selfPage.setData({
+              //           windowHeightChange: 200,
+              //           inputShow: data.data.inputShow,
+              //           array: dataarray
+              //         })
+              //       }
+              //       if (data.data.showType == 4) {
+              //         var obj3 = {
+              //           typeId: 4,
+              //           welcomeuserlist: JSON.parse(data.data).diseaseName,
+              //           starttestlist: JSON.parse(data.data).diseaseProbability
+              //         }
+              //         var dataarray = selfPage.data.array;
+              //         dataarray.push(obj3)
+              //         selfPage.setData({
+              //           windowHeightChange: 200,
+              //           inputShow: data.data.inputShow,
+              //           array: dataarray
+              //         })
+              //       }
+              //     }
+              //     //滚动到底部
+              //     let query = wx.createSelectorQuery().in(selfPage);
+              //     query.select(".container_innerHeight").boundingClientRect((res) => {
+              //       console.log('下滑高度')
+              //       console.log(res)
+              //       selfPage.setData({
+              //         scrollTop: res.height
+              //       })
+              //     }).exec()
+              //   }
+              // })
+              // // 发送输入信息结束
   },
   //选择确认按钮
   confirmbtn() {
     const selfPage = this;
-    // 获取小程序id开始
-    var user = wx.getStorageSync('user') || {};
-    var userInfo = wx.getStorageSync('userInfo') || {};
-    console.log(123)
-    wx.login({
-      success: function(res) {
-        console.log(res)
-        if (res.code) {
-          wx.getUserInfo({
-            success: function(res) {
-              var objz = {};
-              objz.avatarUrl = res.userInfo.avatarUrl;
-              objz.nickName = res.userInfo.nickName;
-              // wx.setStorageSync('userInfo', objz); //存储userInfo
+    selfPage.data.confirmonce++;
+    console.log(selfPage.data.confirmonce)
+    selfPage.setData({
+      openId: app.globalData.openId
+    })
+
+    if (selfPage.data.confirmonce == 0) {
+    } else if (selfPage.data.confirmonce == 1) {
+      // var obj1 = {
+      //   typeId: 0,
+      //   message: selfPage.data.year
+      // }
+      // var dataarray = selfPage.data.array;
+      // dataarray.push(obj1)
+      selfPage.setData({
+        // array: dataarray,
+        windowHeightChange: 350,
+      })
+      //发送输入信息开始
+      wx.request({
+        url: hostlocal + '/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+        data: {
+          openid: app.globalData.openId,
+          issue: encodeURI(selfPage.data.desisename)
+          //  issue: encodeURI("都不是")
+        },
+        method: 'GET',
+        success: function (data) {
+          console.log("测试支气管炎开始")
+          console.log(data)
+          console.log(data.data.prompt)
+          // console.log(data.data.prompt.split('['))
+          // console.log(JSON.parse("{'key':122}"))
+          selfPage.setData({
+            kaishiceping: true
+          })
+          if (data.data.inputShow == 0) {
+            var arr = data.data.prompt.split('[')
+            var arr2 = arr[1].split("]")
+            var obj1 = {
+              typeId: 1,
+              robotsay: data.data.data
             }
-          });
-          // var l = 'https://jqr.infobigdata.com/weixin/getWeixinInfo'
-          var l = hostlocal1+'/weixin/getWeixinInfo'
-          // console.log(res)
-          wx.request({
-            url: l,
-            data: {
-              code: res.code
-            },
-            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-            // header: {}, // 设置请求的 header  
-            success: function(res) {
-              selfPage.setData({
-                openId: app.globalData.openId
-              })
-              console.log("打印openid结束")
-
-
-              if (selfPage.data.year == "不清楚" || selfPage.data.year == "下一组") {
-
-              } else {
-                var newYears = selfPage.data.years;
-                var temStr = "";
-                for (var z = 1; z < newYears.length; z++) {
-                  if (z != 1 && z != newYears.length) {
-                    if (temStr == "") {
-                      temStr = newYears[z - 1];
-                    } else {
-                      temStr += "、" + newYears[z - 1];
-                    }
-                  }
-                }
-                if (temStr != "") {
-                  selfPage.data.year = temStr;
-                }
+            var obj2 = {
+              typeId: 0,
+              message: selfPage.data.year
+            }
+            var dataarray = selfPage.data.array;
+            dataarray.push(obj2)
+            dataarray.push(obj1)
+            selfPage.setData({
+              years: arr2[0].split(','),
+              year: arr2[0].split(',')[0],
+              inputShow: data.data.inputShow,
+              windowHeightChange: 350,
+              array: dataarray
+            })
+            console.log(arr2[0].split(','))
+          } else if (data.data.inputShow == 1) {
+            var obj2 = {
+              typeId: 0,
+              message: selfPage.data.year
+            }
+            var obj3 = {
+              typeId: 2,
+              welcomeuserlist: data.data.data,
+              starttestlist: data.data.prompt
+            }
+            var dataarray = selfPage.data.array;
+            dataarray.push(obj2)
+            dataarray.push(obj3)
+            selfPage.setData({
+              windowHeightChange: 0,
+              inputShow: data.data.inputShow,
+              array: dataarray
+            })
+            // console.log(JSON.parse(data.data.prompt))
+          } else {
+            console.log("保存1")
+            console.log(data.data.showType)
+            if (data.data.showType == 3) {
+              console.log("保存")
+              console.log(JSON.parse(data.data).diseaseName)
+              var obj3 = {
+                typeId: 3,
+                welcomeuserlist: JSON.parse(data.data).diseaseName,
+                starttestlist: JSON.parse(data.data).diseaseProbability
               }
-
-
-              //发送输入信息开始
-              wx.request({
-                url: hostlocal+'/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
-                data: {
-                  openid: app.globalData.openId,
-                  issue: encodeURI(selfPage.data.year),
-                  clazzstep: encodeURI(selfPage.data.clazzstep)
-                },
-                method: 'GET',
-                success: function(data) {
-                  console.log("确认按钮")
-                  console.log(data.data.clazzstep)
-                  console.log(data)
-                  console.log(data.data.prompt)
-                  selfPage.setData({
-                    clazzstep: data.data.clazzstep
-                  })
-                  // console.log(data.data.prompt.split('['))
-                  // console.log(JSON.parse("{'key':122}"))
-                  if (data.data.inputShow == 0) {
-                    var arr = data.data.prompt.split('[')
-                    var arr2 = arr[1].split("]")
-                    var obj1 = {
-                      typeId: 1,
-                      robotsay: data.data.data
-                    }
-                    var obj2 = {
-                      typeId: 0,
-                      message: selfPage.data.year
-                    }
-                    var dataarray = selfPage.data.array;
-                    dataarray.push(obj2)
-                    dataarray.push(obj1)
-                    var numindex = selfPage.data.whichnum;
-                    console.log("ykkkkkkkkkkkkkkkkkk")
-                    console.log(numindex)
-                    selfPage.setData({
-                      years: arr2[0].split(','),
-                      year: arr2[0].split(',')[numindex],
-                      inputShow: data.data.inputShow,
-                      windowHeightChange: 400,
-                      array: dataarray
-                    })
-                    console.log(arr2[0].split(','))
-                  } else if (data.data.inputShow == 1) {
-                    console.log(data.data.prompt)
-                    var obj2 = {
-                      typeId: 0,
-                      message: selfPage.data.year
-                    }
-                    var obj3 = {
-                      typeId: 2,
-                      welcomeuserlist: data.data.data,
-                      starttestlist: data.data.prompt
-                    }
-                    var dataarray = selfPage.data.array;
-                    dataarray.push(obj2)
-                    dataarray.push(obj3)
-                    selfPage.setData({
-                      windowHeightChange: 0,
-                      inputShow: data.data.inputShow,
-                      array: dataarray
-                    })
-                    // console.log(JSON.parse(data.data.prompt))
-                  } else if (data.data.inputShow == 2) {
-                    console.log("保存1")
-                    console.log(data.data.showType)
-                    if (data.data.showType == 3) {
-                      console.log("保存")
-                      console.log(JSON.parse(data.data.data).diseaseName)
-                      var obj2 = {
-                        typeId: 0,
-                        message: selfPage.data.year
-                      }
-                      var obj4 = {
-                        typeId: 3,
-                        welcomeuserlist: JSON.parse(data.data.data).diseaseName,
-                        starttestlist: JSON.parse(data.data.data).diseaseProbability
-                      }
-                      var dataarray = selfPage.data.array;
-                      dataarray.push(obj2)
-                      dataarray.push(obj4)
-                      selfPage.setData({
-                        windowHeightChange: 50,
-                        inputShow: data.data.inputShow,
-                        array: dataarray
-                      })
-                    }
-                   
-                  } else {
-                      if (data.data.showType == 4) {
-                        var obj2 = {
-                          typeId: 0,
-                          message: data.data.data
-                        }
-                        var obj1 = {
-                          typeId: 4,
-                          welcomeuser:"此时无结果,欢迎继续测评",
-                          starttest: "开始测评",
-                          lookhistory: "测评历史",
-                          // firstprompt: ""
-                        }
-                        var dataarray = selfPage.data.array;
-                        dataarray.push(obj2)
-                        dataarray.push(obj1)
-                        selfPage.setData({
-                          windowHeightChange: 0,
-                          inputShow: data.data.inputShow,
-                          array: dataarray
-                        })
-                      }
-                  }
-                  //滚动到底部
-                  let query = wx.createSelectorQuery().in(selfPage);
-                  query.select(".container_innerHeight").boundingClientRect((res) => {
-                    console.log('下滑高度')
-                    console.log(res)
-                    selfPage.setData({
-                      scrollTop: res.height
-                    })
-                  }).exec()
-                }
+              var dataarray = selfPage.data.array;
+              dataarray.push(obj3)
+              selfPage.setData({
+                windowHeightChange: 200,
+                inputShow: data.data.inputShow,
+                array: dataarray
               })
-              // 发送输入信息结束
             }
-          });
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
+            if (data.data.showType == 4) {
+              var obj3 = {
+                typeId: 4,
+                welcomeuserlist: JSON.parse(data.data).diseaseName,
+                starttestlist: JSON.parse(data.data).diseaseProbability
+              }
+              var dataarray = selfPage.data.array;
+              dataarray.push(obj3)
+              selfPage.setData({
+                windowHeightChange: 200,
+                inputShow: data.data.inputShow,
+                array: dataarray
+              })
+            }
+          }
+          //滚动到底部
+          let query = wx.createSelectorQuery().in(selfPage);
+          query.select(".container_innerHeight").boundingClientRect((res) => {
+            console.log('下滑高度')
+            console.log(res)
+            selfPage.setData({
+              scrollTop: res.height
+            })
+          }).exec()
+        }
+      })
+              // 发送输入信息结束
+    }else {
+      if (selfPage.data.year == "不清楚" || selfPage.data.year == "继续自测") {
+      } else {
+        var newYears = selfPage.data.years;
+        var temStr = "";
+        for (var z = 1; z < newYears.length; z++) {
+          if (z != newYears.length) {
+            if (temStr == "") {
+              temStr = newYears[z - 1];
+            } else {
+              temStr += "、" + newYears[z - 1];
+            }
+          }
+        }
+        if (temStr != "") {
+          selfPage.data.year = temStr;
         }
       }
-    });
-    //获取小程序id结束
+      //发送输入信息开始
+      wx.request({
+        url: hostlocal + '/doctorapplet/f52024d75d4348f38cdad3670d209c1e/selftest',
+        data: {
+          openid: app.globalData.openId,
+          issue: encodeURI(selfPage.data.year),
+          clazzstep: encodeURI(selfPage.data.clazzstep)
+        },
+        method: 'GET',
+        success: function (data) {
+          console.log("确认按钮")
+          console.log(data.data.clazzstep)
+          console.log(data)
+          console.log(data.data.prompt)
+          selfPage.setData({
+            clazzstep: data.data.clazzstep
+          })
+          if (data.data.inputShow == 0) {
+            var arr = data.data.prompt.split('[')
+            var arr2 = arr[1].split("]")
+            var obj1 = {
+              typeId: 1,
+              robotsay: data.data.data
+            }
+            var obj2 = {
+              typeId: 0,
+              message: selfPage.data.year
+            }
+            var dataarray = selfPage.data.array;
+            dataarray.push(obj2)
+            dataarray.push(obj1)
+            var numindex = selfPage.data.whichnum;
+            console.log("ykkkkkkkkkkkkkkkkkk")
+            console.log(numindex)
+            selfPage.setData({
+              years: arr2[0].split(','),
+              year: arr2[0].split(',')[numindex],
+              inputShow: data.data.inputShow,
+              windowHeightChange: 400,
+              array: dataarray
+            })
+            console.log(arr2[0].split(','))
+          } else if (data.data.inputShow == 1) {
+            console.log(data.data.prompt)
+            var obj2 = {
+              typeId: 0,
+              message: selfPage.data.year
+            }
+            var obj3 = {
+              typeId: 2,
+              welcomeuserlist: data.data.data,
+              starttestlist: data.data.prompt
+            }
+            var dataarray = selfPage.data.array;
+            dataarray.push(obj2)
+            dataarray.push(obj3)
+            selfPage.setData({
+              windowHeightChange: 0,
+              inputShow: data.data.inputShow,
+              array: dataarray
+            })
+            // console.log(JSON.parse(data.data.prompt))
+          } else if (data.data.inputShow == 2) {
+            console.log("保存1")
+            console.log(data.data.showType)
+            if (data.data.showType == 3) {
+              console.log("保存")
+              console.log(JSON.parse(data.data.data).diseaseName)
+              var obj2 = {
+                typeId: 0,
+                message: selfPage.data.year
+              }
+              var obj4 = {
+                typeId: 3,
+                welcomeuserlist: JSON.parse(data.data.data).diseaseName,
+                starttestlist: JSON.parse(data.data.data).diseaseProbability
+              }
+              var dataarray = selfPage.data.array;
+              dataarray.push(obj2)
+              dataarray.push(obj4)
+              selfPage.setData({
+                windowHeightChange: 50,
+                inputShow: data.data.inputShow,
+                array: dataarray
+              })
+            }
+
+          } else {
+            if (data.data.showType == 4) {
+              var obj2 = {
+                typeId: 0,
+                message: data.data.data
+              }
+              var obj1 = {
+                typeId: 4,
+                welcomeuser: "此时无结果,欢迎继续测评",
+                starttest: "开始测评",
+                lookhistory: "测评历史",
+                // firstprompt: ""
+              }
+              var dataarray = selfPage.data.array;
+              dataarray.push(obj2)
+              dataarray.push(obj1)
+              selfPage.setData({
+                windowHeightChange: 0,
+                inputShow: data.data.inputShow,
+                array: dataarray
+              })
+            }
+          }
+          //滚动到底部
+          let query = wx.createSelectorQuery().in(selfPage);
+          query.select(".container_innerHeight").boundingClientRect((res) => {
+            console.log('下滑高度')
+            console.log(res)
+            selfPage.setData({
+              scrollTop: res.height
+            })
+          }).exec()
+
+        }
+      })
+              // 发送输入信息结束
+    }
+    
   },
   // nobaocun() {
   //   // wx.navigateTo({

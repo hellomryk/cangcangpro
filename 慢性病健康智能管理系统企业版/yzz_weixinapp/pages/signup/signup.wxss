@@ -79,7 +79,7 @@ page {
   line-height: 88rpx;
   color:#14c86c;
   float:left;
-  margin-left:10%;
+  margin-left:3%;
 }
 .submitorder_remarktop {
   margin-top:80rpx;
