@@ -1,5 +1,6 @@
 // pages/znpgresult/znpgresult.js
 var selfPage = null, zong ="https://chronic.infobigdata.com";
+var app = getApp();
 Page({
 
   /**
@@ -17,6 +18,13 @@ Page({
    */
   onLoad: function (options) {
      selfPage = this;
+    // 判断是否登陆了-start
+    if (app.globalData.userId = "") {
+      wx.navigateTo({
+        url: "/pages/signup/signup"
+      })
+    }
+    // 判断是否登陆了-end
     // 获取小程序id开始
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};

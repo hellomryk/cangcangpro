@@ -1,5 +1,6 @@
 // pages/weidu/index.js
 var _this = null;
+var app = getApp();
 Page({
 
     /**
@@ -12,7 +13,6 @@ Page({
         listid:"",
         op: "",
         ima: ''
-
     },
 
     kindToggle: function (e) {
@@ -62,6 +62,13 @@ Page({
      */
     onLoad: function (options) {
         console.log(11111)
+      // 判断是否登陆了-start
+      if (app.globalData.userId = "") {
+        wx.navigateTo({
+          url: "/pages/signup/signup"
+        })
+      }
+    // 判断是否登陆了-end
         console.log(options)
         _this = this;
         _this.setData({

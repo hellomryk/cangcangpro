@@ -8,7 +8,7 @@ const appid = "wxe233654cc28fd440";
 App({
   globalData: {
     openId: '你好', //自定义
-    userId: ''
+    userId: '', //全局的userid
   },
   onShow: function () {
     UTIL.log('App Show')
