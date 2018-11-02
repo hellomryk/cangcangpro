@@ -9,6 +9,8 @@ Page({
         open: false,
         name: "--",
         list: [],
+        listid:"",
+        op: "",
         ima: ''
 
     },
@@ -71,8 +73,8 @@ Page({
         bean1 = bean1.join("、")
         console.log(bean1)
         wx.request({
-            // url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
-            url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+            url: 'https://chronic.infobigdata.com/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
+            // url: 'http://192.168.1.111:8080/doctorapplet/f52024d75d4348f38cdad3670d209c1e/doctorqs',
             data: {
                 issue: encodeURI("保存问诊"),
                 openid: encodeURI(bean.openId),
@@ -90,9 +92,10 @@ Page({
             },
             //   method: "POST",
             success: function (res) {
-                console.log(res.data)
+                console.log(res.data.data)
                 _this.setData({
-                    ima: res.data.base64
+                    listid: res.data.data,
+                    op: bean.openId
                 })
 
             }
