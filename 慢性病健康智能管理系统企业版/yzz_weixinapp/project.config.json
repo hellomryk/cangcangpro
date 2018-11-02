@@ -1,5 +1,8 @@
 {
-	"description": "项目配置文件。",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
@@ -10,8 +13,11 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wxe233654cc28fd440",
-	"projectname": "%E6%85%A2%E6%80%A7%E7%97%85%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC10_30",
-	"isGameTourist": false,
+	"projectname": "%E6%85%A2%E6%80%A7%E7%97%85%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -26,16 +32,10 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< HEAD
-			"current": 33,
-
-=======
-			"current": 34,
->>>>>>> 3a3fedd43527d134a2d862fa0c6ee50fb71c1e46
+			"current": 35,
 			"list": [
 				{
 					"id": 0,
@@ -240,24 +240,18 @@
 					"id": -1,
 					"name": "我的信息",
 					"pathName": "pages/wodexinxi/index",
-<<<<<<< HEAD
-                      "query": ""
+					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/mine/mine",
 					"query": ""
-
-=======
-					"query": ""
 				},
 				{
-					"id": 34,
-					"name": "我的",
-					"pathName": "pages/mine/mine",
-					"query": ""
->>>>>>> 3a3fedd43527d134a2d862fa0c6ee50fb71c1e46
+					"id": -1,
+					"name": "问诊list",
+					"pathName": "pages/wenzhen/index"
 				}
 			]
 		}

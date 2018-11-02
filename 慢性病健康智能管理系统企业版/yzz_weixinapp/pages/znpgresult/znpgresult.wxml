@@ -7,7 +7,7 @@
   <view class='pinggu_box1_active'>
       <view class='pinggu_box_li' wx:for-items = "{{array}}" id="{{item.id}}" bindtap='gobaogao'>
            <view class='pinggu_box_li_title'>{{item.basicInfo}}</view>
-           <text class='pinggu_box_li_content'>{{item.questioningSymptoms}}</text>
+           <text class='pinggu_box_li_content'>根据您选择的症状诊断出{{item.questioningSymptoms}}疾病，报告内容系基于科学完善的医疗知识体系构建，点击进入查看详情。</text>
            <view class='pinggu_box_li_time'>{{item.time}}</view>
       </view>
        <image src='../../pics/nohistory.png' wx:if="{{array.length == 0}}" class='nohistory'></image>

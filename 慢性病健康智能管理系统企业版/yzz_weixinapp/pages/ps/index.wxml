@@ -1,13 +1,13 @@
 <!--pages/ps/index.wxml-->
 <view class='box'>
 <view class='box_ps' animation="{{animation}}">
-   <view class='list_ps' id="yiyuan"> 医院</view>
+   <!-- <view class='list_ps' id="yiyuan"> 医院</view>
  <view class="yiyuan_ps">
     <image src='{{list.yiyuan.images}}'></image>
     <view class='name_ps'>{{list.yiyuan.name}}</view>
     <view class='ps_ps'>{{list.yiyuan.page}}</view>
     <view style="clear:both;"></view>
- </view>
+ </view> -->
 
 
    <view class='list_ps' id="yisheng">医生</view>
