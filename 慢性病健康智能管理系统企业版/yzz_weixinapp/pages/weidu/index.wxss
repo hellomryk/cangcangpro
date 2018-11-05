@@ -175,7 +175,7 @@ font-weight: 600;
 .tiaozhuan_box{
  float: left;
  width: 40%;
- margin-top: 10rpx;
+ margin-top: 40rpx;
  margin-left: 400rpx;
 }
 .tiaozhuan_box .block{
@@ -187,7 +187,7 @@ font-weight: 600;
     line-height: 60rpx;
      color: rgb(21, 200, 108);
      border-radius: 100rpx;
-     margin-top:13rpx;
+     margin-top:40rpx;
      font-size: 32rpx;
 }
 .anniu_box{

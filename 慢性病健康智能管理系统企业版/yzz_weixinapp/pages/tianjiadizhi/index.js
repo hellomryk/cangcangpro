@@ -130,14 +130,14 @@ tianjia:function(){
     onLoad: function(options) {
         _this = this;
         _this.setData({
-            userId: options.id
+            userId: wx.getStorageSync('userid')
         })
         //地址列表接口
         wx.request({
             url: url + '/address/api/getAddressesByUserId',
             data: {
 
-                userId: options.id
+                userId: _this.data.userId
             },
             header: {
                 'content-type': 'application/json' // 默认值application/x-www-form-urlencoded

@@ -128,6 +128,7 @@ Page({
             _this.setData({
               userId: res.data.data.userId
             })
+              wx.setStorageSync('userid', res.data.data.userId); //存储userInfo
             console.log(546656664)
             console.log(res)
             const id = res.data.data.userId

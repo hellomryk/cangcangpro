@@ -1,0 +1,37 @@
+<!--pages/paizhenlist/index.wxml-->
+<view class='wenzhen_list'>
+  <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen1.png'></image> <view>眼诊</view>  
+  </view>
+
+  <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen2.png'></image> <view>舌诊</view> 
+  </view>
+
+    <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen3.png'></image> <view>鼻诊</view>   
+  </view>
+
+    <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen4.png'></image> <view>唇诊</view>  
+  </view>
+
+    <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen5.png'></image> <view>脸诊</view>  
+  </view>
+
+    <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen6.png'></image> <view>青筋诊</view>   
+  </view>
+
+    <view class='wenzhen_li' bindtap='gotozhengzhuang'>
+  <image src='/pics/paizhen7.png'></image> <view>手诊 </view>  
+  </view>
+
+    <view class='wenzhen_li'>
+  <image src='/pics/paizhen8.png'></image> <view>脚诊</view>   
+  </view>
+
+
+</view>
+
