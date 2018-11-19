@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 35,
+			"current": 36,
 			"list": [
 				{
 					"id": 0,
@@ -251,7 +251,13 @@
 				{
 					"id": -1,
 					"name": "问诊list",
-					"pathName": "pages/wenzhen/index"
+					"pathName": "pages/wenzhen/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拍诊",
+					"pathName": "pages/paizhenlist/index"
 				}
 			]
 		}

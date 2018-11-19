@@ -47,7 +47,7 @@ Page({
           countDownTime--;
         } else {
           countDownTime = 60;
-          clearInterval(intervalis); //清空验证码倒计时
+          clearInterval(intervalis);//清空验证码倒计时
           _this.setData({
             yzmText: "点击获取验证码",
           })
@@ -75,7 +75,9 @@ Page({
         icon: 'none',
         duration: 2000
       })
-    } 
+    }
+
+   
     console.log(_this.data.getSignPhoneVal)
   },
 // 获取手机号
@@ -126,11 +128,11 @@ Page({
             _this.setData({
               userId: res.data.data.userId
             })
+              wx.setStorageSync('userid', res.data.data.userId); //存储userInfo
             console.log(546656664)
             console.log(res)
             const id = res.data.data.userId
-            // 设置全局userid
-            app.globalData.openId = res.data.data.userId;
+
             //返回上一级
             wx.navigateBack();
 

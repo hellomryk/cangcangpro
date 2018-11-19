@@ -8,8 +8,12 @@ const appid = "wxe233654cc28fd440";
 App({
   globalData: {
     openId: '你好', //自定义
-    userId: '', //全局的userid
+    userId: ''
   },
+
+    baogao: {
+        articleId: null
+    },
   onShow: function () {
     UTIL.log('App Show')
     const _this = this;
@@ -42,7 +46,7 @@ App({
               console.log("打印openid结束")
               // console.log(JSON.parse(res.data.data).openid)
               // wx.setStorageSync('user', obj); 
-              //存储openid 
+              //存储openid                                                                                                                                                                       
             }
           });
         } else {
@@ -51,6 +55,8 @@ App({
       }
     });
     //获取小程序id结束
+
+    
   },
   onHide: function () {
     UTIL.log('App Hide')

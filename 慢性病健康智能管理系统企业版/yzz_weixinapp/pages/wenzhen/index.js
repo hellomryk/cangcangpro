@@ -20,6 +20,17 @@ Page({
      */
     onLoad: function (options) {
               _this=this;
+        wx.showModal({
+            title: '提示',
+            content: '欢迎您进入疾病自诊系统。我们的疾病自诊有九大系统，涉及数千种疾病，您可以进入相关具体系统后，选择和组合是否伴随或者出现过的症状，我们可以迅速为您诊断出可能的疾病以及诊断报告。',
+            success(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
         //app.globalData.openId
         //获取登陆用户名
         wx.getSetting({

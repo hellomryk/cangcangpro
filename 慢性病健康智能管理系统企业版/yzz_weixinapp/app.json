@@ -32,7 +32,8 @@
         "pages/zc/index",
         "pages/mine/mine",
         "pages/wodexinxi/index",
-        "pages/wenzhen/index"
+        "pages/wenzhen/index",
+        "pages/paizhenlist/index"
     ],
     "window": {
         "backgroundTextStyle": "black",

@@ -17,34 +17,66 @@ Page({
   onLoad: function (options) {
 
    selfPage = this;
-    var BMap = new bmap.BMapWX({
-      ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
-    });
-    var fail = function (data) {
-      console.log("医院检索失败")
-      console.log(data)
-    };
-    var success = function (data) {
-      wxMarkerData = data.wxMarkerData;
-      console.log("医院检索成功")
-      console.log(data)
-      console.log(data.originalData.results)
-      // liflagarr = data.originalData.results
-      // liflagstr = JSON.stringify(data.originalData.results)
-      console.log(JSON.stringify(data.originalData.results))
-      selfPage.setData({
-        foodlistarr: data.originalData.results
-      })
-      console.log("探索data结束2")
-    }
-    // 发起POI检索请求 
-    BMap.search({
-      "query": '医院',
-      fail: fail,
-      success: success,
-      iconPath: '../../pics/marker_red.png',
-      iconTapPath: '../../pics/marker_red.png'
-    });
+      if (options.type==1){
+          var BMap = new bmap.BMapWX({
+              ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
+          });
+          var fail = function (data) {
+              console.log("医院检索失败")
+              console.log(data)
+          };
+          var success = function (data) {
+              wxMarkerData = data.wxMarkerData;
+              console.log("医院检索成功")
+              console.log(data)
+              console.log(data.originalData.results)
+              // liflagarr = data.originalData.results
+              // liflagstr = JSON.stringify(data.originalData.results)
+              console.log(JSON.stringify(data.originalData.results))
+              selfPage.setData({
+                  foodlistarr: data.originalData.results
+              })
+              console.log("探索data结束2")
+          }
+          // 发起POI检索请求 
+          BMap.search({
+              "query": '医院',
+              fail: fail,
+              success: success,
+              iconPath: '../../pics/marker_red.png',
+              iconTapPath: '../../pics/marker_red.png'
+          });
+      } else if (options.type == 2){
+          var BMap = new bmap.BMapWX({
+              ak: 'zG0qcmqsXdaWPhYxg5KHD67Q3m1ArhGV'
+          });
+          var fail = function (data) {
+              console.log("医院检索失败")
+              console.log(data)
+          };
+          var success = function (data) {
+              wxMarkerData = data.wxMarkerData;
+              console.log("医院检索成功")
+              console.log(data)
+              console.log(data.originalData.results)
+              // liflagarr = data.originalData.results
+              // liflagstr = JSON.stringify(data.originalData.results)
+              console.log(JSON.stringify(data.originalData.results))
+              selfPage.setData({
+                  foodlistarr: data.originalData.results
+              })
+              console.log("探索data结束2")
+          }
+          // 发起POI检索请求 
+          BMap.search({
+              "query": '药店',
+              fail: fail,
+              success: success,
+              iconPath: '../../pics/marker_red.png',
+              iconTapPath: '../../pics/marker_red.png'
+          });
+   }
+
   },
   gotoyiyuan(e) {
     console.log(e)

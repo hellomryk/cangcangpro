@@ -54,13 +54,6 @@ Page({
     },
   onLoad: function (options) {
     const _this = this;
-    // 判断是否登陆了-start
-    if (app.globalData.userId="") {
-      wx.navigateTo({
-        url:"/pages/signup/signup"
-      })
-    }
-    // 判断是否登陆了-end
     // 获取小程序id开始
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};

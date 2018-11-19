@@ -81,13 +81,6 @@ Page({
    */
   onLoad: function(options) {
     const pageSelf = this;
-    // 判断是否登陆了-start
-    if (app.globalData.userId = "") {
-      wx.navigateTo({
-        url: "/pages/signup/signup"
-      })
-    }
-    // 判断是否登陆了-end
     pageSelf.setData({
       desisename: options.desisename
     })
