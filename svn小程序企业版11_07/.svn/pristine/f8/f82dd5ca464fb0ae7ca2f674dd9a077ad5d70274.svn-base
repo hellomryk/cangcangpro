@@ -1,0 +1,39 @@
+<!--pages/baogao/index.wxml-->
+<view class='container'>
+
+    <view class='box_head'>
+        <view style="text-align:center; font-size:45rpx;font-weight: 600; "> 慢性病健康评估报告</view>
+        <view style="margin-top:30rpx;font-size:28rpx;"> 尊敬的
+            <text>{{name_yy}}</text>:</view>
+        <view style="text-indent:2em;font-size:28rpx;">评估报告根据您的症状选择自动生成，报告内容系基于科学完善的医疗知识体系构建。进一步完善个人信息后有助于您更准确地把握自身健康状态，也有利于系统更智能地向您提供定制化的健康解决方案。</view>
+        <view style="text-indent:2em;font-size:28rpx;">本报告内容不作为医学诊断依据，仅作为慢性病健康管理参考。</view>
+    </view>
+    <view class='box_content'>
+
+        <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+            <view class='box_list'>
+                <view class='list_head' id="{{item.id}}" bindtap="kindToggle">{{item.name}}
+                    <image class="kind-list-img" src="/pics/{{item.open ? 'anniu_box1.png' : 'anniu_box.png'}}"></image>
+                </view>
+                <view class="list_table {{item.open ? 'kind-list-item-bd-show' : ''}}">
+                    <view class='list_th'>
+                        <block wx:for-items="{{item.page}}">
+                            <view class='list_td'>{{item.name}}</view>
+                        </block>
+                        <view style="clear:both;"></view>
+                    </view>
+                    <block wx:for-items="{{item.pages}}">
+                        <view class='list_tr'>
+                            <block wx:for-items="{{item.name}}">
+                                <view class='list_td'>{{item}}</view>
+                            </block>
+                            <view style="clear:both;"></view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </block>
+    </view>
+
+
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarBackgroundColor":"#14c86c",
+  "navigationBarTitleText":"疾病信息",
+  "navigationBarTextStyle":"#fff",
+  "enablePullDownRefresh":false
+}

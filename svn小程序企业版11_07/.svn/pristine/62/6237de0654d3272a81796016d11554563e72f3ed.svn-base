@@ -1,0 +1,8 @@
+<!--pages/desiselist/desiselist.wxml-->
+
+<view class='desiselistbg clearfix'>
+  <view class='desiselistbg_list' wx:for-items = '{{array}}' bindtap='gotosonpage' id='{{item.name}}'>
+      <image src='../../pics/desise_heart{{item.typeId}}.png' class='desiselistbg_list_img'></image>
+      <text class='desiselistbg_list_text'>{{item.name}}</text>
+  </view>
+</view>

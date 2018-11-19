@@ -1,0 +1,38 @@
+<!--pages/tianjiadizhi/index.wxml-->
+<view class='tianjia' bindtap='tianjia'>
+  <view>  <image src='/pics/tianjiadizhi.png'></image>  添加收货地址</view>
+</view>
+
+
+<radio-group   bindchange="checkboxChange">
+
+<view class='dizhi' wx:for="{{checkboxItems}}">
+
+  <view>  
+        <text class='dizhi_name'>{{item.name}}</text> 
+        <text class='dizhi_dianhua'>{{item.ps}}</text>
+  </view>
+  <view style="clear:both;"></view>
+  <view class='dizhi_xiangxi'>{{item.sheng}}{{item.shi}}{{item.qu}}{{item.value}}</view>
+    <view class='dizhi_moren'>
+
+      <view class="label-1__icon">
+         <label>
+          <checkbox hidden value="{{item.id}}" checked="{{item.checked}}"></checkbox>
+        <image src='/pics/{{item.checked ? "zhong.png": "buzhong.png"}}' class="label-1__icon-checked"></image>
+        <text style='{{item.checked ? "color:#15c86c;": "color:#999;"}}'>  默认地址</text>
+               </label>
+        <text class='bianji' bindtap='bianji' id="{{item.id}}" >编辑</text>
+        <text class='shanchu' bindtap='shanchu' id="{{item.id}}"> 删除</text>
+      </view>
+    </view>
+
+</view>
+
+</radio-group >
+
+
+<!-- <view class="gouwuche_li" wx:for="{{checkboxItems}}"> -->
+
+
+

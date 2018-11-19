@@ -1,0 +1,84 @@
+<!--pages/dingdanxiangqing/index.wxml-->
+<view class='head'>
+<view style="font-size:32rpx;color:#141414;line-height: 50rpx;">等待付款</view>
+<view style="font-size:24rpx;color:#999;line-height: 50rpx;">商品已确定，请您在一个小时内完成支付</view>
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx;margin-top:30rpx;">
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#141414;margin-right:60rpx;">取消订单</text>
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#15c86c;margin-right:21%;">再次购买 </text>
+            </view>
+</view>
+
+<view class='cont'>
+  <view class='submitorder_top clearfix' bindtap='dizhi' >
+      <image class='submitorder_top_leftimg' src='../../pics/dingwei.png'></image>
+      
+      <view class='submitorder_top_cen' >
+          <view class='submitorder_top_cen_title'> <text>王振华</text> <text style="margin-left:80rpx;">111111111</text> </view>
+          <view class='submitorder_top_cen_address'>河南省林州市河顺镇</view>
+      </view>
+  </view>
+</view>
+
+
+
+
+<view class='cont'>
+      <view class='submitorder_cen_list'>
+          <view class='submitorder_cen_listli' >
+              <image src='../../pics/dingwei.png' class='submitorder_cen_listli_imgleft'></image>
+              <view class='submitorder_cen_listli_right'>×1</view>
+              <view class='submitorder_cen_listli_center'>
+                  <view class='sclc_title'>44</view>
+                  <view class='sclc_standard'>反反复复付</view>
+                  <view class='sclc_money'>¥22</view>
+              </view>
+          </view>
+      </view>
+
+            <view class='submitorder_cen_list'>
+          <view class='submitorder_cen_listli' >
+              <image src='../../pics/dingwei.png' class='submitorder_cen_listli_imgleft'></image>
+              <view class='submitorder_cen_listli_right'>×1</view>
+              <view class='submitorder_cen_listli_center'>
+                  <view class='sclc_title'>44</view>
+                  <view class='sclc_standard'>反反复复付</view>
+                  <view class='sclc_money'>¥22</view>
+              </view>
+          </view>
+      </view>
+</view>
+
+<view class='cont'>
+  <view class='submitorder_money'>
+      <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good'>商品金额</view>
+          <view class='submitorder_money_list_number'>¥111</view>
+      </view>
+            <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good'>优惠</view>
+          <view class='submitorder_money_list_number'>¥00.00</view>
+      </view>
+            <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good'>运费</view>
+          <view class='submitorder_money_list_number'>¥1111</view>
+      </view>
+      <view class='submitorder_money_list border-top clearfix'>
+          <view class='submitorder_money_list_good'>实付金额</view>
+          <view class='submitorder_money_list_number'>¥11111</view>
+      </view>
+  </view>
+</view>
+
+<view class='cont'>
+  <view class='submitorder_money'>
+      <view class='submitorder_money_list clearfix'>
+          <view class='submitorder_money_list_good1'>订单编号：1232432843</view>
+      </view>
+            <view class='submitorder_money_list clearfix'>
+<view class='submitorder_money_list_good1'>订单时间：2018-10-21 14:33:43</view>
+      </view>
+            <view class='submitorder_money_list clearfix'>
+<view class='submitorder_money_list_good1'>订单状态：在线支付</view>
+      </view>
+  </view>
+</view>

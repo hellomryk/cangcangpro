@@ -1,0 +1,13 @@
+<!--pages/wenzhen/index.wxml-->
+
+
+<view class='wenzhen_list'>
+  <!-- <view class='wenzhen_li' id="{{index+1}}" bindtap='gotozhengzhuang' wx:for="{{list}}">            
+  <image src='{{item.imgurl}}'></image> <view class='text'>{{item.dmensionname}} </view> 
+  </view> -->
+    <view class='wenzhen_li' id="{{index+1}}" bindtap='gotozhengzhuang' wx:for="{{list1}}">            
+  <image src='http://file2.infobigdata.com/group1/M00/00/36/rBAKJFvpE3bQvyKgAAAMwdlwT-814..png'></image> <view class='text'>{{item}} </view> 
+  </view>
+
+</view>
+

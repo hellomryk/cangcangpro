@@ -1,0 +1,37 @@
+/* pages/wenzhen/index.wxss */
+
+page {
+    background: #f6f6f6;
+}
+
+.wenzhen_list {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx 40rpx;
+}
+
+.wenzhen_li {
+    width: 320rpx;
+    height: 155rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    float: left;
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    color: #141414;
+    line-height: 155rpx;
+}
+
+.wenzhen_li:nth-child(odd) {
+    margin-right: 30rpx;
+}
+
+.wenzhen_li image {
+    width: 96rpx;
+    height: 96rpx;
+    vertical-align: middle;
+    margin: 0 15rpx 0 25rpx;
+}
+.wenzhen_li {
+  font-size: 33rpx;
+}

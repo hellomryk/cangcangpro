@@ -1,0 +1,170 @@
+/* pages/desiselistson/desiselistson.wxss */
+@import '/pages/mxjb/mxjb.wxss';
+.mxjb_text_writebao>view{
+  display: block;
+  width:100%;
+  height:50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size:28rpx;
+  color:#141414;
+}
+.mxjb_text_writebao {
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:100rpx;
+}
+/* page {
+  background:#f5f5f5;
+} */
+page {
+  background:#fff;
+}
+.y-talk-box-content-left-top {
+  border-bottom:none;
+  padding-bottom: 60rpx;
+}
+.mxjb_text_writebao {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mxjb_text_writebao>.baocun {
+    width:35%;
+    height:60rpx;
+    background:#fff;
+  border: 1rpx solid #15c86c;
+    line-height:60rpx;
+    text-align:center;
+    font-size:28rpx;
+    color:#141414;
+    border-radius:49rpx;
+    margin-right: 30rpx;
+}
+.mxjb_text_writebao>.nobaocun {
+    width:35%;
+    height:60rpx;
+  background:#fff;
+  border: 1rpx solid #15c86c;
+    line-height:60rpx;
+    text-align:center;
+    font-size:28rpx;
+    color:#141414;
+    border-radius:49rpx;
+}
+.kaishiceping_none {
+  display: none;
+} 
+.kaishiceping_block {
+  display: block;
+}
+
+
+.zhuzheng_head {
+width:100%;
+padding:40rpx;
+box-sizing:border-box;
+text-align:left;
+font-size:32rpx;
+padding-bottom:0;
+color:#141414;
+
+
+}
+.group {
+max-height:360rpx;
+overflow-y:auto;
+-webkit-overflow-scrolling:touch;
+overflow-scrolling:touch;
+margin-bottom:25rpx;
+
+}
+.btn_wzh {
+width:35%;
+height:60rpx;
+line-height:60rpx;
+font-size:32rpx;
+background:#15c86c;
+color:#fff;
+
+}
+.service_selection {
+width:100%;
+padding:40rpx;
+box-sizing:border-box;
+
+}
+.service_selection .item {
+float:left;
+margin:0 20rpx 20rpx 0;
+
+}
+.checkbox {
+float:left;
+border:1rpx solid #ccc;
+border-radius:8rpx;
+height:65rpx;
+padding:10rpx 20rpx;
+font-size:24rpx;
+box-sizing:border-box;
+color:#999;
+
+}
+.service_selection .back {
+    background: #15c86c;
+    color: #fff;
+    border: 1rpx solid #15c86c;
+}
+/* 11-10-newadd */
+.mxjb_robot_public {
+  font-size: 32rpx;
+}
+.starttest {
+  font-size: 32rpx;
+}
+.checkbox {
+  font-size: 32rpx;
+}
+.robot-sen>.mxjb_robot_starttest {
+  max-width:616rpx;
+}
+.robot-sen>.mxjb_robot_public {
+  max-width:556rpx;
+}
+.startborder {
+  width:556px;
+}
+.mxjb_robot_starttest {
+  overflow-x: hidden
+}
+/*滚动条样式*/
+.group::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.group::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+.group::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+.confirm_fa {
+  width:100%;
+  display: flex;
+  align-items:center;
+  vertical-align:center;
+}
+.contai {
+  margin-top:0;
+}
+.yuce_gailv_con {
+  font-size:32rpx;
+  letter-spacing:4rpx;
+}

@@ -1,0 +1,84 @@
+<!--pages/uploadimg/uploadimg.wxml-->
+<!-- <text>pages/uploadimg/uploadimg.wxml</text> -->
+<view class='uploadimg'>
+  <view class='uploadimg_up'>
+      <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              1
+            </view>
+            <view class='uploadimg_up_one_up'>
+               上传照片
+            </view>
+      </view>
+      <view class='uploadimg_up_dian'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+            <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              2
+            </view>
+            <view class='uploadimg_up_one_up'>
+               选择症状
+            </view>
+      </view>
+      <view class='uploadimg_up_dian'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+                  <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              3
+            </view>
+            <view class='uploadimg_up_one_up'>
+               诊断报告
+            </view>
+      </view>
+  </view>
+  <view class='uploadimg_takephoto_text'>舌头淡白——体虚或寒症</view>
+  <view class='uploadimg_cen'>
+   <view class='list1'  bindtap='sekuai2'>
+    <text>诊断</text>  
+    <image src='/pics/sekuai1.png' class='sekuai1'  ></image>
+    </view>
+   <view class='list2' bindtap='sekuai3'>
+   <text>提示</text> 
+    <image src='/pics/sekuai2.png' class='sekuai2'   ></image>
+   </view>
+   <view class='list3'  bindtap='sekuai1'>
+   <text>病因</text>  
+    <image src='/pics/sekuai3.png' class='sekuai3'></image>
+   
+   </view>
+  </view>
+  <view class='uploadimg_takephoto_bot1'>{{text}}</view>
+    <view class='uploadimg_takephoto_bot' bindtap='xiangqing' >查看详细报告>></view>
+    <view class='uploadimg_takephoto_next' bindtap='baocun' >保存</view>
+
+</view>

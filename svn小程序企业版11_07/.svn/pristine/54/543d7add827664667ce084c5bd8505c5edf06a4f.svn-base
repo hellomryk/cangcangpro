@@ -1,0 +1,43 @@
+<!--pages/wenzhen/index.wxml-->
+<view class='wenzhen_list'>
+  <view class='wenzhen_li' id="qq" bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen1.png'></image> 呼吸系统  
+  </view>
+
+  <view class='wenzhen_li'  id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen2.png'></image> 消化系统  
+  </view>
+
+    <view class='wenzhen_li'  id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen3.png'></image> 神经系统  
+  </view>
+
+    <view class='wenzhen_li'  id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen4.png'></image> 循环系统  
+  </view>
+
+    <view class='wenzhen_li'  id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen5.png'></image> 骨骼肌肉  
+  </view>
+
+    <view class='wenzhen_li'  id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen6.png'></image> 泌尿生殖系统  
+  </view>
+
+    <view class='wenzhen_li'  id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen7.png'></image> 内分泌系统  
+  </view>
+
+    <view class='wenzhen_li'   id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen8.png'></image> 感官系统  
+  </view>
+
+    <view class='wenzhen_li'   id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen9.png'></image> 免疫系统  
+  </view>
+
+    <view class='wenzhen_li'   id="qq"  bindtap='gotozhengzhuang'>
+  <image src='/pics/wenzhen10.png'></image> 其他系统  
+  </view>
+
+</view>

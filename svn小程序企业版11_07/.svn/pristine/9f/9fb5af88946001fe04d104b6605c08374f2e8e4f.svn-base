@@ -1,0 +1,81 @@
+<!--pages/uploadimg/uploadimg.wxml-->
+<!-- <text>pages/uploadimg/uploadimg.wxml</text> -->
+<view class='uploadimg'>
+  <view class='uploadimg_up'>
+      <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              1
+            </view>
+            <view class='uploadimg_up_one_up'>
+               上传照片
+            </view>
+      </view>
+      <view class='uploadimg_up_dian'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+            <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num uploadimg_up_one_num_active'>
+              2
+            </view>
+            <view class='uploadimg_up_one_up uploadimg_up_one_up_active'>
+               选择症状
+            </view>
+      </view>
+      <view class='uploadimg_up_dian uploadimg_up_dian_active'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+                  <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num uploadimg_up_one_num_active'>
+              3
+            </view>
+            <view class='uploadimg_up_one_up uploadimg_up_one_up_active'>
+               诊断报告
+            </view>
+      </view>
+  </view>
+  <view class='uploadimg_takephoto_text'>拍摄一张小明的照片</view>
+  <view class='uploadimg_takephoto_cont'>拍摄一张小明的照片</view>
+  <view class='uploadimg_cen'>
+    <image src='../../pics/photokuang.png' class='uploadimg_cen_kuang'></image>
+    <image src='../../pics/photopeople.png' class='uploadimg_cen_people' wx:if="{{cameraren}}"></image>
+    <image src='../../pics/photoline.png' class='uploadimg_cen_line' wx:if="{{camerarenline}}"></image>
+    <camera mode="normal" device-position="back" flash="auto" binderror="error" style="width:400rpx;height:405rpx;top:40rpx;left:50%;position: absolute;margin-left:-200rpx;z-index:11;" wx:if="{{cameraShow}}">
+  <cover-view class="controls">
+      <cover-image class="img" src="../../images/notice.png" style="width:100%; height:100%"/>
+  </cover-view>
+</camera>
+    <image mode="widthFix" src="{{src}}" wx:if="{{!cameraShow}}" style='width:400rpx;height:405rpx;top:40rpx;left:50%;position: absolute;margin-left:-200rpx;z-index:11;'></image>
+  </view>
+    <view class='uploadimg_takephoto_bot' bindtap='takePhotofan'>点击反转摄像头</view>
+    <view class='uploadimg_takephoto_next' bindtap='takePhoto1' wx:if="{{takePhotonext1}}">下一步</view>
+    <view class='uploadimg_takephoto_next' bindtap='takePhoto2' wx:if="{{takePhotonext2}}">拍照</view>
+    <view class='uploadimg_takephoto_next' bindtap='takePhoto3' wx:if="{{takePhotonext3}}">下一步</view>
+</view>

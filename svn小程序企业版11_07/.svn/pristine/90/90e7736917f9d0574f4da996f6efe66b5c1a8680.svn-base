@@ -1,0 +1,133 @@
+/* pages/manyslowdesise/manyslowdesise.wxss */
+@import '/pages/index/index.wxss';
+.food_list_right_money {
+  max-width:400rpx;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.food_list_right_title {
+  padding-top:10rpx;
+  color:#141414;
+  font-size:32rpx;
+}
+.food_list {
+  padding-bottom: 20rpx;
+  border-bottom:2rpx #ddd dashed;
+}
+page {
+  overflow-y: visible!important;
+}
+.center {
+  text-align: center;
+  line-height: 60rpx;
+}
+.food_list_search {
+  width:100%;
+  height:106rpx;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.food_list_search_box {
+  width:670rpx;
+  justify-content:space-around;
+}
+.food_list_search_box {
+  width:610rpx;
+  height:63rpx;
+  background: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  border-radius:5rpx;
+  margin-left:30rpx;
+}
+.flsb_img {
+  width:24rpx;
+  height:24rpx;
+  margin-left: 20rpx;
+}
+.flsb_input {
+  width:600rpx;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.food_list_search_none {
+  width:100%;
+  height:500rpx;
+}
+.flsn_img {
+  display: block;
+  margin:50rpx auto;
+  width:250rpx;
+  height:250rpx;
+}
+.flsn_text {
+  text-align: center;
+  font-size: 34rpx;
+  color: #999;
+  line-height:50rpx; 
+}
+.food_list_search_img {
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin-left:30rpx;
+  margin-right:30rpx;
+  transition: all linear 0.5s;
+}
+.food_list_search_img_active {
+  transform: rotate(180deg);
+}
+.food_list_ul {
+  position: relative;
+}
+.food_list_xia1 {
+  background: rgba(0,0,0,0.6);
+  height:1200rpx;
+  width: 100%;
+  position: absolute;
+  left:0;
+  top:106rpx;
+  z-index:2;
+}
+.food_list_xia_ul {
+  background: #fff;
+  display: flex;
+  align-items:center;
+  /* justify-content: center; */
+  justify-content:flex-start;
+  width:100%;
+  flex-wrap:wrap;
+  border-top:1rpx solid #e6e6e6;
+  overflow: hidden;
+  height: 0;
+  transition: all linear 0.5s;
+  position: absolute;
+  left:0;
+  top:106rpx;
+  z-index:3;
+}
+.food_list_xia_ul_active {
+  height:400rpx;
+}
+.flxu_li {
+  font-size: 32rpx;
+  line-height: 92rpx;
+  color: #666666;
+  width: 33%;
+  text-align:center;
+}
+.food_list_xia1 {
+  display: none;
+}
+.food_list_xia_active {
+  display:block;
+}
+.flxu_li_active {
+  color:#14c86c;
+}

@@ -1,0 +1,55 @@
+/* pages/dimensiondisease/dimensiondisease.wxss */
+page {
+  /* font-family:"SimSun"; */
+  font-family: "SimSuncss"
+}
+.skin {
+  font-size:42rpx;
+  line-height:114rpx;
+  color:#14c86c;
+  text-align: center;
+}
+.skin_list {
+   padding: 0 40rpx;
+   line-height: 40rpx;
+   /* margin: 20rpx 0rpx; */
+  /* display: flex;
+  justify-content: center;
+  align-items:flex-start; */
+}
+.skin_list_title {
+  float: left;
+}
+.skin_list_title {
+   font-size:32rpx;
+  line-height:63rpx;
+  color:#141414;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.skin_list_content {
+   font-size:32rpx;
+  line-height:63rpx;
+  color:#666666;
+}
+.lookmore {
+  width:254rpx;
+  height:80rpx;
+  background:#14c86c;
+  color: #fff;
+  text-align: center;
+  font-size:28rpx;
+  line-height:80rpx;
+  border-radius: 5rpx;
+  margin:50rpx auto;
+}
+.nohistory {
+  width:70%;
+  height:60%;
+  position:absolute;
+  left:0;
+  top:-15%;
+  right:0;
+  bottom:0;
+  margin:auto;
+}

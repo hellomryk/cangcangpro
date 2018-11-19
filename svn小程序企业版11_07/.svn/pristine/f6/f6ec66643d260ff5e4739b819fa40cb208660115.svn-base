@@ -1,0 +1,36 @@
+<!--pages/ps/index.wxml-->
+<view class='box'>
+<view class='box_ps' animation="{{animation}}">
+   <!-- <view class='list_ps' id="yiyuan"> 医院</view>
+ <view class="yiyuan_ps">
+    <image src='{{list.yiyuan.images}}'></image>
+    <view class='name_ps'>{{list.yiyuan.name}}</view>
+    <view class='ps_ps'>{{list.yiyuan.page}}</view>
+    <view style="clear:both;"></view>
+ </view> -->
+
+
+   <view class='list_ps' id="yisheng">医生</view>
+ <view class="yiyuan_ps">
+    <image src='{{list.yisheng.images}}'></image>
+    <view class='name_ps'> <text wx:for-items="{{list.yisheng.name}}">{{item}}</text></view>
+    <view class='ps_ps'>{{list.yisheng.page}}</view>
+    <view style="clear:both;"></view>
+ </view>
+
+
+    <view class='list_ps' id="yaopin">  药品</view>
+ <view class="yiyuan_ps" wx:for-items="{{list.yaopin}}">
+    <image src='{{item.images}}'></image>
+    <view class='name_ps'>{{item.name}} </view>
+    <view class='ps_ps'>{{item.page}}</view>
+    <view style="clear:both;"></view>
+ </view>
+
+
+
+
+
+</view>
+ <view style="width:100%;height:750rpx;"></view>
+</view>

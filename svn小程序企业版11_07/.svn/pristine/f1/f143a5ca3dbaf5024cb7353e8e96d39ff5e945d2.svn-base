@@ -1,0 +1,75 @@
+<!--pages/znpz2/znpz2.wxml-->
+<!--pages/uploadimg/uploadimg.wxml-->
+<!-- <text>pages/uploadimg/uploadimg.wxml</text> -->
+<view class='uploadimg'>
+  <view class='uploadimg_up'>
+      <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              1
+            </view>
+            <view class='uploadimg_up_one_up'>
+               上传照片
+            </view>
+      </view>
+      <view class='uploadimg_up_dian'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+            <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              2
+            </view>
+            <view class='uploadimg_up_one_up'>
+               选择症状
+            </view>
+      </view>
+      <view class='uploadimg_up_dian uploadimg_up_dian_active'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+                  <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num uploadimg_up_one_num_active'>
+              3
+            </view>
+            <view class='uploadimg_up_one_up uploadimg_up_one_up_active'>
+               诊断报告
+            </view>
+      </view>
+  </view> 
+  <view class='uploadimg_cen'>
+    <image src='../../pics/photokuang.png' class='uploadimg_cen_kuang uploadimg_cen_kuang_sm'></image>
+    <image  src="../../pics/BG.png" class="uploadimg_cen_img"></image>
+    <view class='uploadimg_takephoto_bot uploadimg_takephoto_bot_xiang' bindtap='takePhotofan'>相好稀有，红颜无匹</view>
+  </view>
+  <view class='uploadimg_takephoto_bot uploadimg_takephoto_bot_select' bindtap='takePhotofan'>选择症状</view>
+  <view class='select_list'>
+    <view class="select_list_li {{item.open ? 'select_list_li_active' : ''}}" wx:for-items="{{array}}" id="{{item.id}}" bindtap='select'>{{item.name}}</view>
+  </view>
+  <view class='uploadimg_takephoto_next' bindtap='takePhoto3'>下一步</view>
+</view>

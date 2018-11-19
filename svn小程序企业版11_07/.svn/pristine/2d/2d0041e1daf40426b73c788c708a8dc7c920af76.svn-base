@@ -1,0 +1,115 @@
+/* pages/mine/mine.wxss */
+.mine {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+.mine_dingdan {
+  width:100%;
+  text-align: center;
+  font-size:32rpx;
+  line-height: 50rpx;
+  color:#141414;
+  display: flex;
+  align-items:center;
+  justify-content: flex-start;
+  height: 89rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  background: #fff;
+}
+.mine_gouwu {
+  width:100%;
+  text-align: center;
+  font-size:28rpx;
+  line-height: 50rpx;
+  color:#141414;
+  margin-top:50rpx;
+}
+.mine_dingdan_img_left {
+  width:42rpx;
+  height:42rpx;
+  display:block;
+  margin-left:30rpx;
+  margin-right:34rpx;
+}
+.mine_dingdan_img_right {
+  width:13rpx;
+  height:24rpx;
+  display:block;
+}
+.mine_dingdan_text {
+  width:617rpx;
+  text-align: left;
+}
+page{
+  background:#f6f6f6;
+}
+.mine_top {
+  position: relative;
+  width:692rpx;
+  height:261rpx;
+  margin: 0 auto;
+}
+.wodeyonghubg {
+  width:692rpx;
+  height:261rpx;
+  position: absolute;
+  left:0;
+  top:30rpx;
+  z-index: 2;
+
+}
+.mine_top_name {
+  width:692rpx;
+  height:261rpx;
+  position: absolute;
+  left:0;
+  top:30rpx;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.wodeyonghu {
+  display: block;
+  width:120rpx;
+  height:120rpx;
+  margin-left: 61rpx;
+  /* margin-top:68rpx; */
+  border-radius:100%;
+
+}
+.mine_top_name_text {
+  margin-left:40rpx;
+}
+.mtnt_name {
+  font-size:28rpx;
+  line-height: 53rpx;
+  color:#fff;
+}
+.mtnt_tui {
+
+  font-size:24rpx;
+
+
+  line-height: 46rpx;
+  color:#14c86c;
+  width:120rpx;
+  height:46rpx;
+  background:#fff;
+  border-radius:5rpx;
+  text-align: center;
+}
+.mine_top_z {
+  width:100%;
+  height:320rpx;
+  background: #fff;
+  margin-bottom:17rpx;
+}
+.mtnt_name {
+  font-size: 32rpx;
+}
+.mtnt_tui {
+  font-size: 32rpx;
+}

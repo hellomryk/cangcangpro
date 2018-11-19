@@ -1,0 +1,8 @@
+<!--pages/paizhenlist/index.wxml-->
+<view class='wenzhen_list'>
+  <view class='wenzhen_li' id="{{item.id}}" bindtap='gotozhengzhuang' wx:for-items="{{array}}">
+    <image src='{{item.imgurl}}'></image> 
+    <view>{{item.dmensionname}}</view>  
+  </view>
+</view>
+

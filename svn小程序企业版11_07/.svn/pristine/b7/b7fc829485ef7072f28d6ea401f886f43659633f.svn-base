@@ -1,0 +1,25 @@
+<!--pages/box/index.wxml-->
+<view class='container'>
+  <view class='box_cont'>
+  <navigator hover-class="none" open-type='switchTab' url="/pages/box/index" ><image src='/pics/banner.jpg'  class='banner'></image></navigator>
+
+  <navigator hover-class="none" open-type='switchTab' url="/pages/wenzhen/index" ><image src='/pics/box_img1.jpg'  class='banner1'></image></navigator>
+
+  <navigator hover-class="none" open-type='switchTab' url="/pages/desiselist/desiselist" ><image src='/pics/box_img2.jpg'  class='banner2'></image></navigator>
+  <navigator hover-class="none" url="/pages/paizhenlist/index" ><image src='/pics/box_img3.png'  class='banner3'></image></navigator>
+  <view style="clear:both;"></view>
+  <navigator hover-class="none" url="/pages/shangcheng_list/index" ><image src='/pics/box_img4.jpg'  class='banner4'></image></navigator>
+  <navigator hover-class="none" url="/pages/manyslowdesise/manyslowdesise" ><image src='/pics/box_img5.jpg'  class='banner5'></image></navigator>
+  <navigator hover-class="none" open-type='switchTab' url="/pages/znpgresult/znpgresult?type=1" ><image src='/pics/box_img6.jpg'  class='banner6'></image></navigator>
+  </view>
+</view>
+<!--显示登陆框 -->
+<view style="width:100%;height:10000rpx;background:rgba(0,0,0,0.4);position: absolute;left: 0;top: 0; z-index:9999;" wx:if="{{siginup}}">
+  <view style="width:80%;height:350rpx;background:#fff;border-radius: 4px;margin:40% auto;">
+    <view style="width:100%;text-align: center;padding-top:40rpx;font-size:35rpx;">提示 </view>
+    <view style="width:100%;text-align: center;padding-top:50rpx;font-size:30rpx;color:#999;">为了您更好的体验,请先同意授权</view>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" style='width:35%;height:80rpx;text-align: center;margin-top:60rpx;font-size:35rpx;' bindtap="siginuptab">登陆</button>
+  </view>
+</view>
+
+

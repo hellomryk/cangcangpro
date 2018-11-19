@@ -1,0 +1,170 @@
+<!--pages/zjbg/index.wxml-->
+<view class='head'>
+<!-- <view class='head_list'>
+<text>姓名</text>  <input placeholder='请填写您的姓名'></input>
+</view>
+
+        <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>性别</view>
+            <picker bindchange="binddayPickerChange" value="{{dayIndex1}}" range="{{dayArray}}">
+                <view>
+                    <text class='leave_text'>{{dayArray[dayIndex]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>体重</view>
+            <picker bindchange="binddayPickerChange1" value="{{dayIndex1}}" range="{{dayArray1}}">
+                <view>
+                    <text class='leave_text'>{{dayArray1[dayIndex1]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>职业</view>
+            <picker bindchange="binddayPickerChange2" value="{{dayIndex1}}" range="{{dayArray2}}">
+                <view>
+                    <text class='leave_text'>{{dayArray2[dayIndex2]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>年龄</view>
+            <picker bindchange="binddayPickerChange3" value="{{dayIndex1}}" range="{{dayArray3}}">
+                <view>
+                    <text class='leave_text'>{{dayArray3[dayIndex3]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>省份</view>
+            <picker bindchange="binddayPickerChange4" value="{{dayIndex1}}" range="{{dayArray4}}">
+                <view>
+                    <text class='leave_text'>{{dayArray4[dayIndex4]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>吸烟</view>
+            <picker bindchange="binddayPickerChange5" value="{{dayIndex1}}" range="{{dayArray5}}">
+                <view>
+                    <text class='leave_text'>{{dayArray5[dayIndex5]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+
+
+                <view class="row-wrap">
+            <view class="label">
+                <text class='leave_warning'></text>饮酒</view>
+            <picker bindchange="binddayPickerChange6" value="{{dayIndex1}}" range="{{dayArray6}}">
+                <view>
+                    <text class='leave_text'>{{dayArray6[dayIndex6]}} </text>
+                    <image src='/pics/weidu_xia.png' class='leave_img'></image>
+                </view>
+            </picker>
+        </view>
+        <view style="clear:both;"></view> -->
+    <view class='zj_head'>
+        <view>
+            <text class='zj_tr'>用户姓名</text>
+            <text class='zj_td'>{{jbxi.name}}</text>
+        </view>
+    <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>用户性别</text>
+            <text class='zj_td'>{{jbxi.sex}}</text>
+        </view>
+    <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>用户年龄</text>
+            <text class='zj_td'>{{jbxi.old}}</text>
+        </view>
+    <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>自诊日期</text>
+            <text class='zj_td'>{{jbxi.date}}</text>
+        </view>
+            <view style="clear:both;"></view>
+    </view>
+    <view style="clear:both;"></view>
+     
+</view>
+
+
+
+<view class='cont'>
+    <view class='zj_cont'>
+        <view>
+            <text class='zj_tr'>自诊疾病</text>
+            <text class='zj_td'>{{jbxi1.diseaseName}}</text>
+        </view>
+            <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>挂什么科</text>
+            <text class='zj_td'>{{jbxi1.deparment}}</text>
+        </view>
+            <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>需做检查</text>
+            <text class='zj_td'>{{jbxi1.check}}</text>
+        </view>
+            <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>常见药物</text>
+           <view class='zj_td'><navigator  wx:for='{{jbxi1.commenDrug}}'  url="../shopingps/index?id={{item.drugID}}" style="display: inline-block;margin-right:15rpx;color:#15c86c;" hover-class="none">{{item.drugName}} </navigator>  </view> 
+        </view>
+            <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>治疗费用</text>
+            <text class='zj_td'>{{jbxi1.cost}} </text>
+        </view>
+            <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>哪些症状</text>
+            <text class='zj_td'>{{jbxi1.symptom}} </text>
+        </view>
+            <view style="clear:both;"></view>
+        <view>
+            <text class='zj_tr'>引发疾病</text>
+            <text class='zj_td'>{{jbxi1.CauseDisease}} </text>
+        </view>
+        
+         <view style="clear:both;"></view>
+    </view>
+    
+</view>
+
+
+<view class='cont'>
+    <view class='zj_cont'>
+        <view>
+            <text class='zj_tr'>治疗方法</text>
+            <text class='zj_td'>{{jbxi2.treatment}}</text>
+        </view>
+         <view style="clear:both;"></view>
+    </view>
+    
+</view>
+

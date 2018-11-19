@@ -1,0 +1,104 @@
+<!--pages/shangcheng_head_list/index.wxml-->
+<scroll-view scroll-y bindscrolltolower="loadMore" style="height:660px;">
+
+
+
+    <view class='shangcheng_move'>
+        <block wx:for-items="{{list1}}" wx:key="{{item.id}}">
+            <view class="shangcheng_move_li {{item.checked ? 'li_o' : ''}} " id="{{item.id}}" bindtap="kindToggle1">{{item.label}}</view>
+        </block>
+    </view>
+
+
+
+    <block wx:for="{{list}}">
+        <view class='submitorder_cen_list' wx:if="{{item.orderStatus==0||item.orderStatus==1}}">
+            <view style="font-size:24rpx;line-height:80rpx;padding-left:35rpx;border-bottom: 1rpx solid #E6E6E6;">
+                <text>订单编号：{{item.orderNo}}</text>
+                <text style="margin-left:5%;color:#15c86c;">待付款</text> </view>
+            <view class='submitorder_cen_listli'>
+                <image src='{{item.orderGoodModelList[0].goodImg}}' class='submitorder_cen_listli_imgleft'></image>
+                <view class='submitorder_cen_listli_right'>×{{item.goodCount}}</view>
+                <view class='submitorder_cen_listli_center'>
+                    <view class='sclc_title'>{{item.orderGoodModelList[0].goodTitle}}</view>
+                    <view class='sclc_standard'>{{item.orderGoodModelList[0].goodSpec[0].specValue}}{{item.orderGoodModelList[0].goodSpec[0].specName}}*{{item.orderGoodModelList[0].goodSpec[1].specValue}}{{item.orderGoodModelList[0].goodSpec[1].specName}}</view>
+                    <view class='sclc_money'>¥{{item.totalAmount}}</view>
+                </view>
+            </view>
+
+
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx">
+                <text style="margin-right:40rpx;">共{{item.goodCount}}件商品</text>
+                <text>实付金额  <text style="color:#fd432a;margin-right:35rpx;">¥{{item.totalAmount*item.goodCount}}</text></text>
+            </view>
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx">
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#141414;margin-right:30rpx;" bindtap='quxiao'>取消订单</text>
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#15c86c;margin-right:30rpx;" bindtap='fukuan'>去付款  </text>
+            </view>
+
+        </view>
+
+
+
+
+
+        <view class='submitorder_cen_list' wx:if="{{item.orderStatus==2||item.orderStatus==3||item.orderStatus==4||item.orderStatus==5||item.orderStatus==6||item.orderStatus==7}}">
+            <view style="font-size:24rpx;line-height:80rpx;padding-left:35rpx;border-bottom: 1rpx solid #E6E6E6;">
+                 <text>订单编号：{{item.orderNo}}</text>
+                <text style="margin-left:5%;color:#15c86c;">已付款</text> </view>
+            <view class='submitorder_cen_listli'>
+                <image src='{{item.orderGoodModelList[0].goodImg}}' class='submitorder_cen_listli_imgleft'></image>
+                <view class='submitorder_cen_listli_right'>×{{item.goodCount}}</view>
+                <view class='submitorder_cen_listli_center'>
+                    <view class='sclc_title'>{{item.orderGoodModelList[0].goodTitle}}</view>
+                    <view class='sclc_standard'>{{item.orderGoodModelList[0].goodSpec[0].specValue}}{{item.orderGoodModelList[0].goodSpec[0].specName}}*{{item.orderGoodModelList[0].goodSpec[1].specValue}}{{item.orderGoodModelList[0].goodSpec[1].specName}}</view>
+                    <view class='sclc_money'>¥{{item.totalAmount}}</view>
+                </view>
+            </view>
+
+
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx">
+                <text style="margin-right:40rpx;">共{{item.goodCount}}件商品</text>
+                <text>实付金额  <text style="color:#fd432a;margin-right:35rpx;">¥{{item.totalAmount*item.goodCount}}</text></text>
+            </view>
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx">
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#141414;margin-right:30rpx;">确认收货</text>
+
+            </view>
+
+        </view>
+
+
+
+
+
+        <view class='submitorder_cen_list' wx:if="{{item.orderStatus==8}}">
+            <view style="font-size:24rpx;line-height:80rpx;padding-left:35rpx;border-bottom: 1rpx solid #E6E6E6;">
+                 <text>订单编号：{{item.orderNo}}</text>
+                <text style="margin-left:5%;color:#15c86c;">已完成</text> </view>
+            <view class='submitorder_cen_listli'>
+                <image src='{{item.orderGoodModelList[0].goodImg}}' class='submitorder_cen_listli_imgleft'></image>
+                <view class='submitorder_cen_listli_right'>×{{item.goodCount}}</view>
+                <view class='submitorder_cen_listli_center'>
+                    <view class='sclc_title'>{{item.orderGoodModelList[0].goodTitle}}</view>
+                    <view class='sclc_standard'>{{item.orderGoodModelList[0].goodSpec[0].specValue}}{{item.orderGoodModelList[0].goodSpec[0].specName}}*{{item.orderGoodModelList[0].goodSpec[1].specValue}}{{item.orderGoodModelList[0].goodSpec[1].specName}}</view>
+                    <view class='sclc_money'>¥{{item.totalAmount}}</view>
+                </view>
+            </view>
+
+
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx">
+                <text style="margin-right:40rpx;">共{{item.goodCount}}件商品</text>
+                <text>实付金额  <text style="color:#fd432a;margin-right:35rpx;">¥{{item.totalAmount*item.goodCount}}</text></text>
+            </view>
+            <view style="font-size:24rpx;text-align:right;line-height:80rpx">
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#141414;margin-right:30rpx;">取消订单</text>
+                <text style="border-radius:10rpx;padding:20rpx 30rpx;border: 1rpx solid #E6E6E6;color:#15c86c;margin-right:30rpx;">再次购买 </text>
+            </view>
+
+        </view>
+
+
+    </block>
+
+</scroll-view>

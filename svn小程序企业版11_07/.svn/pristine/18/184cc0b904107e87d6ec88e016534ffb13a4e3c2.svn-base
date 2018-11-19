@@ -1,0 +1,15 @@
+<!--pages/uploadimg/uploadimg.wxml-->
+<!-- <text>pages/uploadimg/uploadimg.wxml</text> -->
+<view class='uploadimg'>
+
+    <view class='uploadimg_takephoto_text'>{{disName}}</view>
+    <view class='uploadimg_cen' wx:for='{{list.list}}'>
+        <view class='tshi'>{{item.name}}:</view>
+        <view class='tshi1'>{{item.value}}</view>
+    </view>
+
+
+
+    <view class='uploadimg_takephoto_next' bindtap='baocun'>完成</view>
+
+</view>

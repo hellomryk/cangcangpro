@@ -1,0 +1,42 @@
+<!--pages/gouwuche/index.wxml-->
+<view class='gouwuche_list'>
+<checkbox-group  bindchange="checkboxChange">
+
+<view class="gouwuche_li" wx:for="{{checkboxItems}}">
+    <label>
+      <checkbox hidden value="{{item.name}}" checked="{{item.checked}}"></checkbox>
+      <view class="label-1__icon">
+        <image src='/pics/{{item.checked ? "zhong.png": "buzhong.png"}}' class="label-1__icon-checked"></image>
+      </view>
+        </label>
+      <image src="{{item.image}}" class='ima_sp'></image>
+      <view class="label-1__text">{{item.value}}</view>
+      <view class="label-2__text">{{item.ps}}</view>
+      <view class="label-3__text"> 
+                 <text class='xianjia'>¥{{item.xianjia}}</text>
+                 <text class='yuanjia'>¥{{item.yuanjia}}</text>
+                 <view class='jiajian'>
+                        <image src='/pics/jian.png' bindtap='jian' id="{{index}}"></image>
+                        <text>{{item.Number}}</text>
+                        <image src='/pics/jia.png' bindtap='jia' id="{{index}}"></image>  
+                 </view>
+        </view>
+  
+  </view>
+
+
+</checkbox-group>
+</view>
+
+
+
+ 
+
+<view class='footer_gouwu'>
+<view class='footer_list' bindtap='boxchen'><image src='/pics/{{box ? "zhong.png": "buzhong.png"}}' class="footer_box"></image><text style=" font-size: 24rpx;margin-left:20rpx;margin-right:35rpx;">全选</text></view>
+<view class='footer_list'>
+      <view class='footer_jia' style=" font-size: 32rpx;margin-top:14rpx;">实付：¥{{money}}</view>
+       <view class='footer_jia'  style=" font-size: 24rpx;color:#999;">优惠:¥0.00</view>
+</view>
+<view class='footer_right' bindtap='zhifu'>去结算({{num}})</view>
+</view>

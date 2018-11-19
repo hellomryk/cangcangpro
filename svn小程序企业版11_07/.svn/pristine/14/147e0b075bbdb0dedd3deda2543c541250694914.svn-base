@@ -1,0 +1,28 @@
+<!--pages/uploadimg/uploadimg.wxml-->
+<!-- <text>pages/uploadimg/uploadimg.wxml</text> -->
+<view class='uploadimg'>
+
+    <view class='uploadimg_takephoto_text'>舌头淡白——体虚或寒症</view>
+    <view class='uploadimg_cen'>
+        <view class='tshi'>提示:</view>
+        <view class='tshi1'>淡舌:舌色较正常浅淡，主虚证、寒证，多见于血虚，为阳气衰弱、气血不足象。色淡而胖嫩为虚寒;胖嫩而边有齿痕为气虚、阳虚。</view>
+    </view>
+
+    <view class='uploadimg_cen'>
+        <view class='tshi'>提示:</view>
+        <view class='tshi1'>淡舌:舌色较正常浅淡，主虚证、寒证，多见于血虚，为阳气衰弱、气血不足象。色淡而胖嫩为虚寒;胖嫩而边有齿痕为气虚、阳虚。</view>
+    </view>
+
+    <view class='uploadimg_cen'>
+        <view class='tshi'>提示:</view>
+        <view class='tshi1'>淡舌:舌色较正常浅淡，主虚证、寒证，多见于血虚，为阳气衰弱、气血不足象。色淡而胖嫩为虚寒;胖嫩而边有齿痕为气虚、阳虚。</view>
+    </view>
+
+    <view class='uploadimg_cen'>
+        <view class='tshi'>提示:</view>
+        <view class='tshi1'>淡舌:舌色较正常浅淡，主虚证、寒证，多见于血虚，为阳气衰弱、气血不足象。色淡而胖嫩为虚寒;胖嫩而边有齿痕为气虚、阳虚。</view>
+    </view>
+
+    <view class='uploadimg_takephoto_next' bindtap='baocun'>完成</view>
+
+</view>

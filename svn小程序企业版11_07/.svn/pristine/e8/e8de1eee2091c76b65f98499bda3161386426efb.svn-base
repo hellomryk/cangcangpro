@@ -1,0 +1,90 @@
+/* pages/foodlist/foodlist.wxss */
+@import "/pages/littlea/littlea.wxss";
+.fangan_header {
+    width: 100%;
+    padding: 20rpx 40rpx;
+    box-sizing: border-box;
+    background: #fcf4ea;
+}
+
+.fangan_lb {
+    width: 50rpx;
+    height: 50rpx;
+    float: left;
+    margin-top: 8rpx;
+}
+
+.fangan_header text {
+    width: 600rpx;
+    font-size: 24rpx;
+    color: #e68f3c;
+    float: left;
+    margin-left: 15rpx;
+    margin-top: 8rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.clear {
+    clear: both;
+}
+
+.food_list_right_money {
+  max-width:400rpx;
+}
+.food_list_right_title {
+  padding-top:10rpx;
+}
+.food_list {
+  border-bottom:2rpx solid #888 dashed;
+}
+page {
+  overflow-y: visible!important;
+}
+.center {
+  text-align: center;
+  line-height: 60rpx;
+}
+.yiyuanlist {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background: #fff;
+  margin-bottom:20rpx;
+  height:180rpx;
+}
+.yiyuanlist_img {
+  width:180rpx;
+  height:130rpx;
+}
+page {
+  background: #f6f6f6;
+}
+.food_list_right {
+  width:490rpx;
+  margin-left: 39rpx;
+}
+.food_list_right_title {
+  font-size:32rpx; 
+}
+.food_list_right_title_phone {
+  font-size:24rpx;
+  color:#999;
+  line-height: 48rpx;
+}
+.food_list_right_money {
+  font-size:24rpx;
+  color:#999;
+  line-height: 33rpx;
+  white-space: nowrap;
+}
+.aroundName {
+  font-size:32rpx;
+  color:#999;
+  line-height: 88rpx;
+  white-space: nowrap;
+  background:#fff;
+  padding-left: 39rpx;
+  margin-bottom: -20rpx;
+  border-bottom:4rpx dashed #999;
+}

@@ -1,0 +1,27 @@
+<!--pages/dimensiondisease/dimensiondisease.wxml-->
+<view class='skin'>
+  皮肤病
+</view>
+<view class='skin_list'>
+  <view class='skin_list_title'>简介:</view>
+  <view class='skin_list_content'>在医学上，皮肤病是有关皮肤的疾病，是严重影响人民健康的常见病、多发病之一，如麻风、疥疮真菌病、皮肤细菌感染等。皮</view>
+  <view style='clear:both;'></view>
+</view>
+<view class='skin_list'>
+  <view class='skin_list_title'>简介:</view>
+  <view class='skin_list_content'>在医学上，皮肤病是有关皮肤的疾病，是严重影响人民健康的常见病、多发病之一，如麻风、疥疮真菌病、皮肤细菌感染等。皮</view>
+  <view style='clear:both;'></view>
+</view>
+<view class='skin_list'>
+  <view class='skin_list_title'>简介:</view>
+  <view class='skin_list_content'>在医学上，皮肤病是有关皮肤的</view>
+  <view style='clear:both;'></view>
+</view>
+<view class='skin_list'>
+  <view class='skin_list_title'>简介:</view>
+  <view class='skin_list_content'>在医学上，皮肤病是有关皮肤的疾病，是严重影响人民健康的常见病、多发病之一，如麻风、疥疮真菌病、皮肤细菌感染等。皮</view>
+  <view style='clear:both;'></view>
+</view>
+<view class='lookmore' bindtap='gotobaogao'>
+查看更多信息
+</view>

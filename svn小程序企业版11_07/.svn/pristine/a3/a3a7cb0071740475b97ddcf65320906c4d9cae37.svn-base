@@ -1,0 +1,37 @@
+<!--pages/sudi/index.wxml-->
+<view class='search'>
+    <image src='../../pics/flsb_img.png' class='flsb_img'></image>
+    <input placeholder="搜索" placeholder-style="color:#999;" bindconfirm="search" />
+</view>
+
+
+<scroll-view scroll-x="true" class='shangcheng_head_list'>
+    <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class="shangcheng_head_li {{item.checked ? 'li_y' : ''}} " id="{{item.id}}" bindtap="kindToggle">{{item.typename}}</view>
+    </block>
+</scroll-view>
+
+
+<view wx:for-items="{{list1}}">
+<view class='li_box' wx:if="{{item.imgurl!=''}}" bindtap='click' id="{{item.id}}">
+    <view class='li_text'>
+       <text class='text_head'>{{item.title}}</text>
+        <text class='text_ps'>  <text class='re' wx:if="{{item.ishot!=null}}">{{item.ishot}}</text>
+        <text class='ps_ps'>{{item.source}}</text>
+        <text class='ps_ps'>{{item.click}}人已读</text>
+        <text class='ps_ps'>{{item.duration}}</text> </text>
+    </view>
+    <image class='li_images' src='{{item.imgurl}}'></image>
+</view>
+
+<view class='li_box' wx:if="{{item.imgurl==''}}"  bindtap='click'  id="{{item.id}}">
+    <view class='li_text' style="width: 100%;">
+       <text class='text_head'>{{item.title}}</text>
+        <text class='text_ps'>  <text class='re' wx:if="{{item.ishot!=null}}">{{item.ishot}}</text>
+        <text class='ps_ps'>{{item.source}}</text>
+        <text class='ps_ps'>{{item.click}}人已读</text>
+        <text class='ps_ps'>{{item.duration}}</text> </text>
+    </view>
+</view>
+
+</view>

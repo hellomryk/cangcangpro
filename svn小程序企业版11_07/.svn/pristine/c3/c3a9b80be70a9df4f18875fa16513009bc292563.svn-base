@@ -1,0 +1,265 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx9a27ccaa4acaf619",
+	"projectname": "%E5%90%BE%E8%AF%8A%E6%85%A2%E6%80%A7%E7%97%85%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9Fsvn%E7%89%88%E6%9C%AC11_12",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 36,
+			"list": [
+				{
+					"id": 0,
+					"name": "小A同学",
+					"pathName": "pages/littlea/littlea",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "logs",
+					"pathName": "pages/logs/logs",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "asr",
+					"pathName": "pages/asr/asr",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "text",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "details",
+					"pathName": "pages/details/Word-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "word",
+					"pathName": "pages/word/Word-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "foodlist",
+					"pathName": "pages/foodlist/foodlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "慢性疾病",
+					"pathName": "pages/mxjb/mxjb",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "症状列表",
+					"pathName": "pages/symptomlist/symptomlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "疾病列表",
+					"pathName": "pages/desiselist/desiselist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/shouye/shouye",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "慢病百科列表",
+					"pathName": "pages/manyslowdesise/manyslowdesise",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "历史记录",
+					"pathName": "pages/historylist/historylist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "智能评估结果列表",
+					"pathName": "pages/znpgresult/znpgresult",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "报告页",
+					"pathName": "pages/baogao/baogao",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/shangcheng_list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/shopingps/index",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "问诊",
+					"pathName": "pages/xinzheng1/index",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "购物车",
+					"pathName": "pages/gouwuche/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/submitorder/submitorder",
+					"query": ""
+				},
+				{
+					"id": 21,
+					"name": "推荐",
+					"pathName": "pages/ps/index",
+					"query": "name=支气管炎"
+				},
+				{
+					"id": 22,
+					"name": "收货地址",
+					"pathName": "pages/tianjiadizhi/index",
+					"query": "id=22"
+				},
+				{
+					"id": 23,
+					"name": "注册",
+					"pathName": "pages/signup/signup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "自诊报告",
+					"pathName": "pages/zjbg/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登陆",
+					"pathName": "pages/signup/signup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "保存地址",
+					"pathName": "pages/receiptinformation/receiptinformation",
+					"query": "id=1"
+				},
+				{
+					"id": 27,
+					"name": "我的订单",
+					"pathName": "pages/myshopping/index",
+					"query": "id=23"
+				},
+				{
+					"id": -1,
+					"name": "物流信息",
+					"pathName": "pages/logisticsInformation/logisticsInformation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/dingdanxiangqing/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "附近医院",
+					"pathName": "pages/foodlist/foodlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "自测",
+					"pathName": "pages/zc/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "自诊报告",
+					"pathName": "pages/zjbg/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的信息",
+					"pathName": "pages/wodexinxi/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问诊list",
+					"pathName": "pages/wenzhen/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拍诊",
+					"pathName": "pages/paizhenlist/index"
+				}
+			]
+		}
+	}
+}

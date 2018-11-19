@@ -1,0 +1,43 @@
+<!--pages/xinzheng/index.wxml-->
+<view class='box'>
+<view class='container'>
+
+<view class='zhuzheng_head'>{{num}}症状:</view>
+
+<checkbox-group bindchange="serviceValChange" class="group">
+        <view class="service_selection ">
+          <block wx:for="{{allGoodsFilte}}">
+            <view class=" item" >
+ 
+              <label class="checkbox {{item.checked?'back':''}}">
+                <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="false" />{{item.label}}
+              </label>
+            </view>
+          </block>
+        </view>
+</checkbox-group>
+<view class='confirm_fa'>
+    <button class='btn_wzh' bindtap="submit">确认</button>
+    <button class='btn_wzh' bindtap="submitfan">返回</button>
+</view>
+
+<view class='yuce_gailv'> 
+<image src='/pics/yuce_jiangxu.png'></image><text>疑似疾病</text>
+</view>
+
+<view class='yuce_gailv_head' bindtap='psname'> 
+<text class='baifenbi'>{{diseasepro}}</text>
+<text class='name_ci'>{{diseasename}}</text>
+</view>
+
+<view class='yuce_gailv_head' bindtap='psname'>
+
+<view class='yuce_gailv_con'>备注:<text wx:if="{{lazy}}">不同的疾病可能具有相同的症状，请您根据自身实际情况选取多个标签，以提高自诊精度。</text>  <text wx:if="{{!lazy}}">您选择的症状为{{ayyr1}},可能的疾病为{{diseasename}}。以上仅供参考。请点击进入!</text></view ><image src='/pics/ceyan_dayuhei.png'></image>
+
+</view>
+
+<view class="contai">
+<ec-canvas bindtap='name' id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+</view>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/dimensiondisease/dimensiondisease.wxml-->
+<view class='skin'>
+ {{name}}
+</view>
+<view class='skin_list' wx:for="{{list}}">
+  <view class='skin_list_title'>{{item.name}}:</view>
+  <view class='skin_list_content'>{{item.value}}</view>
+  <view style='clear:both;'></view>
+</view>
+<view class='lookmore' bindtap='gotobaogao'>
+查看更多信息
+</view>
+<image src='../../pics/nohistory.png' wx:if="{{list.length == 0}}" class='nohistory'></image>

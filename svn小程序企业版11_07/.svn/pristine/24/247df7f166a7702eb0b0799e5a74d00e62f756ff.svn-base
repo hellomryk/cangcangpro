@@ -1,0 +1,266 @@
+// pages/znpz2/znpz2.js
+var _this = null;
+var app = getApp();
+const url = "http://chronic-api-part.infobigdata.com";
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    dmensionId: '',//用户选择的症状入口id
+    arrayfu: '',//副症列表
+    isarray:true,//判断主症显示
+    isarrayfu:false,//判读副证显示
+    isarrayfufu: false,//判读副证后的副证显示
+    typename:'',//存储点击的主症
+    symptom:'',//存储点击副证
+    array:[
+      {
+        id:1,
+        name:'舌质淡白1',
+        open:true,
+      },
+      {
+        id: 2,
+        name: '舌质淡白2',
+        open: false,
+      },
+      {
+        id: 3,
+        name: '舌质淡白',
+        open: false,
+      },
+      {
+        id: 4,
+        name: '舌质淡白',
+        open: false,
+      },
+      {
+        id: 5,
+        name: '舌质淡白',
+        open: false,
+      },
+      {
+        id: 6,
+        name: '舌质淡白',
+        open: false,
+      },
+      {
+        id: 7,
+        name: '舌质淡白',
+        open: false,
+      },
+      {
+        id: 8,
+        name: '舌质淡白',
+        open: false,
+      }
+    ]
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    _this = this;
+    _this.setData({
+      src: options.src,
+      dmensionId: options.dmensionId,
+    })
+    //获取疾病选择症状列表
+    console.log(app.globalData.dmensionId)
+    wx.request({
+      url: url + '/api/photoSysInfo/groupbyDmensionId',
+      data: {
+        // "dmensionId": app.globalData.dmensionId
+        "dmensionId": app.globalData.dmensionId
+      },
+      method: "POST",
+      header: {
+        'Content-Type': "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log(res.data.data)
+        _this.setData({
+          array: res.data.data
+        })
+      }
+    })
+  },
+  select(e) {
+    var id = e.target.id;
+      var arr = _this.data.array;
+      var typename = '';
+      for(var i = 0; i < arr.length; i ++) {
+        if (arr[i].id == id) {
+          arr[i].open = true
+          typename = arr[i].name
+        } else {
+          arr[i].open = false
+        }
+      }
+    _this.setData({
+      array:arr,
+      typename: typename//存储点击的主症
+    })
+    //点击主症刷出副证
+    console.log(typename)
+    wx.request({
+      url: url + '/api/photoSysInfo/selectbyTypeName',
+      data: {
+        dmensionId: app.globalData.dmensionId,
+        typename:typename,
+      },
+      method:"POST",
+      header: {
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log("查询副证")
+        console.log(res)
+        _this.setData({
+          arrayfu: res.data.data,
+          isarray: false,//判断主症显示
+          isarrayfu: true,//判读副证显示
+        })
+      }
+    })
+      
+  },
+  //点击副证
+  selectfu(e) {
+    var id = e.target.id;
+    var arr = _this.data.arrayfu;
+    var symptom = '';
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].id == id) {
+        arr[i].open = true
+        symptom = arr[i].name
+      } else {
+        arr[i].open = false
+      }
+    }
+    _this.setData({
+      arrayfu: arr,
+      symptom: symptom
+    })
+    //点击主症刷出副证
+    wx.request({
+      url: url + '/api/photoSysInfo/selectbySymptom',
+      data: {
+        dmensionId: app.globalData.dmensionId,
+        typename: _this.data.typename,
+        symptom: symptom
+      },
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log("点击副证返回结果")
+        console.log(res)
+        _this.setData({
+          arrayfufu: res.data.data,
+          isarrayfu: false,//判读副证显示
+          isarrayfufu: true,//判读副证后的副证显示
+        })
+      }
+    })
+  },
+  //点击副证的副证
+  selectfufu(e) {
+    var id = e.target.id;
+    var arr = _this.data.arrayfufu;
+    var subSymptom = '';
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].id == id) {
+        arr[i].open = true
+        subSymptom = arr[i].name
+      } else {
+        arr[i].open = false
+      }
+    }
+    _this.setData({
+      arrayfufu: arr
+    })
+    //点击主症刷出副证的副证
+    wx.request({
+      url: url + '/api/photoSysInfo/getDisName',
+      data: {
+        dmensionId: app.globalData.dmensionId,
+        typename: _this.data.typename,
+        symptom: _this.data.symptom,
+        subSymptom: subSymptom
+      },
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success(res) {
+        console.log("点击副证的副证返回结果")
+        console.log(res)
+        app.globalData.photodesise = res.data.data.dis.disname;
+        if(res.data.code == 0) {
+          wx.navigateTo({
+            url: '/pages/zhenduanbaogao/index',
+          })
+        } else {
+          wx.navigateTo({
+            url: '/pages/uploadimg/uploadimg',
+          })
+        }
+      }
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+  takePhotonext() {
+    wx.navigateTo({
+      url: '/pages/uploadimg/uploadimg',
+    })
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

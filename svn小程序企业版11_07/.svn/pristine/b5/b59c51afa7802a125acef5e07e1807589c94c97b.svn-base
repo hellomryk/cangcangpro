@@ -1,0 +1,243 @@
+/* pages/uploadimg/uploadimg.wxss */
+page{
+ background:#020b1c;
+}
+.uploadimg {
+  width:100%;
+ 
+}
+.uploadimg_up_one_num {
+  width:50rpx;
+  height:50rpx;
+  background:#12b564;
+  color:#fff;
+  font-size: 32rpx;
+  line-height:50rpx;
+  text-align: center;
+  border-radius:50% 50%;
+  margin-left: 30rpx;
+}
+.uploadimg_up_one_up {
+  width: 115rpx;
+  text-align: center;
+  color:#14c86c;
+  font-size: 28rpx;
+  line-height:65rpx;
+}
+.uploadimg_up_dian {
+  display: flex;
+  align-items:flext-start;
+  justify-content: center;
+  margin-top: 25rpx;
+}
+.uploadimg_up_dian>view{
+  width:6rpx;
+  height:6rpx;
+  border-radius:50% 50%;
+  background:#12b564;
+  margin-left:5rpx;
+}
+.uploadimg_up_dian1 {
+  display: flex;
+  align-items:flext-start;
+  justify-content: left;
+  margin-top: 15rpx;
+}
+.uploadimg_up_dian1>view{
+  width:6rpx;
+  height:6rpx;
+  border-radius:100%;
+  background:#98E4FE;
+  margin-right:10rpx;
+}
+.uploadimg_up {
+  display: flex;
+  align-items:flex-start;
+  justify-content: center;
+}
+.uploadimg_up_one_up_active {
+  color:#81858e;
+}
+.uploadimg_up_one_num_active {
+  color:#020b1c;
+  background:#81858e;
+}
+.uploadimg_up_dian_active>view{
+  background:#81858e;
+}
+.uploadimg_takephoto_text {
+ color:#14c86c;
+  font-size: 40rpx;
+  line-height:52rpx;
+  width:100%;
+  text-align: center; 
+  margin-top: 50rpx;
+  font-weight:600;
+  margin-bottom: 50rpx;
+
+}
+.uploadimg_takephoto_cont {
+  color:#747983;
+  font-size: 24rpx;
+  line-height:52rpx;
+  width:100%;
+  text-align: center; 
+}
+.uploadimg_cen {
+  width: 570rpx;
+  height:570rpx;
+  margin:0 auto;
+  position: relative;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 50rpx;
+}
+.uploadimg_cen_kuang {
+  display: block;
+  width: 486rpx;
+  height:486rpx;
+  position: absolute;
+  left:0;
+  top:0;
+}
+.uploadimg_cen_people {
+  width:277rpx;
+  height:425rpx;
+  top:30rpx;
+  left:50%;
+  position: absolute;
+  margin-left:-138rpx;
+  z-index: 10;
+}
+/* .uploadimg_cen_cam {
+  width:400rpx;
+  height:425rpx;
+  top:30rpx;
+  left:50%;
+  position: absolute;
+  margin-left:-200rpx;
+  z-index: 11;
+} */
+.uploadimg_cen_line {
+  width:536rpx;
+  height:57rpx;
+  top:10rpx;
+  left:-30rpx;
+  position: absolute;
+  z-index: 12;
+  animation:photoline 8s linear 1s infinite;
+}
+@keyframes photoline {
+  0% {top:0rpx;}
+  25% {top:220rpx;}
+  50% {top:440rpx;}
+  75% {top:220rpx;}
+  100% {top:0rpx;}
+}
+
+.uploadimg_cen_lineli {
+    width:536rpx;
+  height:57rpx;
+  top:10rpx;
+  left:-60rpx;
+  position: absolute;
+  animation:photolineline 8s linear 1s infinite;
+}
+@keyframes photolineline {
+  0% {top:-35rpx;}
+  25% {top:185rpx;}
+  50% {top:405rpx;}
+  75% {top:185rpx;}
+  100% {top:-35rpx;}
+}
+.uploadimg_takephoto_bot {
+  color:#fff;
+  font-size: 32rpx;
+  line-height:52rpx;
+  width:100%;
+  text-align: center; 
+  margin-top: 90rpx;
+}
+.uploadimg_takephoto_next {
+  width:690rpx;
+  height:90rpx;
+  margin:0 auto;
+  text-align: center;
+  color:#fff;
+  font-size: 32rpx;
+  line-height:90rpx;
+  background: #14c86c;
+  border-radius:8rpx;
+  margin-top:80rpx;
+  box-shadow:0px 0px 10px #fff;
+}
+.uploadimg_takephoto_bot1 {
+  width:100%;
+  box-sizing: border-box;
+  color:#14c86c;
+  font-size: 32rpx;
+  line-height:52rpx;
+display: -webkit-box; 
+-webkit-box-orient: vertical; 
+-webkit-line-clamp: 6; 
+overflow: hidden; 
+}
+.sekuai1,.sekuai2,.list1,.list2{
+    width:150rpx;
+    height:277rpx;
+    text-align: center;
+     /* line-height: 277rpx; 
+     float: left; */
+
+}
+.sekuai3,.list3{
+    width:300rpx;
+    height:173rpx;
+    text-align: center;
+    /* line-height: 173rpx; 
+     float: left; */
+    
+}
+.list3{
+    font-size: 40rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.list1{
+        font-size: 40rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top:85rpx;
+}
+.list2{
+    font-size: 40rpx;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top:85rpx;
+}
+.list3 text{
+    position: absolute;
+    left: 110rpx;
+    top:60rpx;
+}
+.list1 text,.list2 text{
+    position: absolute;
+    left: 35rpx;
+    top:110rpx;
+}
+.kuang{
+    width: 570rpx;
+    height: 570rpx;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.kuang1{
+    width: 155rpx;
+    height: 155rpx;
+    border-radius: 100%;
+}

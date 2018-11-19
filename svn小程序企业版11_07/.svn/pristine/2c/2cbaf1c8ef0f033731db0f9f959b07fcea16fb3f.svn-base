@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#020b1c",
+  "navigationBarTitleText": "智能拍诊",
+  "navigationBarTextStyle": "#fff",
+  "enablePullDownRefresh": false,
+  "disabledScroll":true
+}

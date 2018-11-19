@@ -1,0 +1,42 @@
+/* pages/znpz2/znpz2.wxss */
+@import '/pages/uploadimg/uploadimg.wxss';
+.uploadimg_cen_kuang_sm {
+  width:298rpx;
+  height:298rpx;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+.uploadimg_cen_img {
+  width:250rpx;height:250rpx;top:0;left:0;position: absolute;z-index:11;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+.uploadimg_takephoto_bot_xiang {
+    font-size: 24rpx;
+    position: absolute;
+    top:382rpx;
+}
+.uploadimg_takephoto_bot_select {
+    font-size: 40rpx;
+    font-weight: bold;
+}
+.select_list {
+  display: flex;
+  align-items:flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+}
+.select_list_li {
+  width:198rpx;
+  height:68rpx;
+  font-size:32rpx;
+  line-height:68rpx;
+  color:#14c86c;
+  border:1rpx solid #14c86c;
+  border-radius:5rpx;
+  text-align: center;
+  margin-top:43rpx;
+}

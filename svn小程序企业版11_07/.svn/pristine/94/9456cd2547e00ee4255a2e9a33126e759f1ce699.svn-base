@@ -1,0 +1,32 @@
+<!--pages/sudi_ps/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='box_ps'>
+<view class='head'>
+{{list.title}}
+</view>
+<view class='head_ps'>
+<text>{{list.author}}</text>
+<text>{{list.duration}} · {{list.source}}</text>
+</view>
+
+<view class='cont'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<view class='xgss'>相关搜索</view>
+<view class='xgss_ps'>
+<navigator url="/pages/sudi_ps/index?id={{item.id}}" class='block' hover-class="none" wx:for="{{list1}}"><text >{{item.title}}</text></navigator>
+
+</view>
+
+<view class='btn_box'>
+<view class='btn true' bindtap='good'>
+<image src='/pics/good.png'></image>
+<text>{{list.goodpost}}</text>
+</view>
+<view class='btn true'  bindtap='low'>
+<image src='/pics/low.png'></image>
+<text>{{list.badpost}}</text>
+</view>
+</view>
+
+</view>

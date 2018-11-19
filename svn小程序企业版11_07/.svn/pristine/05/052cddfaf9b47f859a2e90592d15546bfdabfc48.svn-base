@@ -1,0 +1,77 @@
+<!--pages/jindu/jindu.wxml-->
+<!--pages/uploadimg/uploadimg.wxml-->
+<!-- <text>pages/uploadimg/uploadimg.wxml</text> -->
+<view class='uploadimg'>
+  <view class='uploadimg_up'>
+      <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num'>
+              1
+            </view>
+            <view class='uploadimg_up_one_up'>
+               上传照片
+            </view>
+      </view>
+      <view class='uploadimg_up_dian'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+            <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num uploadimg_up_one_num_active'>
+              2
+            </view>
+            <view class='uploadimg_up_one_up uploadimg_up_one_up_active'>
+               选择症状
+            </view>
+      </view>
+      <view class='uploadimg_up_dian uploadimg_up_dian_active'>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+          <view></view>
+      </view>
+                  <view class='uploadimg_up_one'>
+            <view class='uploadimg_up_one_num uploadimg_up_one_num_active'>
+              3
+            </view>
+            <view class='uploadimg_up_one_up uploadimg_up_one_up_active'>
+               诊断报告
+            </view>
+      </view>
+  </view>
+  <!-- 动画加载区域 -->
+  <view class="loader">
+      <view class="face">
+          <view class="circle"></view>
+      </view>
+        <view class="face">
+          <view class="circle"></view>
+      </view>
+      <view class='loader_num'>{{loadnum}}%</view>
+  </view>
+  <view class='uploadimg_takephoto_bot' bindtap='takePhotofan'>{{phototext}}</view>
+
+</view>
